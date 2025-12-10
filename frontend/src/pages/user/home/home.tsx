@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { Package, Truck, Award } from 'lucide-react';
 import HeroCarousel from '@/components/user/heroCaresouel/HeroCaresouel';
 import { getSlides } from '@/lib/static/data';
+import { formatPrice } from '../../../utils/formatPrice';
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -49,6 +50,7 @@ export default function Home() {
         </div>
       </section>
 
+
       <section className="container px-4 mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center">{t('home.finishHeadline')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -86,6 +88,36 @@ export default function Home() {
           <ProductGrid products={featuredProducts} />
         )}
       </section>
+
+      {/* Discount Cards Section */}
+      <section className="container px-4 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <DiscountCard
+            title="Special Discount"
+            discount="30% OFF"
+            description="Aliquet sagittis purus faucibus egestas."
+            image="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=600&q=80"
+            bgColor="bg-teal-50"
+            link="/product-category/armchairs"
+          />
+          <DiscountCard
+            title="Weekly Discount"
+            discount="25% OFF"
+            description="Nulla facilisi cras fermentum odio feugiat."
+            image="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80"
+            bgColor="bg-orange-50"
+            link="/product-category/sofas"
+          />
+          <DiscountCard
+            title="Birthday Discount"
+            discount="40% OFF"
+            description="Porta non pulvinar neque laoreet suspendisse."
+            image="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80"
+            bgColor="bg-gray-100"
+            link="/product-category/sofas"
+          />
+        </div>
+      </section>
     </div>
   );
 }
@@ -109,5 +141,50 @@ function FeatureCard({
         <p className="text-sm text-slate-700 leading-relaxed">{description}</p>
       </div>
     </div>
+  );
+}
+
+// New DiscountCard Component
+function DiscountCard({
+  title,
+  discount,
+  description,
+  image,
+  bgColor,
+  link,
+}: {
+  title: string;
+  discount: string;
+  description: string;
+  image: string;
+  bgColor: string;
+  link: string;
+}) {
+  return (
+    <Link
+      to={link}
+      className={`${bgColor} rounded-2xl overflow-hidden flex flex-col md:flex-row items-center gap-4 p-6 hover:shadow-lg transition-shadow group`}
+    >
+      <div className="w-full md:w-40 h-40 md:h-32 flex-shrink-0 rounded-lg overflow-hidden bg-white">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = 'https://placehold.co/300x200?text=Furniture';
+          }}
+        />
+      </div>
+      <div className="flex-1 flex flex-col justify-between h-full min-w-0">
+        <div>
+          <p className="font-bold text-gray-800 text-sm mb-1">{title}</p>
+          <p className="font-bold text-gray-800 text-lg mb-2">{discount}</p>
+          <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+        </div>
+        <button className="mt-4 bg-white text-gray-800 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors text-sm w-fit">
+          Browse Now
+        </button>
+      </div>
+    </Link>
   );
 }

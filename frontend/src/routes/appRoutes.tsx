@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import DefaultLayout from "@/layouts/DefaultLayout";
 import AuthLayout from "@/layouts/AuthLayout";
 import ProductCategory from "@/pages/user/productCategory/product-category";
-import Products from "@/pages/user/products/products";
+import ProductDetails from "@/pages/user/productDetails/productDetails";
 import AddToCart from "@/pages/user/addToCart/add-to-cart";
 import AllBrands from "@/pages/user/brands/all-brands";
 import SignIn from "@/pages/auth/sign-in";
@@ -15,7 +15,8 @@ export const AppRoutes = () => {
       <Route element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/category/:type" element={<ProductCategory />} />
-        <Route path="/product/:id" element={<Products />} />
+        <Route path="/product-category/:id" element={<ProductCategory />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<AddToCart />} />
         <Route path="/all-brands" element={<AllBrands />} />
       </Route>

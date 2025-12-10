@@ -7,7 +7,7 @@ import { formatPrice } from '../../../utils/formatPrice';
 import { Check, Star } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-export default function Products() {
+export default function ProductDetails() {
   const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const { items: products, status } = useAppSelector((state) => state.products);

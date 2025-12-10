@@ -4,6 +4,7 @@ import AuthLayout from "@/layouts/AuthLayout";
 import ProductCategory from "@/pages/user/productCategory/product-category";
 import Products from "@/pages/user/products/products";
 import AddToCart from "@/pages/user/addToCart/add-to-cart";
+import AllBrands from "@/pages/user/brands/all-brands";
 import SignIn from "@/pages/auth/sign-in";
 import SignUp from "@/pages/auth/sign-up";
 import Home from "@/pages/user/home/home";
@@ -16,6 +17,7 @@ export const AppRoutes = () => {
         <Route path="/category/:type" element={<ProductCategory />} />
         <Route path="/product/:id" element={<Products />} />
         <Route path="/cart" element={<AddToCart />} />
+        <Route path="/all-brands" element={<AllBrands />} />
       </Route>
 
       <Route path="/auth" element={<AuthLayout />}>

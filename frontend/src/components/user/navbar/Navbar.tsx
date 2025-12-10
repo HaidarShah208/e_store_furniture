@@ -15,20 +15,21 @@ export default function Navbar() {
           <Link to="/" className="text-2xl font-bold tracking-tight">
             FURNI<span className="text-blue-600">.</span>
           </Link>
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
-            <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
-            <Link to="/category/Readymade" className="hover:text-blue-600 transition-colors">Readymade</Link>
-            <Link to="/category/Unpolished" className="hover:text-blue-600 transition-colors">Unpolished</Link>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <div className="hidden md:flex relative w-64">
+             <div className="hidden md:flex relative w-64">
             <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-400" />
             <input 
               placeholder="Search furniture..." 
               className="pl-8 h-9 w-full rounded-md border border-gray-200 bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-600" 
             />
+          </div>
+        </div>
+
+        <div className="flex items-center gap-4">
+   
+              <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
+            <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
+            <Link to="/category/Readymade" className="hover:text-blue-600 transition-colors">Readymade</Link>
+            <Link to="/category/Unpolished" className="hover:text-blue-600 transition-colors">Unpolished</Link>
           </div>
           
           <Link to="/cart" className="relative p-2 hover:bg-gray-100 rounded-full transition-colors">
@@ -46,7 +47,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden border-t p-4 space-y-4 bg-white">
           <Link to="/" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Home</Link>

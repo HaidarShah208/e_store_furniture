@@ -1,9 +1,275 @@
 @import "tailwindcss";
-
-@plugin "tailwindcss-animate";
 /* @import "tw-animate-css"; */
 
 @custom-variant dark (&:is(.dark *));
+
+/* Urbanist */
+@font-face {
+  font-family: 'Urbanist_Regular';
+  src: url('/font/Urbanist.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+/* Bold */
+@font-face {
+  font-family: 'Montserrat_Bold';
+  src: url('/font/Montserrat-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+/* Light */
+@font-face {
+  font-family: 'Montserrat_Light';
+  src: url('/font/Montserrat-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Regular */
+@font-face {
+  font-family: 'Montserrat_Regular';
+  src: url('/font/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Semi Bold */
+@font-face {
+  font-family: 'Montserrat_SemiBold';
+  src: url('/font/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rosehot';
+  src: url('/font/Rosehot.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* Thin */
+@font-face {
+  font-family: 'Montserrat_Thin';
+  src: url('/font/Montserrat-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+
+/* Theme Variables */
+:root {
+  /* Colors */
+  --color-primary_dark: #0B5795;
+  --color-primary_light: #26A6D8;
+
+
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+
+/* font  */
+@theme {
+  --font-base: 'Montserrat_Regular', sans-serif;
+  --font-bold: 'Montserrat_Bold', sans-serif;
+  --font-thin: 'Montserrat_Thin', sans-serif;
+  --font-light: 'Montserrat_Light', sans-serif;
+  --font-semi-bold: 'Montserrat_SemiBold', sans-serif;
+  --font-urbanist: 'Urbanist_Regular', sans-serif;
+  --font-rosehot: 'Rosehot', sans-serif;
+
+}
+
+/* Standard */
+
+.isolate_container {
+  @apply px-7 md:px-16 lg:px-22 py-6 md:py-12 lg:py-24;
+}
+
+.full_container {
+  @apply py-6 md:py-12 lg:py-24;
+}
+
+.image_container {
+  @apply px-7 md:px-16 lg:px-22 py-6 md:py-12 lg:py-24 h-48 md:h-96;
+}
+
+.isolate_bars {
+  @apply px-7 md:px-16 lg:px-22 py-2 md:py-3 lg:py-4;
+}
+
+.child_bars {
+  @apply px-7 md:px-16 lg:px-22 pt-2 md:pt-3 lg:pt-4;
+}
+
+.child_container {
+  @apply px-7 md:px-16 lg:px-22 pt-6 md:pt-12 lg:pt-24;
+}
+
+.button {
+  @apply py-5;
+}
+
+.buttonadmin {
+  @apply py-3;
+}
+
+.inputfield {
+  @apply py-3 px-6;
+}
+
+.searchfield {
+  @apply py-2 px-6;
+}
+
+.container_difference {
+  @apply gap-3 md:gap-6 lg:gap-12 xl:gap-20;
+}
+
+.spaceItems {
+  @apply space-y-6;
+}
+
+/* Padding Classes*/
+.paddingleft {
+  @apply pl-7 md:pl-10 lg:pl-14;
+}
+
+.paddingright {
+  @apply pr-7 md:pr-10 lg:pr-14;
+}
+
+.paddingtop {
+  @apply pt-6 md:pt-12 lg:pt-24;
+}
+
+.paddingbottom {
+  @apply pb-6 md:pb-12 lg:pb-24;
+}
+
+/* components */
+.dualcomponent {
+  @apply flex justify-between items-center;
+}
+
+/* Font Configuration */
+
+.title {
+  @apply text-3xl md:text-5xl lg:text-7xl xl:text-7xl;
+}
+
+.subtitle {
+  @apply text-3xl md:text-4xl lg:text-6xl xl:text-6xl;
+}
+
+.heading {
+  @apply text-xl md:text-3xl lg:text-5xl xl:text-5xl;
+}
+
+.subheading {
+  @apply text-lg md:text-2xl lg:text-4xl xl:text-4xl;
+}
+
+.subheading2 {
+  @apply text-base md:text-xl lg:text-3xl xl:text-3xl;
+}
+
+.subheading3 {
+  @apply text-base md:text-lg lg:text-2xl xl:text-2xl;
+}
+
+.content {
+  @apply text-sm md:text-base lg:text-lg xl:text-lg;
+}
+
+.minicontent {
+  @apply text-sm md:text-base lg:text-base xl:text-base;
+}
+
+.microcontent {
+  @apply text-xs;
+}
+
+.buttontext {
+  @apply text-base lg:text-xl xl:text-xl;
+}
+
+.inputtext {
+  @apply text-base lg:text-xl xl:text-xl;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #a5b4fc, #60a5fa);
+  /* indigo-300 to blue-300 */
+  border-radius: 10px;
+}
+
+.custom-scrollbar {
+  scrollbar-color: #60a5fa transparent;
+  /* For Firefox */
+  scrollbar-width: thin;
+}
+
+/* tailwind.css */
+.stroke-black {
+  -webkit-text-stroke: 1px black;
+}
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -43,41 +309,6 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-:root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -112,11 +343,19 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 60s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
   }
-  body {
-    @apply bg-background text-foreground;
+
+  100% {
+    transform: translateX(-50%);
   }
 }

@@ -27,9 +27,9 @@ export default function Home() {
         <div className="container relative z-10 px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
             Modern Furniture for <br />
-            <span className="text-blue-600">Every Space</span>
+            <span className="text-blue-600 font-urbanist">Every Space</span>
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-primary_dark max-w-2xl font-base mx-auto mb-8">
             Choose from our premium Readymade collection or customize with our Unpolished range.
           </p>
           <div className="flex gap-4 justify-center">

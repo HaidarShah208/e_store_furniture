@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Input } from '@/components/ui/input';
 
 export default function Navbar() {
   const cartItems = useAppSelector((state) => state.cart.items);
@@ -31,9 +32,9 @@ export default function Navbar() {
           </Link>
           <div className="hidden md:flex relative w-64">
             <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-400" />
-            <input
+            <Input
               placeholder={t('navbar.searchPlaceholder')}
-              className="pl-8 h-9 w-full rounded-md border border-gray-200 bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-600"
+              className="rounded-xl"
             />
           </div>
         </div>

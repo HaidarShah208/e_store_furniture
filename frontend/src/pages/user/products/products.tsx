@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../redux/hooks';
-import { fetchProducts } from '../redux/slices/productsSlice';
-import { addToCart } from '../redux/slices/cartSlice';
-import { formatPrice } from '../utils/formatPrice';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
+import { fetchProducts } from '../../../redux/slices/productsSlice';
+import { addToCart } from '../../../redux/slices/cartSlice';
+import { formatPrice } from '../../../utils/formatPrice';
 import { Check, Star } from 'lucide-react';
 
-export default function ProductPage() {
+export default function Products() {
   const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const { items: products, status } = useAppSelector((state) => state.products);

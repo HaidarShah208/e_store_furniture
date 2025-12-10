@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../redux/hooks';
-import { fetchProducts } from '../redux/slices/productsSlice';
-import ProductGrid from '../components/ProductGrid';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
+import { fetchProducts } from '../../../redux/slices/productsSlice';
+import ProductGrid from '../../../components/user/productGrid/ProductGrid';
 
-export default function CategoryPage() {
+export default function ProductCategory() {
   const { type } = useParams<{ type: string }>();
   const dispatch = useAppDispatch();
   const { items: products, status } = useAppSelector((state) => state.products);

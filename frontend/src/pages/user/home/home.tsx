@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../redux/hooks';
-import { fetchProducts } from '../redux/slices/productsSlice';
-import ProductGrid from '../components/ProductGrid';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
+import { fetchProducts } from '../../../redux/slices/productsSlice';
+import ProductGrid from '../../../components/user/productGrid/ProductGrid';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 

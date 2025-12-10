@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { useAppSelector, useAppDispatch } from '../redux/hooks';
-import { clearCart } from '../redux/slices/cartSlice';
-import CartItem from '../components/CartItem';
-import { formatPrice } from '../utils/formatPrice';
+import { useAppSelector, useAppDispatch } from '../../../redux/hooks';
+import { clearCart } from '../../../redux/slices/cartSlice';
+import CartItem from '../../../components/cartItem/CartItem';
+import { formatPrice } from '../../../utils/formatPrice';
 import { ArrowLeft, ShoppingBag } from 'lucide-react';
 
-export default function CartPage() {
+export default function AddToCart() {
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state) => state.cart.items);
 

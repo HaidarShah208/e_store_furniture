@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ShoppingCart, Menu, Search } from 'lucide-react';
-import { useAppSelector } from '../redux/hooks';
+import { useAppSelector } from '../../../redux/hooks';
 import { useState } from 'react';
 
 export default function Navbar() {

@@ -1,8 +1,8 @@
 import { Minus, Plus, X } from 'lucide-react';
-import { CartItem as CartItemType } from '../types/cart';
-import { formatPrice } from '../utils/formatPrice';
-import { useAppDispatch } from '../redux/hooks';
-import { removeFromCart, updateQuantity } from '../redux/slices/cartSlice';
+import { CartItem as CartItemType } from '../../types/cart';
+import { formatPrice } from '../../utils/formatPrice';
+import { useAppDispatch } from '../../redux/hooks';
+import { removeFromCart, updateQuantity } from '../../redux/slices/cartSlice';
 
 export default function CartItem({ item }: { item: CartItemType }) {
   const dispatch = useAppDispatch();

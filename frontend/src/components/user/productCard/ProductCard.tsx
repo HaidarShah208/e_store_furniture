@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { ShoppingCart } from 'lucide-react';
-import { Product } from '../types/product';
-import { formatPrice } from '../utils/formatPrice';
-import { useAppDispatch } from '../redux/hooks';
-import { addToCart } from '../redux/slices/cartSlice';
+import { Product } from '../../../types/product';
+import { formatPrice } from '../../../utils/formatPrice';
+import { useAppDispatch } from '../../../redux/hooks';
+import { addToCart } from '../../../redux/slices/cartSlice';
 
 export default function ProductCard({ product }: { product: Product }) {
   const dispatch = useAppDispatch();

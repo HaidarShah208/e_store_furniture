@@ -1,50 +1,20 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { fetchProducts } from '../../../redux/slices/productsSlice';
 import ProductGrid from '../../../components/user/productGrid/ProductGrid';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ChevronLeft, ChevronRight, Package, Truck, Award } from 'lucide-react';
+import { Package, Truck, Award } from 'lucide-react';
+import HeroCarousel from '@/components/user/heroCaresouel/HeroCaresouel';
+import { getSlides } from '@/lib/static/data';
 
 export default function Home() {
   const dispatch = useAppDispatch();
   const { items: products, status } = useAppSelector((state) => state.products);
   const { t } = useTranslation();
-  const [currentSlide, setCurrentSlide] = useState(0);
+ const slides = useMemo(() => getSlides(t), [t]);
 
-  const slides = useMemo(
-    () => [
-      {
-        image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1600&q=80&auto=format&fit=crop',
-        title: `${t('home.heroTitleLine1')} ${t('home.heroTitleLine2')}`,
-        subtitle: t('home.heroSubtitle'),
-        ctaPrimary: t('home.shopReadymade'),
-        ctaSecondary: t('home.shopUnpolished'),
-      },
-      {
-        image: 'https://images.unsplash.com/photo-1577140917170-285929db55cc?w=1600&q=80&auto=format&fit=crop',
-        title: t('home.featured'),
-        subtitle: t('home.heroSubtitle'),
-        ctaPrimary: t('home.shopUnpolished'),
-        ctaSecondary: t('home.shopReadymade'),
-      },
-      {
-        image: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1600&q=80&auto=format&fit=crop',
-        title: t('home.finishHeadline'),
-        subtitle: t('home.heroSubtitle'),
-        ctaPrimary: t('home.shopReadymade'),
-        ctaSecondary: t('home.shopUnpolished'),
-      },
-    ],
-    [t]
-  );
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [slides.length]);
+ 
 
   useEffect(() => {
     if (status === 'idle') {
@@ -55,61 +25,10 @@ export default function Home() {
   const featuredProducts = products.filter((p) => p.isFeatured);
 
   return (
-    <div className="flex flex-col gap-16 pb-16">
-      {/* Full-width Carousel */}
-      <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] h-[520px] overflow-hidden">
-        <div
-          className="flex h-full transition-transform duration-700"
-          style={{ transform: `translateX(-${currentSlide * 100}%)`, width: `${slides.length * 100}%` }}
-        >
-          {slides.map((slide, idx) => (
-            <div
-              key={idx}
-              className="relative w-full shrink-0 h-full"
-              style={{ backgroundImage: `url(${slide.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-            >
-              <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/30 to-transparent" />
-              <div className="relative z-10 h-full flex items-center max-w-4xl px-6 md:px-12">
-                <div className="text-white space-y-6">
-                  <h1 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">{slide.title}</h1>
-                  <p className="text-lg md:text-xl max-w-2xl drop-shadow-md">{slide.subtitle}</p>
-                  <div className="flex flex-wrap gap-4">
-                    <Link
-                      to="/category/Readymade"
-                      className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-white text-blue-700 shadow-lg hover:bg-gray-100 h-11 px-6"
-                    >
-                      {slide.ctaPrimary}
-                    </Link>
-                    <Link
-                      to="/category/Unpolished"
-                      className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-white/70 text-white hover:bg-white hover:text-blue-700 h-11 px-6"
-                    >
-                      {slide.ctaSecondary}
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+    <div className="flex flex-col gap-16 pb-16 overflow-x-hidden">
+     <HeroCarousel slides={slides} autoPlay={true} interval={5000} />
 
-        <button
-          aria-label="Previous slide"
-          className="absolute left-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-white/80 hover:bg-white shadow-md flex items-center justify-center"
-          onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-        <button
-          aria-label="Next slide"
-          className="absolute right-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-white/80 hover:bg-white shadow-md flex items-center justify-center"
-          onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
-      </section>
 
-      {/* Feature Highlights */}
       <section className="bg-amber-50 border-y border-amber-100">
         <div className="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-slate-900">
           <FeatureCard
@@ -130,7 +49,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Categories Section */}
       <section className="container px-4 mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center">{t('home.finishHeadline')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -157,7 +75,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products Section */}
       <section className="container px-4 mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold">{t('home.featured')}</h2>
@@ -184,7 +101,7 @@ function FeatureCard({
 }) {
   return (
     <div className="flex items-start gap-4">
-      <div className="h-12 w-12 flex items-center justify-center bg-white rounded-full shadow-sm text-amber-700">
+      <div className=" flex items-center  text-amber-700">
         {icon}
       </div>
       <div className="space-y-1">

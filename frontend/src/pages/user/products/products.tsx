@@ -5,11 +5,13 @@ import { fetchProducts } from '../../../redux/slices/productsSlice';
 import { addToCart } from '../../../redux/slices/cartSlice';
 import { formatPrice } from '../../../utils/formatPrice';
 import { Check, Star } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Products() {
   const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const { items: products, status } = useAppSelector((state) => state.products);
+  const { t } = useTranslation();
   
   const [selectedColor, setSelectedColor] = useState<string>('');
   const [selectedSize, setSelectedSize] = useState<string>('');
@@ -39,8 +41,8 @@ export default function Products() {
     }));
   };
 
-  if (status === 'loading') return <div className="container py-20 text-center mx-auto">Loading...</div>;
-  if (!product) return <div className="container py-20 text-center mx-auto">Product not found</div>;
+  if (status === 'loading') return <div className="container py-20 text-center mx-auto">{t('product.loading')}</div>;
+  if (!product) return <div className="container py-20 text-center mx-auto">{t('product.notFound')}</div>;
 
   return (
     <div className="container px-4 py-12 mx-auto">
@@ -71,7 +73,7 @@ export default function Products() {
                   <Star key={i} className="w-4 h-4 fill-current" />
                 ))}
               </div>
-              <span className="text-sm text-gray-500">(4.8 reviews)</span>
+              <span className="text-sm text-gray-500">{t('product.reviews')}</span>
             </div>
             <p className="text-3xl font-bold text-blue-600">{formatPrice(product.price)}</p>
           </div>
@@ -86,7 +88,7 @@ export default function Products() {
             {/* Colors */}
             {product.colors.length > 0 && (
               <div>
-                <h3 className="font-medium mb-3">Color</h3>
+                <h3 className="font-medium mb-3">{t('product.color')}</h3>
                 <div className="flex gap-3">
                   {product.colors.map((color) => (
                     <button
@@ -108,7 +110,7 @@ export default function Products() {
             {/* Sizes */}
             {product.sizes.length > 0 && (
               <div>
-                <h3 className="font-medium mb-3">Size</h3>
+                <h3 className="font-medium mb-3">{t('product.size')}</h3>
                 <div className="flex gap-3">
                   {product.sizes.map((size) => (
                     <button
@@ -133,10 +135,10 @@ export default function Products() {
               className="w-full md:w-auto min-w-[200px] h-12 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors"
               onClick={handleAddToCart}
             >
-              Add to Cart
+              {t('product.addToCart')}
             </button>
             <p className="mt-4 text-sm text-gray-500 flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-500" /> In stock and ready to ship
+              <Check className="w-4 h-4 text-green-500" /> {t('product.inStock')}
             </p>
           </div>
         </div>

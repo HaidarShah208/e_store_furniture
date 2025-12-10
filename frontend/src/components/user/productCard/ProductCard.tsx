@@ -4,9 +4,11 @@ import { Product } from '../../../types/product';
 import { formatPrice } from '../../../utils/formatPrice';
 import { useAppDispatch } from '../../../redux/hooks';
 import { addToCart } from '../../../redux/slices/cartSlice';
+import { useTranslation } from 'react-i18next';
 
 export default function ProductCard({ product }: { product: Product }) {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -27,7 +29,7 @@ export default function ProductCard({ product }: { product: Product }) {
           />
           {product.isFeatured && (
             <span className="absolute top-3 left-3 bg-black text-white text-xs font-bold px-2 py-1 rounded">
-              FEATURED
+            {t('product.featuredBadge')}
             </span>
           )}
           <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">

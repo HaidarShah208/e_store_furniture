@@ -1,0 +1,115 @@
+{
+    "brand": "FURNI.",
+    "navbar": {
+        "searchPlaceholder": "فرنیچر تلاش کریں...",
+        "home": "ہوم",
+        "readymade": "ریڈی میڈ",
+        "unpolished": "ان پالشڈ",
+        "language": "زبان",
+        "english": "انگریزی",
+        "urdu": "اردو"
+    },
+    "home": {
+        "heroTitleLine1": "جدید فرنیچر",
+        "heroTitleLine2": "ہر جگہ کے لیے",
+        "heroSubtitle": "ہمارے اعلیٰ درجے کے ریڈی میڈ کلیکشن میں سے منتخب کریں یا ان پالشڈ رینج کے ساتھ حسبِ ضرورت بنائیں۔",
+        "shopReadymade": "ریڈی میڈ خریدیں",
+        "shopUnpolished": "ان پالشڈ خریدیں",
+        "cta": "مزید جانیں",
+        "finishHeadline": "فنش کے مطابق خریدیں",
+        "readymade": "ریڈی میڈ",
+        "unpolished": "ان پالشڈ",
+        "featured": "نمایاں کلیکشن",
+        "loading": "پروڈکٹس لوڈ ہو رہی ہیں..."
+    },
+    "category": {
+        "title": "{{type}} کلیکشن",
+        "subtitle": "ہمارے {{type}} فرنیچر کے انتخاب کو دیکھیں۔",
+        "loading": "پروڈکٹس لوڈ ہو رہی ہیں...",
+        "empty": "اس زمرے میں کوئی پروڈکٹ نہیں ملی۔"
+    },
+    "product": {
+        "loading": "لوڈ ہو رہا ہے...",
+        "notFound": "پروڈکٹ نہیں ملی",
+        "color": "رنگ",
+        "size": "سائز",
+        "addToCart": "کارٹ میں شامل کریں",
+        "inStock": "اسٹاک میں موجود، بھیجنے کے لیے تیار",
+        "reviews": "(4.8 ریویوز)",
+        "featuredBadge": "نمایاں"
+    },
+    "cart": {
+        "emptyTitle": "آپ کا کارٹ خالی ہے",
+        "emptySubtitle": "لگتا ہے آپ نے ابھی تک کچھ شامل نہیں کیا۔",
+        "startShopping": "خریداری شروع کریں",
+        "title": "شاپنگ کارٹ",
+        "items": "کارٹ آئٹمز ({{count}})",
+        "clear": "کارٹ خالی کریں",
+        "orderSummary": "آرڈر کا خلاصہ",
+        "subtotal": "ذیلی کل",
+        "shipping": "شپنگ",
+        "shippingFree": "مفت",
+        "total": "کل",
+        "checkout": "چیک آؤٹ کریں",
+        "continue": "خریداری جاری رکھیں",
+        "remove": "ہٹا دیں",
+        "color": "رنگ",
+        "size": "سائز",
+        "each": "فی پیس"
+    },
+    "footer": {
+        "description": "جدید رہائشی جگہوں کے لیے پریمیم فرنیچر۔ آرام اور اسٹائل کو سامنے رکھ کر ڈیزائن کیا گیا۔",
+        "shop": "شاپ",
+        "support": "مدد",
+        "newsletter": "نیوز لیٹر",
+        "shopLinks": {
+            "readymade": "ریڈی میڈ",
+            "unpolished": "ان پالشڈ",
+            "livingRoom": "لیونگ روم",
+            "bedroom": "بیڈ روم"
+        },
+        "supportLinks": {
+            "contact": "ہم سے رابطہ کریں",
+            "shipping": "شپنگ پالیسی",
+            "returns": "ریٹرن",
+            "faq": "عمومی سوالات"
+        },
+        "newsletterCta": "خاص آفرز اور اپڈیٹس حاصل کرنے کے لیے سبسکرائب کریں۔",
+        "emailPlaceholder": "اپنا ای میل درج کریں",
+        "rights": "جملہ حقوق محفوظ ہیں۔"
+    },
+    "auth": {
+        "signin": {
+            "title": "خوش آمدید",
+            "subtitle": "اپنے اکاؤنٹ میں سائن ان کریں",
+            "emailLabel": "ای میل ایڈریس",
+            "passwordLabel": "پاس ورڈ",
+            "rememberMe": "مجھے یاد رکھیں",
+            "forgot": "پاس ورڈ بھول گئے؟",
+            "submit": "سائن ان کریں",
+            "noAccount": "اکاؤنٹ نہیں ہے؟",
+            "signupLink": "سائن اپ کریں",
+            "emailPlaceholder": "you@example.com",
+            "passwordPlaceholder": "اپنا پاس ورڈ درج کریں"
+        },
+        "signup": {
+            "title": "اکاؤنٹ بنائیں",
+            "subtitle": "آج ہی شامل ہوں",
+            "nameLabel": "پورا نام",
+            "emailLabel": "ای میل ایڈریس",
+            "passwordLabel": "پاس ورڈ",
+            "confirmPasswordLabel": "پاس ورڈ کی تصدیق کریں",
+            "terms": "میں اتفاق کرتا/کرتی ہوں",
+            "termsLink": "خدمات کی شرائط",
+            "privacyLink": "پرائیویسی پالیسی",
+            "and": "اور",
+            "submit": "اکاؤنٹ بنائیں",
+            "haveAccount": "پہلے سے اکاؤنٹ ہے؟",
+            "signinLink": "سائن ان کریں",
+            "namePlaceholder": "John Doe",
+            "emailPlaceholder": "you@example.com",
+            "passwordPlaceholder": "مضبوط پاس ورڈ بنائیں",
+            "confirmPasswordPlaceholder": "اپنا پاس ورڈ دوبارہ لکھیں"
+        }
+    }
+}

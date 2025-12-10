@@ -3,9 +3,11 @@ import { CartItem as CartItemType } from '../../types/cart';
 import { formatPrice } from '../../utils/formatPrice';
 import { useAppDispatch } from '../../redux/hooks';
 import { removeFromCart, updateQuantity } from '../../redux/slices/cartSlice';
+import { useTranslation } from 'react-i18next';
 
 export default function CartItem({ item }: { item: CartItemType }) {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   const handleRemove = () => {
     dispatch(removeFromCart({ 
@@ -45,14 +47,14 @@ export default function CartItem({ item }: { item: CartItemType }) {
             <p className="mt-1 text-sm text-gray-500">{item.category} • {item.finishType}</p>
             {(item.selectedColor || item.selectedSize) && (
               <div className="mt-1 text-sm text-gray-500">
-                {item.selectedColor && <span className="mr-2">Color: {item.selectedColor}</span>}
-                {item.selectedSize && <span>Size: {item.selectedSize}</span>}
+                {item.selectedColor && <span className="mr-2">{t('cart.color')}: {item.selectedColor}</span>}
+                {item.selectedSize && <span>{t('cart.size')}: {item.selectedSize}</span>}
               </div>
             )}
           </div>
           <div className="text-right">
             <p className="text-base font-medium">{formatPrice(item.price * item.quantity)}</p>
-            <p className="text-sm text-gray-500">{formatPrice(item.price)} each</p>
+            <p className="text-sm text-gray-500">{formatPrice(item.price)} {t('cart.each')}</p>
           </div>
         </div>
 
@@ -77,7 +79,7 @@ export default function CartItem({ item }: { item: CartItemType }) {
             onClick={handleRemove}
           >
             <X className="h-4 w-4 mr-2" />
-            Remove
+            {t('cart.remove')}
           </button>
         </div>
       </div>

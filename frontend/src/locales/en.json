@@ -1,0 +1,115 @@
+{
+    "brand": "FURNI.",
+    "navbar": {
+        "searchPlaceholder": "Search furniture...",
+        "home": "Home",
+        "readymade": "Readymade",
+        "unpolished": "Unpolished",
+        "language": "Language",
+        "english": "English",
+        "urdu": "Urdu"
+    },
+    "home": {
+        "heroTitleLine1": "Modern Furniture for",
+        "heroTitleLine2": "Every Space",
+        "heroSubtitle": "Choose from our premium Readymade collection or customize with our Unpolished range.",
+        "shopReadymade": "Shop Readymade",
+        "shopUnpolished": "Shop Unpolished",
+        "cta": "Click me",
+        "finishHeadline": "Shop by Finish",
+        "readymade": "Readymade",
+        "unpolished": "Unpolished",
+        "featured": "Featured Collection",
+        "loading": "Loading products..."
+    },
+    "category": {
+        "title": "{{type}} Collection",
+        "subtitle": "Browse our selection of {{type}} furniture.",
+        "loading": "Loading products...",
+        "empty": "No products found in this category."
+    },
+    "product": {
+        "loading": "Loading...",
+        "notFound": "Product not found",
+        "color": "Color",
+        "size": "Size",
+        "addToCart": "Add to Cart",
+        "inStock": "In stock and ready to ship",
+        "reviews": "(4.8 reviews)",
+        "featuredBadge": "FEATURED"
+    },
+    "cart": {
+        "emptyTitle": "Your cart is empty",
+        "emptySubtitle": "Looks like you haven't added anything to your cart yet.",
+        "startShopping": "Start Shopping",
+        "title": "Shopping Cart",
+        "items": "Cart Items ({{count}})",
+        "clear": "Clear Cart",
+        "orderSummary": "Order Summary",
+        "subtotal": "Subtotal",
+        "shipping": "Shipping",
+        "shippingFree": "Free",
+        "total": "Total",
+        "checkout": "Proceed to Checkout",
+        "continue": "Continue Shopping",
+        "remove": "Remove",
+        "color": "Color",
+        "size": "Size",
+        "each": "each"
+    },
+    "footer": {
+        "description": "Premium furniture for modern living spaces. Designed with comfort and style in mind.",
+        "shop": "Shop",
+        "support": "Support",
+        "newsletter": "Newsletter",
+        "shopLinks": {
+            "readymade": "Readymade",
+            "unpolished": "Unpolished",
+            "livingRoom": "Living Room",
+            "bedroom": "Bedroom"
+        },
+        "supportLinks": {
+            "contact": "Contact Us",
+            "shipping": "Shipping Policy",
+            "returns": "Returns",
+            "faq": "FAQ"
+        },
+        "newsletterCta": "Subscribe to get special offers and updates.",
+        "emailPlaceholder": "Enter your email",
+        "rights": "All rights reserved."
+    },
+    "auth": {
+        "signin": {
+            "title": "Welcome Back",
+            "subtitle": "Sign in to your account",
+            "emailLabel": "Email Address",
+            "passwordLabel": "Password",
+            "rememberMe": "Remember me",
+            "forgot": "Forgot password?",
+            "submit": "Sign In",
+            "noAccount": "Don't have an account?",
+            "signupLink": "Sign up",
+            "emailPlaceholder": "you@example.com",
+            "passwordPlaceholder": "Enter your password"
+        },
+        "signup": {
+            "title": "Create Account",
+            "subtitle": "Join us today",
+            "nameLabel": "Full Name",
+            "emailLabel": "Email Address",
+            "passwordLabel": "Password",
+            "confirmPasswordLabel": "Confirm Password",
+            "terms": "I agree to the",
+            "termsLink": "Terms of Service",
+            "privacyLink": "Privacy Policy",
+            "and": "and",
+            "submit": "Create Account",
+            "haveAccount": "Already have an account?",
+            "signinLink": "Sign in",
+            "namePlaceholder": "John Doe",
+            "emailPlaceholder": "you@example.com",
+            "passwordPlaceholder": "Create a strong password",
+            "confirmPasswordPlaceholder": "Re-enter your password"
+        }
+    }
+}

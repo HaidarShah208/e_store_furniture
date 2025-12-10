@@ -1,12 +1,26 @@
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Menu, Search } from 'lucide-react';
+import { ShoppingCart, Menu, Search, Languages } from 'lucide-react';
 import { useAppSelector } from '../../../redux/hooks';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 export default function Navbar() {
   const cartItems = useAppSelector((state) => state.cart.items);
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language === 'ur' ? 'ur' : 'en';
+
+  const handleLanguageChange = (lng: 'en' | 'ur') => {
+    i18n.changeLanguage(lng);
+    setIsMenuOpen(false);
+  };
 
   return (
     <nav className="border-b bg-white sticky top-0 z-50">
@@ -15,11 +29,11 @@ export default function Navbar() {
           <Link to="/" className="text-2xl font-bold tracking-tight">
             FURNI<span className="text-blue-600">.</span>
           </Link>
-             <div className="hidden md:flex relative w-64">
+          <div className="hidden md:flex relative w-64">
             <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-400" />
-            <input 
-              placeholder="Search furniture..." 
-              className="pl-8 h-9 w-full rounded-md border border-gray-200 bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-600" 
+            <input
+              placeholder={t('navbar.searchPlaceholder')}
+              className="pl-8 h-9 w-full rounded-md border border-gray-200 bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-600"
             />
           </div>
         </div>
@@ -27,9 +41,9 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
    
               <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
-            <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
-            <Link to="/category/Readymade" className="hover:text-blue-600 transition-colors">Readymade</Link>
-            <Link to="/category/Unpolished" className="hover:text-blue-600 transition-colors">Unpolished</Link>
+            <Link to="/" className="hover:text-blue-600 transition-colors">{t('navbar.home')}</Link>
+            <Link to="/category/Readymade" className="hover:text-blue-600 transition-colors">{t('navbar.readymade')}</Link>
+            <Link to="/category/Unpolished" className="hover:text-blue-600 transition-colors">{t('navbar.unpolished')}</Link>
           </div>
           
           <Link to="/cart" className="relative p-2 hover:bg-gray-100 rounded-full transition-colors">
@@ -41,6 +55,21 @@ export default function Navbar() {
             )}
           </Link>
 
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-2 rounded-md border px-3 py-2 text-sm font-medium hover:bg-gray-50">
+              <Languages className="h-4 w-4" />
+              <span>{currentLang === 'en' ? t('navbar.english') : t('navbar.urdu')}</span>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onSelect={() => handleLanguageChange('en')}>
+                {t('navbar.english')}
+              </DropdownMenuItem>
+              <DropdownMenuItem onSelect={() => handleLanguageChange('ur')}>
+                {t('navbar.urdu')}
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2 hover:bg-gray-100 rounded-md">
             <Menu className="h-5 w-5" />
           </button>
@@ -49,9 +78,24 @@ export default function Navbar() {
 
       {isMenuOpen && (
         <div className="md:hidden border-t p-4 space-y-4 bg-white">
-          <Link to="/" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Home</Link>
-          <Link to="/category/Readymade" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Readymade</Link>
-          <Link to="/category/Unpolished" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>Unpolished</Link>
+          <Link to="/" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.home')}</Link>
+          <Link to="/category/Readymade" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.readymade')}</Link>
+          <Link to="/category/Unpolished" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.unpolished')}</Link>
+          <div className="flex items-center gap-3 pt-2">
+            <span className="text-sm font-medium text-gray-600">{t('navbar.language')}:</span>
+            <button
+              className={`text-sm px-3 py-1 rounded-full border ${currentLang === 'en' ? 'border-blue-600 text-blue-600' : 'border-gray-200 text-gray-600'}`}
+              onClick={() => handleLanguageChange('en')}
+            >
+              {t('navbar.english')}
+            </button>
+            <button
+              className={`text-sm px-3 py-1 rounded-full border ${currentLang === 'ur' ? 'border-blue-600 text-blue-600' : 'border-gray-200 text-gray-600'}`}
+              onClick={() => handleLanguageChange('ur')}
+            >
+              {t('navbar.urdu')}
+            </button>
+          </div>
         </div>
       )}
     </nav>

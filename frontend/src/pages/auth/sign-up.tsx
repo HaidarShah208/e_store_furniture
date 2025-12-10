@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
+import { useTranslation } from 'react-i18next';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const SignUp = () => {
     password: '',
     confirmPassword: '',
   });
+  const { t } = useTranslation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -30,14 +32,14 @@ const SignUp = () => {
   return (
     <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl">
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold text-gray-900">Create Account</h1>
-        <p className="mt-2 text-gray-600">Join us today</p>
+        <h1 className="text-3xl font-bold text-gray-900">{t('auth.signup.title')}</h1>
+        <p className="mt-2 text-gray-600">{t('auth.signup.subtitle')}</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-            Full Name
+            {t('auth.signup.nameLabel')}
           </label>
           <Input
             id="name"
@@ -45,7 +47,7 @@ const SignUp = () => {
             type="text"
             value={formData.name}
             onChange={handleChange}
-            placeholder="John Doe"
+            placeholder={t('auth.signup.namePlaceholder')}
             required
             className="w-full"
           />
@@ -53,7 +55,7 @@ const SignUp = () => {
 
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-            Email Address
+            {t('auth.signup.emailLabel')}
           </label>
           <Input
             id="email"
@@ -61,7 +63,7 @@ const SignUp = () => {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="you@example.com"
+            placeholder={t('auth.signup.emailPlaceholder')}
             required
             className="w-full"
           />
@@ -69,7 +71,7 @@ const SignUp = () => {
 
         <div>
           <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-            Password
+            {t('auth.signup.passwordLabel')}
           </label>
           <Input
             id="password"
@@ -77,7 +79,7 @@ const SignUp = () => {
             type="password"
             value={formData.password}
             onChange={handleChange}
-            placeholder="Create a strong password"
+            placeholder={t('auth.signup.passwordPlaceholder')}
             required
             className="w-full"
           />
@@ -85,7 +87,7 @@ const SignUp = () => {
 
         <div>
           <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
-            Confirm Password
+            {t('auth.signup.confirmPasswordLabel')}
           </label>
           <Input
             id="confirmPassword"
@@ -93,7 +95,7 @@ const SignUp = () => {
             type="password"
             value={formData.confirmPassword}
             onChange={handleChange}
-            placeholder="Re-enter your password"
+            placeholder={t('auth.signup.confirmPasswordPlaceholder')}
             required
             className="w-full"
           />
@@ -107,13 +109,13 @@ const SignUp = () => {
             className="h-4 w-4 mt-1 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
           />
           <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
-            I agree to the{' '}
+            {t('auth.signup.terms')}{' '}
             <Link to="/terms" className="font-medium text-indigo-600 hover:text-indigo-500">
-              Terms of Service
+              {t('auth.signup.termsLink')}
             </Link>{' '}
-            and{' '}
+            {t('auth.signup.and')}{' '}
             <Link to="/privacy" className="font-medium text-indigo-600 hover:text-indigo-500">
-              Privacy Policy
+              {t('auth.signup.privacyLink')}
             </Link>
           </label>
         </div>
@@ -122,14 +124,14 @@ const SignUp = () => {
           type="submit"
           className="w-full rounded-lg bg-indigo-600 px-4 py-3 text-sm font-semibold text-white shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200"
         >
-          Create Account
+          {t('auth.signup.submit')}
         </button>
       </form>
 
       <p className="mt-6 text-center text-sm text-gray-600">
-        Already have an account?{' '}
+        {t('auth.signup.haveAccount')}{' '}
         <Link to="/auth/signin" className="font-medium text-indigo-600 hover:text-indigo-500">
-          Sign in
+          {t('auth.signup.signinLink')}
         </Link>
       </p>
     </div>

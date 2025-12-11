@@ -4,7 +4,7 @@ import { clearCart } from '../../../redux/slices/cartSlice';
 import { formatPrice } from '../../../utils/formatPrice';
 import { ArrowLeft, ShoppingBag } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import ProductCard from '@/components/user/productCard/ProductCard';
+import CartItem from '@/components/user/cartItem/CartItem';
 
 export default function AddToCart() {
   const dispatch = useAppDispatch();
@@ -37,32 +37,39 @@ export default function AddToCart() {
 
   return (
     <div className="container px-4 py-12 mx-auto">
-      <h1 className="text-3xl font-bold mb-8">{t('cart.title')}</h1>
+      <h1 className="text-3xl font-bold mb-8">Shopping Bag</h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Cart Items Section */}
         <div className="lg:col-span-2">
-          <div className="bg-white rounded-lg border p-6">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="font-semibold text-lg">{t('cart.items', { count: cartItems.length })}</h2>
-              <button 
-                onClick={() => dispatch(clearCart())} 
-                className="text-sm text-red-500 hover:text-red-600 hover:bg-red-50 px-3 py-1 rounded transition-colors"
-              >
-                {t('cart.clear')}
-              </button>
-            </div>
-            <div className="h-px bg-gray-200 mb-6" />
-            <div className="flex flex-col">
-              {cartItems.map((item) => (
-                <ProductCard 
-                  key={`${item.id}-${item.selectedColor}-${item.selectedSize}`} 
-                  product={item} 
-                />
-              ))}
+          <div className="bg-white rounded-lg border">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="font-semibold text-lg text-gray-900">
+                  {cartItems.length} {cartItems.length === 1 ? 'Item' : 'Items'}
+                </h2>
+                <button 
+                  onClick={() => dispatch(clearCart())} 
+                  className="text-sm text-red-500 hover:text-red-600 hover:bg-red-50 px-3 py-1 rounded transition-colors"
+                >
+                  Clear All
+                </button>
+              </div>
+              
+              {/* Cart Items List */}
+              <div className="space-y-0">
+                {cartItems.map((item) => (
+                  <CartItem 
+                    key={`${item.id}-${item.selectedColor}-${item.selectedSize}`} 
+                    item={item} 
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
+        {/* Order Summary Section - Unchanged */}
         <div className="lg:col-span-1">
           <div className="bg-gray-50 rounded-lg p-6 sticky top-24">
             <h2 className="font-semibold text-lg mb-6">{t('cart.orderSummary')}</h2>

@@ -87,7 +87,7 @@ export default function HeroCarousel({
           setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
         }
       >
-        <ChevronLeft className="h-5 w-5" />
+        <ChevronLeft className="h-5 w-5 text-white" />
       </button>
 
       <button
@@ -95,7 +95,7 @@ export default function HeroCarousel({
         className="absolute right-20 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full hover:bg-white shadow-md flex items-center justify-center z-20"
         onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
       >
-        <ChevronRight className="h-5 w-5" />
+        <ChevronRight className="h-5 w-5 text-white" />
       </button>
     </section>
   );

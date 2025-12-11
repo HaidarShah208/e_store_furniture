@@ -41,35 +41,43 @@ export default function ProductCard({ product }: { product: Product }) {
             </span>
           )}
           
-          <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="absolute top-3 right-3 flex flex-col gap-2">
             <button 
               onClick={handleToggleWishlist} 
-              className={`h-9 w-9 flex items-center justify-center rounded-full shadow-lg transition-colors ${
+              className={`h-9 w-9 flex items-center justify-center rounded-full shadow-lg transition-all duration-300 ${
                 isInWishlist 
-                  ? 'bg-red-500 text-white hover:bg-red-600' 
-                  : 'bg-white text-gray-700 hover:bg-red-500 hover:text-white'
-              }`}
+                  ? 'bg-red-500 text-white hover:bg-red-600 opacity-100' 
+                  : 'bg-white text-gray-700 hover:bg-red-500 hover:text-white opacity-0 group-hover:opacity-100'
+              } group-hover:translate-y-0 translate-y-[-10px] group-hover:delay-[50ms]`}
               title={isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+              style={{
+                transitionProperty: 'opacity, transform, background-color, color',
+              }}
             >
-              <Heart className={`h-4 w-4 ${isInWishlist ? 'fill-current' : ''}`} />
+              <Heart className={`h-4 w-4 transition-all ${isInWishlist ? 'fill-current' : ''}`} />
             </button>
             
             <Link
               to={`/product/${product.id}`}
-              className="h-9 w-9 flex items-center justify-center rounded-full bg-white shadow-lg hover:bg-blue-600 hover:text-white transition-colors"
+              className="h-9 w-9 flex items-center justify-center rounded-full bg-white shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-[-10px] group-hover:translate-y-0 group-hover:delay-[150ms]"
               title="Quick view"
               onClick={(e) => e.stopPropagation()}
+              style={{
+                transitionProperty: 'opacity, transform, background-color, color',
+              }}
             >
               <Eye className="h-4 w-4" />
             </Link>
           </div>
 
-          {/* Add to Cart Button - Bottom Right */}
-          <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="absolute bottom-3 right-3">
             <button 
               onClick={handleAddToCart} 
-              className="h-9 w-9 flex items-center justify-center rounded-full bg-white shadow-lg hover:bg-blue-600 hover:text-white transition-colors"
+              className="h-9 w-9 flex items-center justify-center rounded-full bg-white shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-[10px] group-hover:translate-y-0 group-hover:delay-[250ms]"
               title="Add to cart"
+              style={{
+                transitionProperty: 'opacity, transform, background-color, color',
+              }}
             >
               <ShoppingCart className="h-4 w-4" />
             </button>

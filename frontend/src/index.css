@@ -65,10 +65,6 @@
 /* Theme Variables */
 :root {
   /* Colors */
-  --color-primary_dark: #0B5795;
-  --color-primary_light: #26A6D8;
-
-
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -104,8 +100,18 @@
 }
 
 
-/* font  */
 @theme {
+  --color-primary_dark: #0B5795;
+  --color-primary_light: #26A6D8;
+  --color-ivory_sand: #EDE0D4;
+  --color-soft_latte: #E6CCB2;
+  --color-warm_caramel: #DDB892;
+  --color-clay_brown: #B08968;
+  --color-deep_walnut: #7F5539;
+  --color-rustic_bronze: #9C6644;
+
+
+  /*  font  */
   --font-base: 'Montserrat_Regular', sans-serif;
   --font-bold: 'Montserrat_Bold', sans-serif;
   --font-thin: 'Montserrat_Thin', sans-serif;

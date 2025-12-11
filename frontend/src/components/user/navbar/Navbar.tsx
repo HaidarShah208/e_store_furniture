@@ -57,6 +57,7 @@ export default function Navbar() {
               </span>
             </Link>
           )}
+          
            <Link to="/auth/sign-in" className="p-2 hover:bg-gray-100 rounded-full transition-colors" title="Sign In">
             <User className="h-5 w-5 text-gray-700" />
           </Link>

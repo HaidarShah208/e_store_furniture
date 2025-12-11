@@ -18,3 +18,10 @@ export interface CartItem extends Product {
   selectedColor?: string;
   selectedSize?: string;
 }
+
+export interface RoomCategory {
+  name: string;
+  products: number;
+  image: string;
+  link: string;
+}

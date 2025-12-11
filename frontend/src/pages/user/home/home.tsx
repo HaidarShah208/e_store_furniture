@@ -8,6 +8,11 @@ import { Package, Truck, Award } from 'lucide-react';
 import HeroCarousel from '@/components/user/heroCaresouel/HeroCaresouel';
 import { getSlides } from '@/lib/static/data';
 import BrowseByRooms from '../../../components/user/browseByRooms/BrowseByRooms';
+import unpolished from '@/assets/user/img/images (1).jpeg'
+import readyMade from '@/assets/user/img/polished.jpeg'
+import sofa from '@/assets/user/featuredCard/sofa.jpeg'
+import chair from '@/assets/user/featuredCard/chair.jpeg'
+import table from '@/assets/user/featuredCard/table.jpeg'
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -59,7 +64,7 @@ export default function Home() {
               <h3 className="text-4xl font-bold text-white">{t('home.readymade')}</h3>
             </div>
             <img 
-              src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80" 
+              src={readyMade} 
               alt="Readymade" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
@@ -69,7 +74,7 @@ export default function Home() {
               <h3 className="text-4xl font-bold text-white">{t('home.unpolished')}</h3>
             </div>
             <img 
-              src="https://images.unsplash.com/photo-1577140917170-285929db55cc?w=800&q=80" 
+              src={unpolished} 
               alt="Unpolished" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
@@ -91,14 +96,14 @@ export default function Home() {
 
       <BrowseByRooms />
 
-      {/* Discount Cards Section */}
+      
       <section className="container px-4 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <DiscountCard
             title="Special Discount"
             discount="30% OFF"
             description="Aliquet sagittis purus faucibus egestas."
-            image="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=600&q=80"
+            image={chair}
             bgColor="bg-teal-50"
             link="/product-category/armchairs"
           />
@@ -106,7 +111,7 @@ export default function Home() {
             title="Weekly Discount"
             discount="25% OFF"
             description="Nulla facilisi cras fermentum odio feugiat."
-            image="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80"
+            image={sofa}
             bgColor="bg-orange-50"
             link="/product-category/sofas"
           />
@@ -114,9 +119,9 @@ export default function Home() {
             title="Birthday Discount"
             discount="40% OFF"
             description="Porta non pulvinar neque laoreet suspendisse."
-            image="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80"
+            image={table}
             bgColor="bg-gray-100"
-            link="/product-category/sofas"
+            link="/product-category/tables"
           />
         </div>
       </section>

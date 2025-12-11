@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { Product } from '../../types/product';
-import productsData from '../../api/products.json';
+import {cardsData} from '../../api/products';
+import { Product } from '@/types/types';
 
 interface ProductsState {
   items: Product[];
@@ -18,7 +18,7 @@ const initialState: ProductsState = {
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
   return new Promise<Product[]>((resolve) => {
     setTimeout(() => {
-      resolve(productsData as Product[]);
+      resolve(cardsData as unknown as Product[]);
     }, 500);
   });
 });

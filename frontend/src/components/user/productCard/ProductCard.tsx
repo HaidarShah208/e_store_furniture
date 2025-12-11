@@ -48,7 +48,7 @@ export default function ProductCard({ product }: { product: Product }) {
                 isInWishlist 
                   ? 'bg-red-500 text-white hover:bg-red-600 opacity-100' 
                   : 'bg-white text-gray-700 hover:bg-red-500 hover:text-white opacity-0 group-hover:opacity-100'
-              } group-hover:translate-y-0 translate-y-[-10px] group-hover:delay-[50ms]`}
+              } group-hover:translate-y-0 translate-y-[-10px] group-hover:delay-50`}
               title={isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
               style={{
                 transitionProperty: 'opacity, transform, background-color, color',
@@ -59,7 +59,7 @@ export default function ProductCard({ product }: { product: Product }) {
             
             <Link
               to={`/product/${product.id}`}
-              className="h-9 w-9 flex items-center justify-center rounded-full bg-white shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-[-10px] group-hover:translate-y-0 group-hover:delay-[150ms]"
+              className="h-9 w-9 flex items-center justify-center rounded-full bg-white shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-[-10px] group-hover:translate-y-0 group-hover:delay-150"
               title="Quick view"
               onClick={(e) => e.stopPropagation()}
               style={{
@@ -68,12 +68,9 @@ export default function ProductCard({ product }: { product: Product }) {
             >
               <Eye className="h-4 w-4" />
             </Link>
-          </div>
-
-          <div className="absolute bottom-3 right-3">
             <button 
               onClick={handleAddToCart} 
-              className="h-9 w-9 flex items-center justify-center rounded-full bg-white shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-[10px] group-hover:translate-y-0 group-hover:delay-[250ms]"
+              className="h-9 w-9 flex items-center justify-center rounded-full bg-white shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-[10px] group-hover:translate-y-0 group-hover:del ay-[250ms]"
               title="Add to cart"
               style={{
                 transitionProperty: 'opacity, transform, background-color, color',
@@ -82,6 +79,7 @@ export default function ProductCard({ product }: { product: Product }) {
               <ShoppingCart className="h-4 w-4" />
             </button>
           </div>
+
         </div>
         <div className="p-4">
           <div className="flex justify-between items-start mb-1">

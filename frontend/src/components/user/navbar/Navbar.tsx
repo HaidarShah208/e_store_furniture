@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Menu, Search, Languages, Heart } from 'lucide-react';
+import { ShoppingCart, Menu, Search, Languages, Heart, User } from 'lucide-react';
 import { useAppSelector } from '../../../redux/hooks';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -57,7 +57,9 @@ export default function Navbar() {
               </span>
             </Link>
           )}
-          
+           <Link to="/auth/sign-in" className="p-2 hover:bg-gray-100 rounded-full transition-colors" title="Sign In">
+            <User className="h-5 w-5 text-gray-700" />
+          </Link>
           <Link to="/cart" className="relative p-2 hover:bg-gray-100 rounded-full transition-colors">
             <ShoppingCart className="h-5 w-5" />
             {cartCount > 0 && (

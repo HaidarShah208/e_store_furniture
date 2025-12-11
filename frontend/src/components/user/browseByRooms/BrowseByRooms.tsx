@@ -1,36 +1,34 @@
+import { RoomCategory } from '@/types/types';
 import { Link } from 'react-router-dom';
-
-interface RoomCategory {
-  name: string;
-  products: number;
-  image: string;
-  link: string;
-}
+import img1 from '@/assets/user/img/bed.jpeg'
+import img2 from '@/assets/user/img/images (2).jpeg'
+import img3 from '@/assets/user/img/decore.jpeg'
+import img4 from '@/assets/user/img/download.jpeg'
 
 export default function BrowseByRooms() {
   const rooms: RoomCategory[] = [
     {
       name: 'Bedroom',
       products: 24,
-      image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80',
+      image: img1,
       link: '/product-category/bedroom'
     },
     {
       name: 'Living Room',
       products: 15,
-      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80',
+      image: img2,
       link: '/product-category/living-room'
     },
     {
       name: 'Walk-in Closet',
       products: 30,
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+      image: img3,
       link: '/product-category/storage'
     },
     {
       name: 'Kitchen',
       products: 24,
-      image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80',
+      image: img4,
       link: '/product-category/kitchen'
     }
   ];

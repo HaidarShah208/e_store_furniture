@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../../redux/hooks';
 import { clearCart } from '../../../redux/slices/cartSlice';
-import CartItem from '../../../components/cartItem/CartItem';
 import { formatPrice } from '../../../utils/formatPrice';
 import { ArrowLeft, ShoppingBag } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import ProductCard from '@/components/user/productCard/ProductCard';
 
 export default function AddToCart() {
   const dispatch = useAppDispatch();
@@ -54,9 +54,9 @@ export default function AddToCart() {
             <div className="h-px bg-gray-200 mb-6" />
             <div className="flex flex-col">
               {cartItems.map((item) => (
-                <CartItem 
+                <ProductCard 
                   key={`${item.id}-${item.selectedColor}-${item.selectedSize}`} 
-                  item={item} 
+                  product={item} 
                 />
               ))}
             </div>

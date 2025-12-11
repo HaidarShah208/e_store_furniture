@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { Package, Truck, Award } from 'lucide-react';
 import HeroCarousel from '@/components/user/heroCaresouel/HeroCaresouel';
 import { getSlides } from '@/lib/static/data';
+import BrowseByRooms from '../../../components/user/browseByRooms/BrowseByRooms';
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -87,6 +88,8 @@ export default function Home() {
           <ProductGrid products={featuredProducts} />
         )}
       </section>
+
+      <BrowseByRooms />
 
       {/* Discount Cards Section */}
       <section className="container px-4 mx-auto">

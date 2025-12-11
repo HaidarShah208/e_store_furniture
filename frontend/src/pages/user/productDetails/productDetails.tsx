@@ -8,6 +8,7 @@ import { Check, Star, Ruler } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SizeGuideModal from '../../../components/user/sizeGuideModal/SizeGuideModal';
 import ProductTabs from '../../../components/user/productTabs/ProductTabs';
+import Benefits from '../../../components/user/benefits/Benefits';
 
 export default function ProductDetails() {
   const { id } = useParams<{ id: string }>();
@@ -72,8 +73,8 @@ export default function ProductDetails() {
 
   return (
     <>
-      <div className="container px-4 py-12 mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="pt-12 mx-auto">
+        <div className="container px-14 grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-4">
             <div
               ref={imageRef}
@@ -244,6 +245,7 @@ export default function ProductDetails() {
             category={product.category}
             finishType={product.finishType}
           />
+          <Benefits />
         </div>
       </div>
 

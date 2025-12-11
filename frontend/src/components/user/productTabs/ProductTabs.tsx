@@ -17,7 +17,7 @@ export default function ProductTabs({ description, category, finishType, materia
   ];
 
   return (
-    <div className="w-full mt-20">
+    <div className="w-full px-14 mt-20">
       <div className="border-b flex items-center justify-center border-gray-200">
         <div className="flex gap-8">
           {tabs.map((tab) => (

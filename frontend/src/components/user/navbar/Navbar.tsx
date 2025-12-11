@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Menu, Search, Languages } from 'lucide-react';
+import { ShoppingCart, Menu, Search, Languages, Heart } from 'lucide-react';
 import { useAppSelector } from '../../../redux/hooks';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -13,7 +13,9 @@ import { Input } from '@/components/ui/input';
 
 export default function Navbar() {
   const cartItems = useAppSelector((state) => state.cart.items);
+  const wishlistItems = useAppSelector((state) => state.wishlist.items);
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const wishlistCount = wishlistItems.length;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language === 'ur' ? 'ur' : 'en';
@@ -46,6 +48,15 @@ export default function Navbar() {
             <Link to="/category/Readymade" className="hover:text-blue-600 transition-colors">{t('navbar.readymade')}</Link>
             <Link to="/category/Unpolished" className="hover:text-blue-600 transition-colors">{t('navbar.unpolished')}</Link>
           </div>
+          
+          {wishlistCount >= 0 && (
+            <Link to="/wishlist" className="relative p-2 hover:bg-gray-100 rounded-full transition-colors">
+              <Heart className="h-5 w-5 text-red-500 " />
+              <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
+                {wishlistCount}
+              </span>
+            </Link>
+          )}
           
           <Link to="/cart" className="relative p-2 hover:bg-gray-100 rounded-full transition-colors">
             <ShoppingCart className="h-5 w-5" />

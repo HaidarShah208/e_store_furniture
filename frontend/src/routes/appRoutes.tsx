@@ -5,6 +5,7 @@ import ProductCategory from "@/pages/user/productCategory/product-category";
 import ProductDetails from "@/pages/user/productDetails/productDetails";
 import AddToCart from "@/pages/user/addToCart/add-to-cart";
 import AllBrands from "@/pages/user/brands/all-brands";
+import Wishlist from "@/pages/user/wishlist/Wishlist";
 import SignIn from "@/pages/auth/sign-in";
 import SignUp from "@/pages/auth/sign-up";
 import Home from "@/pages/user/home/home";
@@ -18,6 +19,7 @@ export const AppRoutes = () => {
         <Route path="/product-category/:id" element={<ProductCategory />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<AddToCart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/all-brands" element={<AllBrands />} />
       </Route>
 

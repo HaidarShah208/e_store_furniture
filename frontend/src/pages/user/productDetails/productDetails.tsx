@@ -4,140 +4,10 @@ import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { fetchProducts } from '../../../redux/slices/productsSlice';
 import { addToCart } from '../../../redux/slices/cartSlice';
 import { formatPrice } from '../../../utils/formatPrice';
-import { Check, Star, X, Ruler } from 'lucide-react';
+import { Check, Star, Ruler } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-
-// Reusable Size Guide Modal Component
-function SizeGuideModal({ 
-  isOpen, 
-  onClose, 
-  product 
-}: { 
-  isOpen: boolean; 
-  onClose: () => void;
-  product: { title: string; type: string; sizes: string[] } | null;
-}) {
-  if (!isOpen || !product) return null;
-
-  // Get dimensions based on product type and size
-  const getDimensions = (productType: string, size: string) => {
-    const dimensions: Record<string, Record<string, { width: string; height: string; depth?: string }>> = {
-      'Chair': {
-        'Standard': { width: '24"', height: '32"', depth: '22"' },
-        'Large': { width: '26"', height: '34"', depth: '24"' }
-      },
-      'Sofa': {
-        '2-Seater': { width: '60"', height: '32"', depth: '36"' },
-        '3-Seater': { width: '84"', height: '32"', depth: '36"' },
-        '4-Seater': { width: '108"', height: '32"', depth: '36"' }
-      },
-      'Table': {
-        '4-Person': { width: '48"', height: '30"', depth: '30"' },
-        '6-Person': { width: '72"', height: '30"', depth: '36"' },
-        '8-Person': { width: '96"', height: '30"', depth: '42"' }
-      },
-      'Bed': {
-        'Queen': { width: '60"', height: '80"', depth: '20"' },
-        'King': { width: '76"', height: '80"', depth: '20"' },
-        'Full': { width: '54"', height: '75"', depth: '20"' }
-      },
-      'Storage': {
-        '3-Tier': { width: '30"', height: '60"', depth: '12"' },
-        '5-Tier': { width: '30"', height: '72"', depth: '12"' }
-      }
-    };
-
-    return dimensions[productType]?.[size] || { width: 'N/A', height: 'N/A', depth: 'N/A' };
-  };
-
-  return (
-    <div 
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <div 
-        className="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="sticky top-0 bg-white border-b px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Ruler className="w-5 h-5 text-gray-700" />
-            <h2 className="text-2xl font-bold text-gray-800">Size Guide</h2>
-          </div>
-          <button
-            onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-          >
-            <X className="w-5 h-5 text-gray-600" />
-          </button>
-        </div>
-
-        <div className="p-6">
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">{product.title}</h3>
-            <p className="text-gray-600">
-              Please refer to the dimensions below to ensure this product fits your space perfectly.
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            {product.sizes.length > 0 ? (
-              product.sizes.map((size) => {
-                const dims = getDimensions(product.type, size);
-                return (
-                  <div key={size} className="border rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-800 mb-3">{size}</h4>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                      <div>
-                        <p className="text-sm text-gray-500 mb-1">Width</p>
-                        <p className="text-lg font-semibold text-gray-800">{dims.width}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-500 mb-1">Height</p>
-                        <p className="text-lg font-semibold text-gray-800">{dims.height}</p>
-                      </div>
-                      {dims.depth && (
-                        <div>
-                          <p className="text-sm text-gray-500 mb-1">Depth</p>
-                          <p className="text-lg font-semibold text-gray-800">{dims.depth}</p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })
-            ) : (
-              <div className="border rounded-lg p-4">
-                <h4 className="font-semibold text-gray-800 mb-3">Standard Dimensions</h4>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  <div>
-                    <p className="text-sm text-gray-500 mb-1">Width</p>
-                    <p className="text-lg font-semibold text-gray-800">Varies</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500 mb-1">Height</p>
-                    <p className="text-lg font-semibold text-gray-800">Varies</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500 mb-1">Depth</p>
-                    <p className="text-lg font-semibold text-gray-800">Varies</p>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-            <p className="text-sm text-gray-700">
-              <strong>Note:</strong> All dimensions are approximate and may vary slightly. 
-              Please measure your space before purchasing to ensure a proper fit.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+import SizeGuideModal from '../../../components/user/sizeGuideModal/SizeGuideModal';
+import ProductTabs from '../../../components/user/productTabs/ProductTabs';
 
 export default function ProductDetails() {
   const { id } = useParams<{ id: string }>();
@@ -153,7 +23,6 @@ export default function ProductDetails() {
   const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
   
   const imageRef = useRef<HTMLDivElement>(null);
-  const zoomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (status === 'idle') {
@@ -170,7 +39,6 @@ export default function ProductDetails() {
     }
   }, [product]);
 
-  // Generate multiple product images (using the same image with variations for demo)
   const productImages = product ? [
     product.image,
     product.image + '?w=800&q=80&auto=format&fit=crop&crop=center',
@@ -206,7 +74,6 @@ export default function ProductDetails() {
     <>
       <div className="container px-4 py-12 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Image Section with Zoom */}
           <div className="space-y-4">
             <div
               ref={imageRef}
@@ -228,7 +95,6 @@ export default function ProductDetails() {
                   (e.target as HTMLImageElement).src = 'https://placehold.co/600x400?text=No+Image';
                 }}
               />
-              {/* Navigation Arrows */}
               {selectedImageIndex > 0 && (
                 <button
                   onClick={(e) => {
@@ -257,7 +123,6 @@ export default function ProductDetails() {
               )}
             </div>
 
-            {/* Thumbnail Images */}
             <div className="flex gap-3 overflow-x-auto pb-2">
               {productImages.map((image, index) => (
                 <button
@@ -282,7 +147,6 @@ export default function ProductDetails() {
             </div>
           </div>
 
-          {/* Details Section */}
           <div className="flex flex-col">
             <div className="mb-6">
               <div className="flex gap-2 mb-2">
@@ -308,12 +172,11 @@ export default function ProductDetails() {
             <div className="h-px bg-gray-200 mb-8" />
 
             <div className="space-y-6 mb-8">
-              {/* Colors */}
               {product.colors.length > 0 && (
                 <div>
                   <h3 className="font-medium mb-3">{t('product.color')}</h3>
                   <div className="flex gap-3">
-                    {product.colors.map((color) => (
+                    {product.colors.map((color:any) => (
                       <button
                         key={color}
                         onClick={() => setSelectedColor(color)}
@@ -330,12 +193,11 @@ export default function ProductDetails() {
                 </div>
               )}
 
-              {/* Sizes */}
               {product.sizes.length > 0 && (
                 <div>
                   <h3 className="font-medium mb-3">{t('product.size')}</h3>
                   <div className="flex gap-3">
-                    {product.sizes.map((size) => (
+                    {product.sizes.map((size:any) => (
                       <button
                         key={size}
                         onClick={() => setSelectedSize(size)}
@@ -365,7 +227,6 @@ export default function ProductDetails() {
                 <Check className="w-4 h-4 text-green-500" /> {t('product.inStock')}
               </p>
 
-              {/* Size Guide Link */}
               <button
                 onClick={() => setIsSizeGuideOpen(true)}
                 className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
@@ -376,9 +237,16 @@ export default function ProductDetails() {
             </div>
           </div>
         </div>
+
+        <div className="mt-16">
+          <ProductTabs 
+            description={product.description}
+            category={product.category}
+            finishType={product.finishType}
+          />
+        </div>
       </div>
 
-      {/* Size Guide Modal */}
       <SizeGuideModal
         isOpen={isSizeGuideOpen}
         onClose={() => setIsSizeGuideOpen(false)}

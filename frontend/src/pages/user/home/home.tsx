@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import { Package, Truck, Award } from 'lucide-react';
 import HeroCarousel from '@/components/user/heroCaresouel/HeroCaresouel';
 import { getSlides } from '@/lib/static/data';
-import { formatPrice } from '../../../utils/formatPrice';
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -165,7 +164,7 @@ function DiscountCard({
       to={link}
       className={`${bgColor} rounded-2xl overflow-hidden flex flex-col md:flex-row items-center gap-4 p-6 hover:shadow-lg transition-shadow group`}
     >
-      <div className="w-full md:w-40 h-40 md:h-32 flex-shrink-0 rounded-lg overflow-hidden bg-white">
+      <div className="w-full md:w-40 h-40 md:h-32 shrink-0 rounded-lg overflow-hidden bg-white">
         <img
           src={image}
           alt={title}

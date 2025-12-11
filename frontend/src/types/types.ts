@@ -12,3 +12,9 @@ export interface Product {
   finishType: 'Readymade' | 'Unpolished';
   isFeatured?: boolean;
 }
+
+export interface CartItem extends Product {
+  quantity: number;
+  selectedColor?: string;
+  selectedSize?: string;
+}

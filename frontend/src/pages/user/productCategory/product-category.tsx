@@ -5,7 +5,6 @@ import { fetchProducts } from '../../../redux/slices/productsSlice';
 import ProductCard from '../../../components/user/productCard/ProductCard';
 import { useTranslation } from 'react-i18next';
 
-// Category ID to Product Type mapping
 const categoryToProductType: Record<string, string> = {
   'chairs': 'Chair',
   'storage': 'Storage',
@@ -92,10 +91,8 @@ export default function ProductCategory() {
     }
   }, [status, dispatch]);
 
-  // Determine if this is a product-category route or category route
   const isProductCategoryRoute = location.pathname.includes('/product-category/');
   
-  // Get initial filtered products by category
   const categoryFilteredProducts = useMemo(() => {
     if (isProductCategoryRoute && id) {
       const categoryId = id.toLowerCase();
@@ -123,7 +120,6 @@ export default function ProductCategory() {
     return [];
   }, [products, isProductCategoryRoute, id, type]);
 
-  // Calculate price range from filtered products
   const priceMinMax = useMemo(() => {
     if (categoryFilteredProducts.length === 0) return { min: 0, max: 1000 };
     const prices = categoryFilteredProducts.map((p) => p.price);
@@ -141,7 +137,7 @@ export default function ProductCategory() {
   const availableColors = useMemo(() => {
     const colorMap = new Map<string, number>();
     categoryFilteredProducts.forEach((p) => {
-      p.colors.forEach((color) => {
+      p.colors.forEach((color:any) => {
         colorMap.set(color, (colorMap.get(color) || 0) + 1);
       });
     });

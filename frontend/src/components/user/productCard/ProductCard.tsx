@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ShoppingCart } from 'lucide-react';
-import { Product } from '../../../types/product';
+import { Product } from '../../../types/types';
 import { formatPrice } from '../../../utils/formatPrice';
 import { useAppDispatch } from '../../../redux/hooks';
 import { addToCart } from '../../../redux/slices/cartSlice';

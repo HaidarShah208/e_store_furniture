@@ -17,7 +17,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <Link to={`/product/${product.id}`} className="group block">
-      <div className="bg-white rounded-xl overflow-hidden border transition-all duration-300 hover:shadow-lg">
+      <div className="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
         <div className="relative aspect-square overflow-hidden bg-gray-100">
           <img
             src={product.image}

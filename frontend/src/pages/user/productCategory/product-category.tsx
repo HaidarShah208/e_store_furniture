@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { fetchProducts } from '../../../redux/slices/productsSlice';
-import ProductCard from '../../../components/user/productCard/ProductCard';
+import ProductCard from '../../../components/common/productCard/ProductCard';
 import { useTranslation } from 'react-i18next';
 
 const categoryToProductType: Record<string, string> = {

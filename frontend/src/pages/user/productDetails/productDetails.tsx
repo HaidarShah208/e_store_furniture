@@ -7,7 +7,7 @@ import { formatPrice } from '../../../utils/formatPrice';
 import { Check, Star, Ruler } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SizeGuideModal from '../../../components/user/sizeGuideModal/SizeGuideModal';
-import ProductTabs from '../../../components/user/productTabs/ProductTabs';
+import ProductTabs from '../../../components/common/productTabs/ProductTabs';
 import Benefits from '../../../components/user/benefits/Benefits';
 
 export default function ProductDetails() {

@@ -25,3 +25,12 @@ export interface RoomCategory {
   image: string;
   link: string;
 }
+
+export interface ButtonProps {
+  buttonText: string;
+  type?: "submit" | "reset" | "button";
+  disabled?: boolean;
+  isLoading?: boolean;
+  className?: string;
+  onClick?: () => void;
+}

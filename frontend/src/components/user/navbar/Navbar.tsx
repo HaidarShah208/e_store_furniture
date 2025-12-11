@@ -58,7 +58,7 @@ export default function Navbar() {
             </Link>
           )}
           
-           <Link to="/auth/sign-in" className="p-2 hover:bg-gray-100 rounded-full transition-colors" title="Sign In">
+           <Link to="/auth/login" className="p-2 hover:bg-gray-100 rounded-full transition-colors" title="Sign In">
             <User className="h-5 w-5 text-gray-700" />
           </Link>
           <Link to="/cart" className="relative p-2 hover:bg-gray-100 rounded-full transition-colors">

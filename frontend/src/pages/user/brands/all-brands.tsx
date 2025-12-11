@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { fetchProducts } from '../../../redux/slices/productsSlice';
-import ProductCard from '../../../components/user/productCard/ProductCard';
+import ProductCard from '../../../components/common/productCard/ProductCard';
 
 type PriceRange = [number, number];
 

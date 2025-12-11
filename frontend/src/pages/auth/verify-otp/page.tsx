@@ -1,36 +1,27 @@
 import { Form, Formik, type FormikHelpers } from "formik";
-import Button from "../../../components/Button";
+import Button from "@/components/common/Button";
 import {useNavigate } from "react-router-dom";
-import type { LoginValues } from "../../../lib/type/api/auth";
-import AuthLayout from "../../../components/Layout/AuthLayout";
+import type { LoginValues } from "@/types/api/auth";
 import { useState } from "react";
-import { useVerifyOtpMutation } from "../../../redux/api/auth";
 import { OTPInput } from "./component/otpInput";
  
 
 export const VerifyOtp = () => {
     const navigate = useNavigate();
     const [otp, setOtp] = useState<string[]>([]);
-    const [verifyOtp, { isLoading }] = useVerifyOtpMutation();
     const initialValues: LoginValues = { email: "" };
   
     const submitHandler = async (_values: LoginValues, actions: FormikHelpers<LoginValues>) => {
       const otpCode = otp.join("");
-      const email = localStorage.getItem("email");
-      const body = { email: email!, otp: otpCode };
       if (otpCode) { localStorage.setItem("reset_token", String(otpCode)); }
-      await verifyOtp(body).unwrap();
-  
-  
-      navigate("/reset-password");    
+      navigate("/auth/reset-password");    
       actions.setSubmitting(false);
     };
   
     return (
-      <AuthLayout>
       <div className="flex flex-col min-h-screen w-full max-w-md mx-auto">
 
-        <div className="pt-4 pb-6 flex-shrink-0">
+        <div className="pt-4 pb-6  shrink-0">
           <button
             onClick={() => navigate(-1)}
             className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
@@ -78,7 +69,6 @@ export const VerifyOtp = () => {
             buttonText="Verify"
             type="submit"
             className="rounded-2xl w-full"
-            isLoading={isLoading}
             onClick={() => {
               document.querySelector("form")?.requestSubmit();
             }}
@@ -86,7 +76,6 @@ export const VerifyOtp = () => {
         </div>
 
       </div>
-    </AuthLayout>
     );
   };
   

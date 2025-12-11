@@ -1,16 +1,11 @@
 
-import { useDispatch } from "react-redux";
-import { accessKey } from "../../../lib/constants";
 import { Form, Formik } from "formik";
-import type { RegisterValues } from "../../../lib/type/api/auth";
-import { useRegisterMutation } from "../../../redux/api/auth";
+import type { RegisterValues } from "@/types/api/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { setUser } from "../../../redux/slices/user";
-import AuthLayout from "../../../components/Layout/AuthLayout";
-import { RegisterSchema } from "../../../lib/schema";
-import FormControl from "../../../components/FormControl";
-import Button from "../../../components/Button";
-import sargelogo from '../../../assets/svg/sargeLogo.svg'
+import { RegisterSchema } from "@/utils/schema";
+import FormControl from "@/components/common/FormControl";
+import Button from "@/components/common/Button";
+import sargelogo from '@/assets/Logo.svg'
 
 export default function Register() {
   const initialValues: RegisterValues = {
@@ -20,24 +15,14 @@ export default function Register() {
     password: "",
     password_confirmation: "",
   };
-  const dispatch = useDispatch();
-  const [register, { isLoading }] = useRegisterMutation();
   const navigate = useNavigate();
 
-  const submitHandler = async (values: RegisterValues, actions: any) => {
-    const response = await register(values).unwrap();
-    if (response.data.access_token) {
-      dispatch(setUser(response.data.user));
-      localStorage.setItem(accessKey, response.data.access_token);
-
-      navigate("/onboarding");
-    }
-
+  const submitHandler = async (_values: RegisterValues, actions: any) => {
+    navigate("/dashboard");
     actions.setSubmitting(false);
   };
   return (
-    <AuthLayout>
-     
+    <>
       <div className="mt-40 flex justify-center flex-col items-center sm:mb-8">
       <div className=" mb-6">
                   <img src={sargelogo} alt="SARGE" className="h-28 w-36" />
@@ -123,14 +108,13 @@ export default function Register() {
                   buttonText="Register"
                   type="submit"
                   className="rounded-2xl border-none"
-                  isLoading={isLoading}
                 ></Button>
               </div>
 
               <div className="mt-10 mb-3  text-center">
                 <p>
                   Already have an account?{" "}
-                  <Link to="/login" className="font-bold hover:underline">
+                  <Link to="/auth/login" className="font-bold hover:underline">
                     Log in
                   </Link>
                 </p>
@@ -139,6 +123,6 @@ export default function Register() {
           );
         }}
       </Formik>
-    </AuthLayout>
+    </>
   );
 }

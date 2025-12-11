@@ -19,7 +19,7 @@ export default function Login() {
       }
    };
    return (
-         <div className="flex flex-col justify-center w-full py-4">
+         <div className="flex flex-col mt-10 justify-center w-full py-4">
             <div className="mb-6 sm:mb-8 text-center">
                <div className="flex justify-center mb-4 sm:mb-6">
                   <img src={sargelogo} alt="SARGE" className="h-20 w-28 sm:h-28 sm:w-36" />
@@ -63,13 +63,13 @@ export default function Login() {
                            <Button
                               buttonText="Login"
                               type="submit"
-                              className="w-full bg-secondarySarge border-none rounded-2xl"
+                              className="w-full bg-black border-none rounded-2xl"
                            />
                         </div>
 
                         <div className="text-center">
                            <Link 
-                              to="/forgot-password" 
+                              to="/auth/forgot-password" 
                               className="text-sm text-primaryGray hover:underline"
                            >
                               Forgot your password?
@@ -82,21 +82,12 @@ export default function Login() {
                            </div>
                         </div>
 
-                        <div className="text-center border py-2 rounded-2xl">
-                           <Link to={'/ssl-signin'}
-                              type="button"
-                              className="text-base font-medium"
-                           >
-                              Sign in with SSO
-                           </Link>
-                        </div>
-
                         <div className="text-center pt-4">
                            <span className="text-sm text-gray-600">
                               Don't have an account?{' '}
                            </span>
                            <Link 
-                              to="/register" 
+                              to="/auth/sign-up" 
                               className="text-sm hover:underline font-bold"
                            >
                               Sign Up

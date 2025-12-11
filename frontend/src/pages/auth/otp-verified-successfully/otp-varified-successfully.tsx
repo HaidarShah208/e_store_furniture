@@ -1,15 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../../../components/Button";
-import AuthLayout from "../../../components/Layout/AuthLayout";
+import Button from "@/components/common/Button";
 
 export default function OtpVerifiedSuccessfully() {
   const navigate = useNavigate();
 
   return (
-    <AuthLayout>
       <div className="flex flex-col min-h-screen w-full max-w-md mx-auto">
 
-        <div className="pt-4 pb-6 flex-shrink-0">
+        <div className="pt-4 pb-6  shrink-0">
           <button
             onClick={() => navigate(-1)}
             className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
@@ -46,11 +44,10 @@ export default function OtpVerifiedSuccessfully() {
             buttonText="Done"
             type="button"
             className="rounded-2xl w-full"
-            onClick={() => navigate("/login")}   
+            onClick={() => navigate("/auth/login")}   
           />
         </div>
 
       </div>
-    </AuthLayout>
   );
 }

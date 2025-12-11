@@ -1,15 +1,12 @@
 import { Form, Formik, type FormikHelpers } from "formik";
-import Button from "../../../components/Button";
+import Button from "@/components/common/Button";
 import { useNavigate } from "react-router-dom";
-import FormControl from "../../../components/FormControl";
-import AuthLayout from "../../../components/Layout/AuthLayout";
+import FormControl from "@/components/common/FormControl";
 import {
   ResetPasswordSchema,
   ResetPasswordType,
-} from "../../../lib/schema";
-import {
-    useChangePasswordMutation,
-} from "../../../redux/api/auth";
+} from "@/utils/schema";
+ 
 
 export const ResetPassword = () => {
     const navigate = useNavigate();
@@ -17,36 +14,24 @@ export const ResetPassword = () => {
       password: "",
       password_confirmation: "",
     };
-    const [changePassword, { isLoading }] = useChangePasswordMutation();
   
-    const submitHandler = async (values: ResetPasswordType, actions: FormikHelpers<ResetPasswordType>) => {
+    const submitHandler = async (_values: ResetPasswordType, actions: FormikHelpers<ResetPasswordType>) => {
       const token = localStorage.getItem("reset_token");
       if (!token) {
-        navigate("/forgot-password");  
+        navigate("/auth/forgot-password");  
         return;
       }
-      const body = {
-        token: token,
-        newPassword: values.password,
-        confirmPassword: values.password_confirmation,
-      };
-      try {
-        const response = await changePassword(body).unwrap();
-        console.log(response);
-        localStorage.removeItem("reset_token");
-        navigate("/login");
-      } catch (err) {
-      } finally {
+    
+          localStorage.removeItem("reset_token");
+          navigate("/auth/login");
         actions.setSubmitting(false);
-      }
     };
   
     return (
       
-        <AuthLayout>
           <div className="flex flex-col min-h-screen w-full max-w-md mx-auto">
     
-            <div className="pt-4 pb-6 flex-shrink-0">
+            <div className="pt-4 pb-6  shrink-0">
               <button
                 onClick={() => navigate(-1)}
                 className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
@@ -112,7 +97,6 @@ export const ResetPassword = () => {
                 buttonText="Save Password"
                 type="submit"
                 className="rounded-2xl w-full"
-                isLoading={isLoading}
                 onClick={() => {
                   document.querySelector("form")?.requestSubmit();
                 }}
@@ -120,7 +104,6 @@ export const ResetPassword = () => {
             </div>
     
           </div>
-        </AuthLayout>
     )
   };
   

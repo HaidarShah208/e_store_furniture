@@ -1,0 +1,315 @@
+/* Modern Product Filter Styles */
+
+.product-filter {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.product-filter:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.filter-section {
+  margin-bottom: 32px;
+}
+
+.filter-section:last-child {
+  margin-bottom: 0;
+}
+
+.filter-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-title::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+/* Price Range Slider Styles */
+.price-range-container {
+  position: relative;
+  padding: 12px 0;
+}
+
+.price-slider-track {
+  position: relative;
+  height: 6px;
+  background: linear-gradient(90deg, #e2e8f0 0%, #cbd5e0 100%);
+  border-radius: 3px;
+  margin: 24px 0;
+}
+
+.price-slider-range {
+  position: absolute;
+  height: 6px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+/* Custom Range Input Styling */
+.range-input {
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  top: 0;
+  background: transparent;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 3;
+}
+
+.range-input::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.6);
+}
+
+.range-input::-webkit-slider-thumb:active {
+  transform: scale(1.05);
+  box-shadow: 0 2px 6px rgba(102, 126, 234, 0.8);
+}
+
+.range-input::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 3;
+}
+
+.range-input::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.6);
+}
+
+.range-input::-moz-range-thumb:active {
+  transform: scale(1.05);
+  box-shadow: 0 2px 6px rgba(102, 126, 234, 0.8);
+}
+
+/* Ensure higher range input is on top */
+.range-input.range-max {
+  z-index: 4;
+}
+
+.range-input.range-min {
+  z-index: 3;
+}
+
+/* Price Display */
+.price-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.price-label {
+  font-size: 13px;
+  color: #718096;
+  font-weight: 500;
+}
+
+.price-value {
+  font-size: 16px;
+  color: #2d3748;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Color Filter Styles */
+.color-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.color-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.color-option:hover {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  transform: translateX(4px);
+}
+
+.color-option.active {
+  background: linear-gradient(135deg, #ebf4ff 0%, #e0e7ff 100%);
+  border-color: #667eea;
+  transform: translateX(4px);
+}
+
+.color-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.color-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.color-option:hover .color-swatch {
+  transform: scale(1.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.color-option.active .color-swatch {
+  border-color: #667eea;
+  border-width: 3px;
+}
+
+.color-swatch::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.color-option.active .color-swatch::after {
+  border-color: #667eea;
+}
+
+.color-name {
+  font-size: 14px;
+  color: #2d3748;
+  font-weight: 500;
+}
+
+.color-count {
+  font-size: 12px;
+  color: #718096;
+  background: #edf2f7;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.color-option:hover .color-count,
+.color-option.active .color-count {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+}
+
+/* Clear Filter Button */
+.clear-filter-btn {
+  margin-top: 16px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.clear-filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.clear-filter-btn:active {
+  transform: translateY(0);
+}
+
+/* No Colors Message */
+.no-colors {
+  padding: 20px;
+  text-align: center;
+  color: #a0aec0;
+  font-size: 14px;
+  background: #f7fafc;
+  border-radius: 10px;
+  border: 2px dashed #e2e8f0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .product-filter {
+    padding: 20px;
+  }
+  
+  .filter-title {
+    font-size: 16px;
+  }
+  
+  .filter-section {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-filter {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  
+  .price-display {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

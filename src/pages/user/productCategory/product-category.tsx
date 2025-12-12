@@ -3,6 +3,7 @@ import { useParams, useLocation, Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { fetchProducts } from '../../../redux/slices/productsSlice';
 import ProductCard from '../../../components/common/productCard/ProductCard';
+import ProductFilter from '../../../components/user/ProductFilter/ProductFilter';
 import { useTranslation } from 'react-i18next';
 
 const categoryToProductType: Record<string, string> = {
@@ -37,41 +38,7 @@ const categoryImages: Record<string, string> = {
   'decor': 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80'
 };
 
-// Color name to hex code mapping
-const colorMap: Record<string, string> = {
-  'Beige': '#F5F5DC',
-  'Black': '#000000',
-  'Brown': '#8B4513',
-  'Blue': '#0000FF',
-  'Green': '#008000',
-  'Grey': '#808080',
-  'Gray': '#808080',
-  'Yellow': '#FFFF00',
-  'Natural Wood': '#D2B48C',
-  'Natural Pine': '#D2B48C',
-  'Natural': '#D2B48C',
-  'White': '#FFFFFF',
-  'Red': '#FF0000',
-  'Orange': '#FFA500',
-  'Purple': '#800080',
-  'Pink': '#FFC0CB',
-  'Navy': '#000080',
-  'Teal': '#008080',
-  'Cream': '#FFFDD0',
-  'Tan': '#D2B48C',
-  'Charcoal': '#36454F',
-  'Ivory': '#FFFFF0',
-  'Burgundy': '#800020',
-  'Maroon': '#800000',
-  'Olive': '#808000',
-  'Lime': '#00FF00',
-  'Cyan': '#00FFFF',
-  'Magenta': '#FF00FF',
-  'Silver': '#C0C0C0',
-  'Gold': '#FFD700',
-  'Bronze': '#CD7F32',
-  'Copper': '#B87333'
-};
+
 
 type PriceRange = [number, number];
 
@@ -165,19 +132,7 @@ export default function ProductCategory() {
   const categoryId = isProductCategoryRoute && id ? id.toLowerCase() : '';
   const categoryImage = categoryId ? categoryImages[categoryId] : '';
 
- 
 
-  const handleMinPriceChange = (value: number) => {
-    setPriceRange([Math.min(value, priceRange[1]), priceRange[1]]);
-  };
-
-  const handleMaxPriceChange = (value: number) => {
-    setPriceRange([priceRange[0], Math.max(value, priceRange[0])]);
-  };
-
-  const getColorHex = (colorName: string): string => {
-    return colorMap[colorName] || '#CCCCCC';
-  };
 
   return (
     <div className="w-full">
@@ -230,100 +185,14 @@ export default function ProductCategory() {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
-          <aside className="w-full lg:w-[280px] shrink-0 bg-white   rounded-lg p-5 shadow-sm h-fit">
-            <div className="mb-8">
-              <h3 className="text-lg font-semibold mb-4 text-gray-800">Filter by price</h3>
-              <div className="space-y-4">
-                <div className="relative h-2 bg-gray-200 rounded-lg">
-                  <div 
-                    className="absolute h-2 bg-blue-600 rounded-lg"
-                    style={{
-                      left: `${((priceRange[0] - priceMinMax.min) / (priceMinMax.max - priceMinMax.min)) * 100}%`,
-                      width: `${((priceRange[1] - priceRange[0]) / (priceMinMax.max - priceMinMax.min)) * 100}%`
-                    }}
-                  />
-                  <input
-                    type="range"
-                    min={priceMinMax.min}
-                    max={priceMinMax.max}
-                    value={priceRange[0]}
-                    onChange={(e) => handleMinPriceChange(Number(e.target.value))}
-                    className="absolute w-full h-2 bg-transparent appearance-none cursor-pointer z-10"
-                    style={{
-                      background: 'transparent',
-                      WebkitAppearance: 'none',
-                    }}
-                  />
-                  <input
-                    type="range"
-                    min={priceMinMax.min}
-                    max={priceMinMax.max}
-                    value={priceRange[1]}
-                    onChange={(e) => handleMaxPriceChange(Number(e.target.value))}
-                    className="absolute w-full h-2 bg-transparent appearance-none cursor-pointer z-10"
-                    style={{
-                      background: 'transparent',
-                      WebkitAppearance: 'none',
-                    }}
-                  />
-                  <div 
-                    className="absolute w-4 h-4 bg-white border-2 border-blue-600 rounded-full top-1/2 -translate-y-1/2 cursor-pointer shadow-md hover:scale-110 transition-transform z-20"
-                    style={{ left: `calc(${((priceRange[0] - priceMinMax.min) / (priceMinMax.max - priceMinMax.min)) * 100}% - 8px)` }}
-                  />
-                  <div 
-                    className="absolute w-4 h-4 bg-white border-2 border-blue-600 rounded-full top-1/2 -translate-y-1/2 cursor-pointer shadow-md hover:scale-110 transition-transform z-20"
-                    style={{ left: `calc(${((priceRange[1] - priceMinMax.min) / (priceMinMax.max - priceMinMax.min)) * 100}% - 8px)` }}
-                  />
-                </div>
-                <p className="text-sm text-gray-700 font-medium">
-                  Price: ${priceRange[0].toFixed(0)} - ${priceRange[1].toFixed(0)}
-                </p>
-              </div>
-            </div>
-
-            {/* Color Filter */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-gray-800">Filter by color</h3>
-              <div className="space-y-3">
-                {availableColors.map((color) => (
-                  <label
-                    key={color.name}
-                    className="flex items-center justify-between text-gray-700 cursor-pointer hover:text-gray-900 transition-colors group"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div
-                        className="w-4 h-4 rounded-full border border-gray-300 shadow-sm"
-                        style={{ backgroundColor: getColorHex(color.name) }}
-                      />
-                      <input
-                        type="radio"
-                        name="color"
-                        value={color.name}
-                        checked={selectedColor === color.name}
-                        onChange={(e) => setSelectedColor(e.target.value)}
-                        className="sr-only"
-                      />
-                      <span className="text-sm">{color.name}</span>
-                    </div>
-                    <span className="text-xs text-gray-600 bg-gray-100 px-2 py-0.5 rounded-full group-hover:bg-gray-200 transition-colors">
-                      {color.count}
-                    </span>
-                  </label>
-                ))}
-                {availableColors.length === 0 && (
-                  <p className="text-sm text-gray-500">No colors available</p>
-                )}
-              </div>
-              {selectedColor && (
-                <button
-                  onClick={() => setSelectedColor('')}
-                  className="mt-4 text-sm text-blue-600 hover:text-blue-700 underline"
-                >
-                  Clear color filter
-                </button>
-              )}
-            </div>
-          </aside>
+          <ProductFilter
+            priceRange={priceRange}
+            priceMinMax={priceMinMax}
+            onPriceChange={setPriceRange}
+            selectedColor={selectedColor}
+            onColorChange={setSelectedColor}
+            availableColors={availableColors}
+          />
 
           <main className="flex-1 min-w-0">
             {status === 'loading' ? (

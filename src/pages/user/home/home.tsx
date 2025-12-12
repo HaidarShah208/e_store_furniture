@@ -2,6 +2,8 @@ import { useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { fetchProducts } from '../../../redux/slices/productsSlice';
 import ProductGrid from '../../../components/user/productGrid/ProductGrid';
+import FeatureCard from '../../../components/user/FeatureCard/FeatureCard';
+import DiscountCard from '../../../components/user/DiscountCard/DiscountCard';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Package, Truck, Award } from 'lucide-react';
@@ -129,69 +131,3 @@ export default function Home() {
   );
 }
 
-function FeatureCard({
-  icon,
-  title,
-  description,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="flex items-start gap-4">
-      <div className=" flex items-center  text-amber-700">
-        {icon}
-      </div>
-      <div className="space-y-1">
-        <h3 className="font-semibold text-lg">{title}</h3>
-        <p className="text-sm text-slate-700 leading-relaxed">{description}</p>
-      </div>
-    </div>
-  );
-}
-
-// New DiscountCard Component
-function DiscountCard({
-  title,
-  discount,
-  description,
-  image,
-  bgColor,
-  link,
-}: {
-  title: string;
-  discount: string;
-  description: string;
-  image: string;
-  bgColor: string;
-  link: string;
-}) {
-  return (
-    <Link
-      to={link}
-      className={`${bgColor} rounded-2xl overflow-hidden flex flex-col md:flex-row items-center gap-4 p-6 hover:shadow-lg transition-shadow group`}
-    >
-      <div className="w-full md:w-40 h-40 md:h-32 shrink-0 rounded-lg overflow-hidden bg-white">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = 'https://placehold.co/300x200?text=Furniture';
-          }}
-        />
-      </div>
-      <div className="flex-1 flex flex-col justify-between h-full min-w-0">
-        <div>
-          <p className="font-bold text-gray-800 text-sm mb-1">{title}</p>
-          <p className="font-bold text-gray-800 text-lg mb-2">{discount}</p>
-          <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
-        </div>
-        <button className="mt-4 bg-white text-gray-800 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors text-sm w-fit">
-          Browse Now
-        </button>
-      </div>
-    </Link>
-  );
-}

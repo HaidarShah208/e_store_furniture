@@ -39,3 +39,18 @@ export interface SpinnerProps {
   color?: string,
   size?: number
 }
+
+export interface FeatureCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+export interface DiscountCardProps {
+  title: string;
+  discount: string;
+  description: string;
+  image: string;
+  bgColor: string;
+  link: string;
+}

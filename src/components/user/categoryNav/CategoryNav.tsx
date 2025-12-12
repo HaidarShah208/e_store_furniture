@@ -63,7 +63,7 @@ const categories: Category[] = [
 
 export default function CategoryNav() {
   return (
-    <section className="container isolate_bars">
+    <section className="container isolate_bars category-nav">
       <div className="flex items-start gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 flex-wrap">
         {categories.map((category) => (
           <Link

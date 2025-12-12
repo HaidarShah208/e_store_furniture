@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ShoppingCart, Menu, Search, Languages, Heart, User } from 'lucide-react';
 import { useAppSelector } from '../../../redux/hooks';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   DropdownMenu,
@@ -25,9 +25,29 @@ export default function Navbar() {
     setIsMenuOpen(false);
   };
 
+  const [isTransparent, setIsTransparent] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const categoryNav = document.querySelector('.category-nav'); // select CategoryNav
+      if (!categoryNav) return;
+      const rect = categoryNav.getBoundingClientRect();
+      setIsTransparent(rect.bottom <= 0); // true if CategoryNav fully scrolled out
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className=" bg-white sticky top-0 z-50">
-      <div className="isolate_bars mx-auto flex items-center justify-between">
+  <nav
+  className={`sticky top-0 z-50 transition-all duration-500 ${
+    isTransparent
+      ? 'bg-white/30 backdrop-blur-md' // glass effect
+      : 'bg-white'
+  }`}
+>
+      <div className=" py-2 container px-3 mx-auto flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link to="/" className="text-2xl font-bold tracking-tight">
             <img src={logo} alt="logo" className='w-15 h-15' />
@@ -47,6 +67,7 @@ export default function Navbar() {
             <Link to="/" className="hover:text-blue-600 transition-colors">{t('navbar.home')}</Link>
             <Link to="/category/Readymade" className="hover:text-blue-600 transition-colors">{t('navbar.readymade')}</Link>
             <Link to="/category/Unpolished" className="hover:text-blue-600 transition-colors">{t('navbar.unpolished')}</Link>
+            <Link to="/about" className="hover:text-blue-600 transition-colors">{t('navbar.about')}</Link>
           </div>
           
           {wishlistCount >= 0 && (

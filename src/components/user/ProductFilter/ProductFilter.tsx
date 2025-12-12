@@ -78,35 +78,6 @@ export default function ProductFilter({
 
   return (
     <aside className="w-80 shrink-0">
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
-        
-        .font-petit { font-family: 'Playfair Display', serif; }
-        .font-seraphine { font-family: 'Montserrat', sans-serif; }
-        
-        .subtitle { font-size: 1.5rem; font-weight: 600; line-height: 1.4; }
-        .minicontent { font-size: 1.125rem; line-height: 1.6; }
-        .microcontent { font-size: 0.875rem; line-height: 1.5; }
-        
-        input[type="range"]::-webkit-slider-thumb {
-          appearance: none;
-          width: 20px;
-          height: 20px;
-          background: #340a10;
-          cursor: pointer;
-          border-radius: 50%;
-        }
-        
-        input[type="range"]::-moz-range-thumb {
-          width: 20px;
-          height: 20px;
-          background: #340a10;
-          cursor: pointer;
-          border-radius: 50%;
-          border: none;
-        }
-      `}</style>
-
       <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
         <div className="flex items-center justify-between mb-6">
           <h3 className="subtitle font-petit text-primary5">Filters</h3>

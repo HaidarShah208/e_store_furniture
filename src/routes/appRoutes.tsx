@@ -14,6 +14,7 @@ import { ResetPassword } from "@/pages/auth/reset-password/reset-password";
 import OtpVerifiedSuccessfully from "@/pages/auth/otp-verified-successfully/otp-varified-successfully";
 import ForgotPassword from "@/pages/auth/forgot-password/forgot-password";
 import NotFound from "@/components/user/NotFound";
+import About from "@/pages/user/about/about";
 
 export const AppRoutes = () => {
   return (
@@ -26,6 +27,7 @@ export const AppRoutes = () => {
         <Route path="/cart" element={<AddToCart />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/all-brands" element={<AllBrands />} />
+        <Route path="/about" element={<About />} />
       </Route>
 
       <Route path="/auth" element={<AuthLayout />}>

@@ -54,7 +54,7 @@ export default function HeroCarousel({
 
       <div className="relative z-10 h-full flex items-center max-w-4xl mx-auto px-6 md:px-12">
         <div className="text-white space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl font-urbanist leading-tight drop-shadow-lg">
             {slides[current].title}
           </h1>
 
@@ -82,20 +82,20 @@ export default function HeroCarousel({
 
       <button
         aria-label="Previous"
-        className="absolute left-20 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full hover:bg-white shadow-md flex items-center justify-center z-20"
+        className="absolute button left-20 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full hover:bg-white/50 shadow-md flex items-center justify-center z-20"
         onClick={() =>
           setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
         }
       >
-        <ChevronLeft className="h-5 w-5 text-white" />
+        <ChevronLeft className="h-9 w-9 text-gray-300" />
       </button>
 
       <button
         aria-label="Next"
-        className="absolute right-20 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full hover:bg-white shadow-md flex items-center justify-center z-20"
+        className="absolute right-20 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full hover:bg-white/50 shadow-md flex items-center justify-center z-20"
         onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
       >
-        <ChevronRight className="h-5 w-5 text-white" />
+        <ChevronRight className="h-9 w-9 text-gray-300" />
       </button>
     </section>
   );

@@ -119,6 +119,7 @@
   --font-semi-bold: 'Montserrat_SemiBold', sans-serif;
   --font-urbanist: 'Urbanist_Regular', sans-serif;
   --font-rosehot: 'Rosehot', sans-serif;
+  --font-poppins: "Poppins", serif;
 
 }
 
@@ -260,7 +261,7 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(to right, #a5b4fc, #60a5fa);
+  background: linear-gradient(to right, #a5b4fc, #ff0000);
   /* indigo-300 to blue-300 */
   border-radius: 10px;
 }

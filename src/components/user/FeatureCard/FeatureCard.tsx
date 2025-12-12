@@ -9,8 +9,8 @@ export default function FeatureCard({ icon, title, description }: FeatureCardPro
         {icon}
       </div>
       <div className="space-y-1">
-        <h3 className="font-semibold text-lg">{title}</h3>
-        <p className="text-sm text-slate-700 leading-relaxed">{description}</p>
+        <h3 className="font-poppins  text-lg">{title}</h3>
+        <p className="text-sm font-poppins text-slate-700 leading-relaxed">{description}</p>
       </div>
     </div>
   );

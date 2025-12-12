@@ -25,33 +25,37 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <Link to={`/product/${product.id}`} className="group block">
-      <div className="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
-        <div className="relative aspect-square overflow-hidden bg-gray-100">
+      <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gray-200">
+        <div className="relative aspect-square overflow-hidden bg-linear-to-br from-gray-50 to-gray-100">
           <img
             src={product.image}
             alt={product.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             onError={(e) => {
               (e.target as HTMLImageElement).src = 'https://placehold.co/600x400?text=No+Image';
             }}
           />
+          
+          <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          
           {product.isFeatured && (
-            <span className="absolute top-3 left-3 bg-black text-white text-xs font-bold px-2 py-1 rounded">
-            {t('product.featuredBadge')}
+            <span className="absolute top-4 left-4 bg-linear-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+              {t('product.featuredBadge')}
             </span>
           )}
           
-          <div className="absolute top-3 right-3 flex flex-col gap-2">
+          <div className="absolute top-4 right-4 flex flex-col gap-3">
             <button 
               onClick={handleToggleWishlist} 
-              className={`h-9 w-9 flex items-center justify-center rounded-full shadow-lg transition-all duration-300 ${
+              className={`h-7 w-7 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm transition-all duration-500 ${
                 isInWishlist 
-                  ? 'bg-red-500 text-white hover:bg-red-600 opacity-100' 
-                  : 'bg-white text-gray-700 hover:bg-red-500 hover:text-white opacity-0 group-hover:opacity-100'
-              } group-hover:translate-y-0 translate-y-[-10px] group-hover:delay-50`}
+                  ? 'bg-red-500 text-white hover:bg-red-600 opacity-100 translate-x-0' 
+                  : 'bg-white/90 text-gray-700 hover:bg-red-500 hover:text-white opacity-0 translate-x-12 group-hover:opacity-100 group-hover:translate-x-0'
+              } group-hover:delay-75`}
               title={isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
               style={{
-                transitionProperty: 'opacity, transform, background-color, color',
+                transitionProperty: 'all',
+                transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
               }}
             >
               <Heart className={`h-4 w-4 transition-all ${isInWishlist ? 'fill-current' : ''}`} />
@@ -59,21 +63,24 @@ export default function ProductCard({ product }: { product: Product }) {
             
             <Link
               to={`/product/${product.id}`}
-              className="h-9 w-9 flex items-center justify-center rounded-full bg-white shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-[-10px] group-hover:translate-y-0 group-hover:delay-150"
+              className="h-7 w-7 flex items-center justify-center rounded-full bg-white/90 backdrop-blur-sm shadow-lg hover:bg-linear-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-500 opacity-0 translate-x-12 group-hover:opacity-100 group-hover:translate-x-0 group-hover:delay-150"
               title="Quick view"
               onClick={(e) => e.stopPropagation()}
               style={{
-                transitionProperty: 'opacity, transform, background-color, color',
+                transitionProperty: 'all',
+                transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
               }}
             >
               <Eye className="h-4 w-4" />
             </Link>
+            
             <button 
               onClick={handleAddToCart} 
-              className="h-9 w-9 flex items-center justify-center rounded-full bg-white shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-[10px] group-hover:translate-y-0 group-hover:del ay-[250ms]"
+              className="h-7 w-7 flex items-center justify-center rounded-full bg-white/90 backdrop-blur-sm shadow-lg hover:bg-linear-to-r hover:from-green-500 hover:to-emerald-500 hover:text-white transition-all duration-500 opacity-0 translate-x-12 group-hover:opacity-100 group-hover:translate-x-0 group-hover:delay-225"
               title="Add to cart"
               style={{
-                transitionProperty: 'opacity, transform, background-color, color',
+                transitionProperty: 'all',
+                transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
               }}
             >
               <ShoppingCart className="h-4 w-4" />
@@ -81,13 +88,37 @@ export default function ProductCard({ product }: { product: Product }) {
           </div>
 
         </div>
-        <div className="p-4">
-          <div className="flex justify-between items-start mb-1">
-            <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">{product.category}</p>
-            <p className="text-xs text-gray-500">{product.finishType}</p>
+        
+        <div className="p-5">
+          <div className="flex justify-between items-start mb-2">
+            <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider">{product.category}</p>
+            <span className="text-xs px-2 py-1 bg-linear-to-r from-blue-50 to-purple-50 text-blue-700 rounded-md font-medium">
+              {product.finishType}
+            </span>
           </div>
-          <h3 className="font-semibold text-lg mb-1 group-hover:text-blue-600 transition-colors line-clamp-1">{product.title}</h3>
-          <p className="font-bold text-lg">{formatPrice(product.price)}</p>
+          <h3 className="font-bold text-lg mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300 line-clamp-2 leading-tight">
+            {product.title}
+          </h3>
+          <div className="flex items-center justify-between">
+            <p className="font-bold text-xl bg-linear-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+              {formatPrice(product.price)}
+            </p>
+            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex gap-1">
+                {product.colors.slice(0, 3).map((color, idx) => (
+                  <div
+                    key={idx}
+                    className="w-4 h-4 rounded-full border-2 border-white shadow-sm"
+                    style={{ backgroundColor: color.toLowerCase() }}
+                    title={color}
+                  />
+                ))}
+                {product.colors.length > 3 && (
+                  <span className="text-xs text-gray-500 ml-1">+{product.colors.length - 3}</span>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Link>

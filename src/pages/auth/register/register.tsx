@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { RegisterSchema } from "@/utils/schema";
 import FormControl from "@/components/common/FormControl";
 import Button from "@/components/common/Button";
-import sargelogo from '@/assets/Logo.svg'
+import sargelogo from '@/assets/Logo.png'
 
 export default function Register() {
   const initialValues: RegisterValues = {

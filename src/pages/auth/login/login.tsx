@@ -4,7 +4,7 @@ import FormControl from '@/components/common/FormControl';
 import { LoginSchema } from '@/utils/schema';
 import type { LoginValues } from '@/types/api/auth';
 import { Link, useNavigate } from 'react-router-dom';
-import sargelogo from '@/assets/Logo.svg'
+import sargelogo from '@/assets/Logo.png'
 
 export default function Login() {
    const initialValues: LoginValues = { email: "", password: "" };

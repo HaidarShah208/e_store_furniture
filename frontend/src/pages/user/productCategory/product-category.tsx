@@ -181,9 +181,8 @@ export default function ProductCategory() {
 
   return (
     <div className="w-full">
-      {/* Category Hero Image Section */}
       {categoryImage && (
-        <div className="relative w-[85%] mx-auto h-64 md:h-96 lg:h-[330px] mb-8 md:mb-12">
+        <div className="relative w-[90%] mx-auto h-64 md:h-96 lg:h-[330px] mb-8 md:mb-12">
           <img
             src={categoryImage}
             alt={displayName}
@@ -206,9 +205,7 @@ export default function ProductCategory() {
           </div>
         </div>
       )}
-
       <div className="container mx-auto px-4 py-6">
-        {/* Results Header */}
         <div className="flex justify-between items-center mb-6">
           <p className="text-sm md:text-base text-gray-600 font-medium">
             SHOWING ALL {filteredProducts.length} RESULTS
@@ -232,17 +229,12 @@ export default function ProductCategory() {
           </div>
         </div>
 
-        {/* Flex Layout: Filters (Left) + Products (Right) */}
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Left Sidebar - Filters (1 column) */}
           <aside className="w-full lg:w-[280px] shrink-0 bg-white   rounded-lg p-5 shadow-sm h-fit">
-            {/* Price Filter */}
             <div className="mb-8">
               <h3 className="text-lg font-semibold mb-4 text-gray-800">Filter by price</h3>
               <div className="space-y-4">
-                {/* Dual Range Slider Container */}
                 <div className="relative h-2 bg-gray-200 rounded-lg">
-                  {/* Track */}
                   <div 
                     className="absolute h-2 bg-blue-600 rounded-lg"
                     style={{
@@ -250,7 +242,6 @@ export default function ProductCategory() {
                       width: `${((priceRange[1] - priceRange[0]) / (priceMinMax.max - priceMinMax.min)) * 100}%`
                     }}
                   />
-                  {/* Min Handle */}
                   <input
                     type="range"
                     min={priceMinMax.min}
@@ -263,7 +254,6 @@ export default function ProductCategory() {
                       WebkitAppearance: 'none',
                     }}
                   />
-                  {/* Max Handle */}
                   <input
                     type="range"
                     min={priceMinMax.min}
@@ -276,7 +266,6 @@ export default function ProductCategory() {
                       WebkitAppearance: 'none',
                     }}
                   />
-                  {/* Custom Handles */}
                   <div 
                     className="absolute w-4 h-4 bg-white border-2 border-blue-600 rounded-full top-1/2 -translate-y-1/2 cursor-pointer shadow-md hover:scale-110 transition-transform z-20"
                     style={{ left: `calc(${((priceRange[0] - priceMinMax.min) / (priceMinMax.max - priceMinMax.min)) * 100}% - 8px)` }}
@@ -336,7 +325,6 @@ export default function ProductCategory() {
             </div>
           </aside>
 
-          {/* Right Side - Product Grid (3 columns) */}
           <main className="flex-1 min-w-0">
             {status === 'loading' ? (
               <div className="text-center py-12">{t('category.loading')}</div>

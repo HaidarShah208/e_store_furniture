@@ -31,7 +31,7 @@ export default function Benefits() {
   ];
 
   return (
-    <div className="border-t bg-gray-200 border-gray-200 py-12 mt-12">
+    <div className="border-t isolate_bars bg-gray-200 border-gray-200 child">
       <div className="grid px-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {benefits.map((benefit, index) => (
           <div key={index} className="flex flex-col items-center text-center">

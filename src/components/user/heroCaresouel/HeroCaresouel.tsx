@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function HeroCarousel({
   slides,
@@ -63,40 +64,42 @@ export default function HeroCarousel({
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <Link
-              to="/category/Readymade"
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-white text-blue-700 shadow-lg hover:bg-gray-100 h-11 px-6"
-            >
-              {slides[current].ctaPrimary}
-            </Link>
+            <Button asChild size="lg" className="bg-white text-blue-700 shadow-lg hover:bg-gray-100">
+              <Link to="/category/Readymade">
+                {slides[current].ctaPrimary}
+              </Link>
+            </Button>
 
-            <Link
-              to="/category/Unpolished"
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-white/70 text-white hover:bg-white hover:text-blue-700 h-11 px-6"
-            >
-              {slides[current].ctaSecondary}
-            </Link>
+            <Button asChild size="lg" variant="outline" className="border-white/70 text-white hover:bg-white hover:text-blue-700">
+              <Link to="/category/Unpolished">
+                {slides[current].ctaSecondary}
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
 
-      <button
+      <Button
+        variant="ghost"
+        size="icon"
         aria-label="Previous"
-        className="absolute button left-20 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full hover:bg-white/50 shadow-md flex items-center justify-center z-20"
+        className="absolute left-20 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full hover:bg-white/50 shadow-md z-20"
         onClick={() =>
           setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
         }
       >
         <ChevronLeft className="h-9 w-9 text-gray-300" />
-      </button>
+      </Button>
 
-      <button
+      <Button
+        variant="ghost"
+        size="icon"
         aria-label="Next"
-        className="absolute right-20 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full hover:bg-white/50 shadow-md flex items-center justify-center z-20"
+        className="absolute right-20 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full hover:bg-white/50 shadow-md z-20"
         onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
       >
         <ChevronRight className="h-9 w-9 text-gray-300" />
-      </button>
+      </Button>
     </section>
   );
 }

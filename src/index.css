@@ -138,7 +138,7 @@
 }
 
 .isolate_bars {
-  @apply px-7 md:px-16 lg:px-22 py-2 md:py-3 lg:py-4;
+  @apply px-7 md:px-12 lg:px-14 py-2 md:py-3 lg:py-4;
 }
 
 .child_bars {
@@ -183,11 +183,11 @@
 }
 
 .paddingtop {
-  @apply pt-6 md:pt-12 lg:pt-24;
+  @apply pt-6 md:pt-10 lg:pt-14;
 }
 
 .paddingbottom {
-  @apply pb-6 md:pb-12 lg:pb-24;
+  @apply pb-6 md:pb-10 lg:pb-14;
 }
 
 /* components */
@@ -198,7 +198,7 @@
 /* Font Configuration */
 
 .title {
-  @apply text-3xl md:text-5xl lg:text-7xl xl:text-7xl;
+  @apply text-3xl md:text-5xl lg:text-5xl xl:text-5xl;
 }
 
 .subtitle {
@@ -218,7 +218,7 @@
 }
 
 .subheading3 {
-  @apply text-base md:text-lg lg:text-2xl xl:text-2xl;
+  @apply text-sm md:text-base lg:text-lg xl:text-xl;
 }
 
 .content {

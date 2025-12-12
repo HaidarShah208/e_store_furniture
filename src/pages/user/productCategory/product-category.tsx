@@ -135,9 +135,9 @@ export default function ProductCategory() {
 
 
   return (
-    <div className="w-full">
+    <div className="w-full isolate_bars">
       {categoryImage && (
-        <div className="relative w-[90%] mx-auto h-64 md:h-96 lg:h-[330px] mb-8 md:mb-12">
+        <div className="relative mx-auto h-64 md:h-96 lg:h-[330px] my-8 md:my-12">
           <img
             src={categoryImage}
             alt={displayName}
@@ -160,9 +160,8 @@ export default function ProductCategory() {
           </div>
         </div>
       )}
-      <div className="container mx-auto px-4 py-6">
-        <div className="flex justify-between items-center mb-6">
-          <p className="text-sm md:text-base text-gray-600 font-medium">
+      <div className="flex justify-between items-center">
+          <p className="subheading3 paddingbottom text-gray-600 font-medium">
             SHOWING ALL {filteredProducts.length} RESULTS
           </p>
           <div className="relative">
@@ -211,6 +210,5 @@ export default function ProductCategory() {
           </main>
         </div>
       </div>
-    </div>
   );
 }

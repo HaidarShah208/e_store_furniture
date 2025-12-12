@@ -34,10 +34,9 @@ export default function BrowseByRooms() {
   ];
 
   return (
-    <section className="container px-4 mx-auto">
+    <section className="isolate_bars paddingtop paddingbottom">
       <div className="bg-linear-to-br from-slate-800 to-slate-900 rounded-3xl overflow-hidden p-8 md:p-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Section - Main Featured Room */}
           <div className="flex flex-col justify-between">
             <div className="mb-1">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">

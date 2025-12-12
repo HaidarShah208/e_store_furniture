@@ -1,5 +1,6 @@
 import { DiscountCardProps } from '@/types/types';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 
 
@@ -32,9 +33,9 @@ export default function DiscountCard({
           <p className="font-bold text-gray-800 text-lg mb-2">{discount}</p>
           <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
         </div>
-        <button className="mt-4 bg-white text-gray-800 font-medium px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors text-sm w-fit">
+        <Button variant="secondary" size="sm" className="mt-4 bg-white text-gray-800 font-medium hover:bg-gray-50 w-fit">
           Browse Now
-        </button>
+        </Button>
       </div>
     </Link>
   );

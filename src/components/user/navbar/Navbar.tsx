@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <nav className=" bg-white sticky top-0 z-50">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="isolate_bars mx-auto flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link to="/" className="text-2xl font-bold tracking-tight">
             FURNI<span className="text-blue-600">.</span>

@@ -33,7 +33,7 @@ export default function Home() {
   const featuredProducts = products.filter((p) => p.isFeatured);
 
   return (
-    <div className="flex flex-col gap-16 pb-16 overflow-x-hidden">
+    <div className="flex flex-col overflow-x-hidden">
      <HeroCarousel slides={slides} autoPlay={true} interval={5000} />
 
 
@@ -58,9 +58,9 @@ export default function Home() {
       </section>
 
 
-      <section className="container px-4 mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center">{t('home.finishHeadline')}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="  mx-auto">
+        <h2 className="title paddingtop paddingbottom font-bold  text-center">{t('home.finishHeadline')}</h2>
+        <div className="grid isolate_bars grid-cols-1 md:grid-cols-2 gap-8">
           <Link to="/category/Readymade" className="group relative h-80 overflow-hidden rounded-lg bg-gray-200 cursor-pointer block">
             <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/50 transition-colors z-10">
               <h3 className="text-4xl font-bold text-white">{t('home.readymade')}</h3>
@@ -84,9 +84,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container px-4 mx-auto">
+      <section className="isolate_bars">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl font-bold">{t('home.featured')}</h2>
+          <h2 className="title paddingtop paddingbottom font-bold">{t('home.featured')}</h2>
         </div>
         
         {status === 'loading' ? (
@@ -99,7 +99,7 @@ export default function Home() {
       <BrowseByRooms />
 
       
-      <section className="container px-4 mx-auto">
+      <section className="isolate_bars">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <DiscountCard
             title="Special Discount"

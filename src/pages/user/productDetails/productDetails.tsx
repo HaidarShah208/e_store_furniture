@@ -4,11 +4,12 @@ import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { fetchProducts } from '../../../redux/slices/productsSlice';
 import { addToCart } from '../../../redux/slices/cartSlice';
 import { formatPrice } from '../../../utils/formatPrice';
-import { Check, Star, Ruler } from 'lucide-react';
+import { Check, Star, Ruler, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SizeGuideModal from '../../../components/user/sizeGuideModal/SizeGuideModal';
 import ProductTabs from '../../../components/common/productTabs/ProductTabs';
 import Benefits from '../../../components/user/benefits/Benefits';
+import { Button } from '@/components/ui/button';
 
 export default function ProductDetails() {
   const { id } = useParams<{ id: string }>();
@@ -97,30 +98,30 @@ export default function ProductDetails() {
                 }}
               />
               {selectedImageIndex > 0 && (
-                <button
+                <Button
+                  variant="ghost"
+                  size="icon"
                   onClick={(e) => {
                     e.stopPropagation();
                     setSelectedImageIndex(prev => Math.max(0, prev - 1));
                   }}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all opacity-0 group-hover:opacity-100 z-10"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg opacity-0 group-hover:opacity-100"
                 >
-                  <svg className="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
+                  <ChevronLeft className="h-5 w-5" />
+                </Button>
               )}
               {selectedImageIndex < productImages.length - 1 && (
-                <button
+                <Button
+                  variant="ghost"
+                  size="icon"
                   onClick={(e) => {
                     e.stopPropagation();
                     setSelectedImageIndex(prev => Math.min(productImages.length - 1, prev + 1));
                   }}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all opacity-0 group-hover:opacity-100 z-10"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg opacity-0 group-hover:opacity-100"
                 >
-                  <svg className="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
+                  <ChevronRight className="h-5 w-5" />
+                </Button>
               )}
             </div>
 
@@ -178,17 +179,15 @@ export default function ProductDetails() {
                   <h3 className="font-medium mb-3">{t('product.color')}</h3>
                   <div className="flex gap-3">
                     {product.colors.map((color:any) => (
-                      <button
+                      <Button
                         key={color}
+                        variant={selectedColor === color ? "default" : "outline"}
+                        size="sm"
                         onClick={() => setSelectedColor(color)}
-                        className={`px-4 py-2 rounded-full border text-sm transition-all ${
-                          selectedColor === color 
-                            ? 'border-blue-600 bg-blue-600 text-white' 
-                            : 'border-gray-200 hover:bg-gray-50'
-                        }`}
+                        className={selectedColor === color ? "bg-blue-600 text-white" : ""}
                       >
                         {color}
-                      </button>
+                      </Button>
                     ))}
                   </div>
                 </div>
@@ -199,17 +198,15 @@ export default function ProductDetails() {
                   <h3 className="font-medium mb-3">{t('product.size')}</h3>
                   <div className="flex gap-3">
                     {product.sizes.map((size:any) => (
-                      <button
+                      <Button
                         key={size}
+                        variant={selectedSize === size ? "default" : "outline"}
+                        size="sm"
                         onClick={() => setSelectedSize(size)}
-                        className={`px-4 py-2 rounded-full border text-sm transition-all ${
-                          selectedSize === size 
-                            ? 'border-blue-600 bg-blue-600 text-white' 
-                            : 'border-gray-200 hover:bg-gray-50'
-                        }`}
+                        className={selectedSize === size ? "bg-blue-600 text-white" : ""}
                       >
                         {size}
-                      </button>
+                      </Button>
                     ))}
                   </div>
                 </div>
@@ -217,29 +214,31 @@ export default function ProductDetails() {
             </div>
 
             <div className="mt-auto space-y-4">
-              <button 
-                className="w-full md:w-auto min-w-[200px] h-12 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors"
+              <Button 
+                className="w-full md:w-auto min-w-[200px] h-12 bg-blue-600 text-white font-medium hover:bg-blue-700"
+                size="lg"
                 onClick={handleAddToCart}
               >
                 {t('product.addToCart')}
-              </button>
+              </Button>
               
               <p className="text-sm text-gray-500 flex items-center gap-2">
                 <Check className="w-4 h-4 text-green-500" /> {t('product.inStock')}
               </p>
 
-              <button
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={() => setIsSizeGuideOpen(true)}
-                className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+                className="flex items-center gap-2 text-gray-600 hover:text-blue-600 w-fit px-0"
               >
                 <Ruler className="w-4 h-4" />
                 <span>Size Guide</span>
-              </button>
+              </Button>
             </div>
           </div>
         </div>
 
-        <div className="mt-16">
           <ProductTabs 
             description={product.description}
             category={product.category}
@@ -247,7 +246,6 @@ export default function ProductDetails() {
           />
           <Benefits />
         </div>
-      </div>
 
       <SizeGuideModal
         isOpen={isSizeGuideOpen}

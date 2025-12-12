@@ -4,8 +4,8 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-slate-900 text-slate-300 py-12">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-slate-900 text-slate-300 paddingtop paddingbottom">
+      <div className=" isolate_bars grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <h3 className="text-white text-lg font-bold mb-4">{t('brand')}</h3>
           <p className="text-sm leading-relaxed">

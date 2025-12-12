@@ -1,7 +1,7 @@
  
+import { SpinnerProps } from "@/types/types";
 import type { CSSProperties } from "react";
 import { ClipLoader } from "react-spinners";
-import type { SpinnerProps } from "../../lib/type/componentTypes";
 const override: CSSProperties = {
   margin: "auto 0",
 };

@@ -34,3 +34,8 @@ export interface ButtonProps {
   className?: string;
   onClick?: () => void;
 }
+
+export interface SpinnerProps {
+  color?: string,
+  size?: number
+}

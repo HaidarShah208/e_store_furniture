@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
-
+import logo from '@/assets/logo.png';
 export default function Navbar() {
   const cartItems = useAppSelector((state) => state.cart.items);
   const wishlistItems = useAppSelector((state) => state.wishlist.items);
@@ -28,9 +28,9 @@ export default function Navbar() {
   return (
     <nav className=" bg-white sticky top-0 z-50">
       <div className="isolate_bars mx-auto flex items-center justify-between">
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-3">
           <Link to="/" className="text-2xl font-bold tracking-tight">
-            FURNI<span className="text-blue-600">.</span>
+            <img src={logo} alt="logo" className='w-15 h-15' />
           </Link>
           <div className="hidden md:flex relative w-64">
             <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-400" />

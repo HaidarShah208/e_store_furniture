@@ -49,3 +49,25 @@ export const EmailSchema = Yup.object().shape({
       .min(8, "Password must be at least 8 characters long")
       .max(32, "Password cannot exceed 32 characters"),
   });
+
+export const ContactFormSchema = Yup.object().shape({
+  fullName: Yup.string()
+    .min(2, "Full name must be at least 2 characters")
+    .required("Full name is required"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required"),
+  phone: Yup.string()
+    .test('is-valid-phone', 'Invalid phone number (must be 9–16 digits with valid country code)', function(value) {
+      if (!value) return true; // Optional field
+      // Remove all non-digit characters
+      const digitsOnly = value.replace(/\D/g, '');
+      return digitsOnly.length >= 9 && digitsOnly.length <= 16;
+    })
+    .optional(),
+  subject: Yup.string().optional(),
+  service: Yup.string().required("Please select a service"),
+  message: Yup.string()
+    .min(10, "Message must be at least 10 characters")
+    .required("Message is required"),
+});

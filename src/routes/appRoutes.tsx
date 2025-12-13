@@ -15,7 +15,7 @@ import OtpVerifiedSuccessfully from "@/pages/auth/otp-verified-successfully/otp-
 import ForgotPassword from "@/pages/auth/forgot-password/forgot-password";
 import NotFound from "@/components/user/NotFound";
 import About from "@/pages/user/about/about";
-
+import Contact from "@/pages/user/contactUs/contact-us";
 export const AppRoutes = () => {
   return (
     <Routes>
@@ -28,6 +28,7 @@ export const AppRoutes = () => {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/all-brands" element={<AllBrands />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Route>
 
       <Route path="/auth" element={<AuthLayout />}>

@@ -47,7 +47,7 @@ export default function Navbar() {
       : 'bg-white'
   }`}
 >
-      <div className=" py-2 container px-3 mx-auto flex items-center justify-between">
+      <div className="  isolate_bars mx-auto flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link to="/" className="text-2xl font-bold tracking-tight">
             <img src={logo} alt="logo" className='w-15 h-15' />
@@ -68,6 +68,7 @@ export default function Navbar() {
             <Link to="/category/Readymade" className="hover:text-blue-600 transition-colors">{t('navbar.readymade')}</Link>
             <Link to="/category/Unpolished" className="hover:text-blue-600 transition-colors">{t('navbar.unpolished')}</Link>
             <Link to="/about" className="hover:text-blue-600 transition-colors">{t('navbar.about')}</Link>
+            <Link to="/contact" className="hover:text-blue-600 transition-colors">{t('navbar.contact')}</Link>
           </div>
           
           {wishlistCount >= 0 && (
@@ -117,6 +118,8 @@ export default function Navbar() {
           <Link to="/" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.home')}</Link>
           <Link to="/category/Readymade" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.readymade')}</Link>
           <Link to="/category/Unpolished" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.unpolished')}</Link>
+          <Link to="/about" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.about')}</Link>
+          <Link to="/contact" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.contact')}</Link>
           <div className="flex items-center gap-3 pt-2">
             <span className="text-sm font-medium text-gray-600">{t('navbar.language')}:</span>
             <button

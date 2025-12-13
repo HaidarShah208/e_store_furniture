@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const ContactHeroSection: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <section className="relative w-full min-h-[80vh] flex items-center justify-center px-6 md:px-12 py-12 bg-linear-to-b from-indigo-50 to-blue-50 overflow-hidden">
       {/* Gradient Circles */}
@@ -15,10 +17,10 @@ const ContactHeroSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-6"
         >
-          Let’s Build Something 
+          {t('contact.hero.titleLine1')} 
           <br />
           <span className="bg-linear-to-r from-indigo-600 via-blue-500 to-purple-600 text-transparent bg-clip-text">
-           Great Together
+           {t('contact.hero.titleLine2')}
           </span>
         </motion.h1>
 
@@ -28,8 +30,7 @@ const ContactHeroSection: React.FC = () => {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-lg text-gray-600 max-w-2xl mx-auto"
         >
-          Have an idea, question, or just want to say hi? We’d love to hear from you. 
-          Drop us a message and we’ll get back to you within 24 hours.
+          {t('contact.hero.description')}
         </motion.p>
       </div>
     </section>

@@ -4,9 +4,11 @@ import {useNavigate } from "react-router-dom";
 import type { LoginValues } from "@/types/api/auth";
 import { useState } from "react";
 import { OTPInput } from "./component/otpInput";
+import { useTranslation } from "react-i18next";
  
 
 export const VerifyOtp = () => {
+    const { t } = useTranslation();
     const navigate = useNavigate();
     const [otp, setOtp] = useState<string[]>([]);
     const initialValues: LoginValues = { email: "" };
@@ -39,17 +41,17 @@ export const VerifyOtp = () => {
                 d="M15 19l-7-7 7-7"
               />
             </svg>
-            <span className="text-xl font-medium">Verify</span>
+            <span className="text-xl font-medium">{t('auth.verifyOtp.title')}</span>
           </button>
         </div>
 
         <div className="flex-1 flex flex-col justify-center">
           <div className="mb-8 text-center">
             <h1 className="mb-2 font-medium text-gray-800 text-xl dark:text-white/90">
-              Reset code sent to your email
+              {t('auth.verifyOtp.resetCodeSent')}
             </h1>
             <p className="text-sm text-primaryGray dark:text-gray-400">
-              We’ve sent a 4-digit code to your department email.
+              {t('auth.verifyOtp.description')}
             </p>
           </div>
 
@@ -66,7 +68,7 @@ export const VerifyOtp = () => {
 
         <div className="mt-auto pt-8 pb-6">
           <Button
-            buttonText="Verify"
+            buttonText={t('auth.verifyOtp.verify')}
             type="submit"
             className="rounded-2xl w-full"
             onClick={() => {

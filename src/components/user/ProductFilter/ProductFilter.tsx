@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // Color name to hex code mapping
 const colorMap: Record<string, string> = {
@@ -60,6 +61,7 @@ export default function ProductFilter({
   onColorChange,
   availableColors
 }: ProductFilterProps) {
+  const { t } = useTranslation();
   
   const getColorHex = (colorName: string): string => {
     return colorMap[colorName] || '#CCCCCC';
@@ -80,20 +82,20 @@ export default function ProductFilter({
     <aside className="w-80 shrink-0">
       <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="subtitle font-petit text-primary5">Filters</h3>
+          <h3 className="subtitle font-petit text-primary5">{t('filters.title')}</h3>
           {hasActiveFilters && (
             <button
               onClick={clearAllFilters}
               className="microcontent font-seraphine text-primary4 hover:text-primary5 transition-colors"
             >
-              Clear All
+              {t('filters.clearAll')}
             </button>
           )}
         </div>
 
         {/* Price Range */}
         <div className="mb-8">
-          <h4 className="minicontent font-seraphine font-semibold text-primary5 mb-4">Price Range</h4>
+          <h4 className="minicontent font-seraphine font-semibold text-primary5 mb-4">{t('filters.priceRange')}</h4>
           <div className="space-y-4">
             <div className="relative">
               <input
@@ -114,7 +116,7 @@ export default function ProductFilter({
 
         {/* Colors */}
         <div className="mb-8">
-          <h4 className="minicontent font-seraphine font-semibold text-primary5 mb-4">Colors</h4>
+          <h4 className="minicontent font-seraphine font-semibold text-primary5 mb-4">{t('filters.colors')}</h4>
           {availableColors.length > 0 ? (
             <div className="grid grid-cols-5 gap-3">
               {availableColors.map((color) => (
@@ -142,7 +144,7 @@ export default function ProductFilter({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
               </svg>
             </div>
-            <p className="text-primary4 font-medium mb-1">No Colors Available</p>
+            <p className="text-primary4 font-medium mb-1">{t('filters.noColorsAvailable')}</p>
           </div>
           )}
         </div>

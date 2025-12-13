@@ -4,12 +4,14 @@ import { removeFromCart, updateQuantity } from '../../../redux/slices/cartSlice'
 import { toggleWishlist } from '../../../redux/slices/wishlistSlice';
 import { CartItem as CartItemType } from '../../../types/types';
 import { formatPrice } from '../../../utils/formatPrice';
+import { useTranslation } from 'react-i18next';
 
 interface CartItemProps {
   item: CartItemType;
 }
 
 export default function CartItem({ item }: CartItemProps) {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const wishlistItems = useAppSelector((state) => state.wishlist.items);
   const isInWishlist = wishlistItems.some((wishItem) => wishItem.id === item.id);
@@ -52,7 +54,7 @@ export default function CartItem({ item }: CartItemProps) {
       <button
         onClick={handleRemove}
         className="p-1 hover:bg-gray-100 rounded-full transition-colors shrink-0"
-        title="Remove from cart"
+        title={t('cart.removeFromCart')}
       >
         <X className="w-5 h-5 text-gray-400 hover:text-gray-600" />
       </button>
@@ -61,7 +63,7 @@ export default function CartItem({ item }: CartItemProps) {
       <button
         onClick={handleToggleWishlist}
         className="p-1 hover:bg-gray-100 rounded-full transition-colors shrink-0"
-        title={isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+        title={isInWishlist ? t('cart.removeFromWishlist') : t('cart.addToWishlist')}
       >
         <Heart 
           className={`w-5 h-5 transition-colors ${
@@ -120,7 +122,7 @@ export default function CartItem({ item }: CartItemProps) {
       <div className="text-right shrink-0 min-w-[80px]">
         <p className="font-bold text-gray-900">{formatPrice(item.price * item.quantity)}</p>
         {item.quantity > 1 && (
-          <p className="text-xs text-gray-500">{formatPrice(item.price)} each</p>
+          <p className="text-xs text-gray-500">{formatPrice(item.price)} {t('cart.each')}</p>
         )}
       </div>
     </div>

@@ -4,9 +4,11 @@ import FormControl from '@/components/common/FormControl';
 import { LoginSchema } from '@/utils/schema';
 import type { LoginValues } from '@/types/api/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import sargelogo from '@/assets/Logo.png'
 
 export default function Login() {
+   const { t } = useTranslation();
    const initialValues: LoginValues = { email: "", password: "" };
    const navigate = useNavigate();
 
@@ -26,10 +28,10 @@ export default function Login() {
                </div>
                
                <h1 className="text-xl font-semibold text-gray-900 mb-1">
-                  Welcome to Sarge
+                  {t('auth.signin.welcomeToSarge')}
                </h1>
                <p className="text-sm font-medium text-primaryGray">
-                  Login to your account
+                  {t('auth.signin.loginToAccount')}
                </p>
             </div>
 
@@ -47,7 +49,7 @@ export default function Login() {
                            label=""
                            type="email"
                            name="email"
-                           placeholder="Enter your Department email"
+                           placeholder={t('auth.signin.departmentEmailPlaceholder')}
                         />
 
                         <FormControl
@@ -56,12 +58,12 @@ export default function Login() {
                            label=""
                            type="password"
                            name="password" 
-                           placeholder="Enter your Password"
+                           placeholder={t('auth.signin.passwordPlaceholder')}
                         />
 
                         <div className="pt-2">
                            <Button
-                              buttonText="Login"
+                              buttonText={t('auth.signin.login')}
                               type="submit"
                               className="w-full bg-black border-none rounded-2xl"
                            />
@@ -72,25 +74,25 @@ export default function Login() {
                               to="/auth/forgot-password" 
                               className="text-sm text-primaryGray hover:underline"
                            >
-                              Forgot your password?
+                              {t('auth.signin.forgotPassword')}
                            </Link>
                         </div>
 
                         <div className="relative my-6">
                            <div className="relative flex justify-center text-sm">
-                              <span className="px-2 bg-white text-gray-500">or</span>
+                              <span className="px-2 bg-white text-gray-500">{t('auth.or')}</span>
                            </div>
                         </div>
 
                         <div className="text-center pt-4">
                            <span className="text-sm text-gray-600">
-                              Don't have an account?{' '}
+                              {t('auth.signin.noAccount')}{' '}
                            </span>
                            <Link 
                               to="/auth/sign-up" 
                               className="text-sm hover:underline font-bold"
                            >
-                              Sign Up
+                              {t('auth.signin.signUp')}
                            </Link>
                         </div>
                      </Form>

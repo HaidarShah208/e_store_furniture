@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface ProductTabsProps {
   description: string;
@@ -8,12 +9,13 @@ interface ProductTabsProps {
 }
 
 export default function ProductTabs({ description, category, finishType, material }: ProductTabsProps) {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'description' | 'additionalInfo' | 'reviews'>('description');
 
   const tabs = [
-    { id: 'description' as const, label: 'DESCRIPTION' },
-    { id: 'additionalInfo' as const, label: 'ADDITIONAL INFORMATION' },
-    { id: 'reviews' as const, label: 'REVIEWS (0)' }
+    { id: 'description' as const, label: t('product.tabs.description') },
+    { id: 'additionalInfo' as const, label: t('product.tabs.additionalInfo') },
+    { id: 'reviews' as const, label: t('product.tabs.reviews') }
   ];
 
   return (
@@ -56,15 +58,15 @@ export default function ProductTabs({ description, category, finishType, materia
         {activeTab === 'additionalInfo' && (
           <div className="space-y-3">
             <div className="grid grid-cols-2 gap-4 py-3 border-b border-gray-200">
-              <span className="text-gray-600 font-medium">Category</span>
-              <span className="text-gray-800">{category || 'N/A'}</span>
+              <span className="text-gray-600 font-medium">{t('product.additionalInfo.category')}</span>
+              <span className="text-gray-800">{category || t('product.additionalInfo.na')}</span>
             </div>
             <div className="grid grid-cols-2 gap-4 py-3 border-b border-gray-200">
-              <span className="text-gray-600 font-medium">Finish Type</span>
-              <span className="text-gray-800">{finishType || 'N/A'}</span>
+              <span className="text-gray-600 font-medium">{t('product.additionalInfo.finishType')}</span>
+              <span className="text-gray-800">{finishType || t('product.additionalInfo.na')}</span>
             </div>
             <div className="grid grid-cols-2 gap-4 py-3 border-b border-gray-200">
-              <span className="text-gray-600 font-medium">Material</span>
+              <span className="text-gray-600 font-medium">{t('product.additionalInfo.material')}</span>
               <span className="text-gray-800">{material || 'Wood, Fabric'}</span>
             </div>
           </div>
@@ -72,8 +74,8 @@ export default function ProductTabs({ description, category, finishType, materia
 
         {activeTab === 'reviews' && (
           <div className="text-center py-12 text-gray-500">
-            <p className="text-lg mb-2">No reviews yet</p>
-            <p className="text-sm">Be the first to review this product</p>
+            <p className="text-lg mb-2">{t('product.reviews.noReviews')}</p>
+            <p className="text-sm">{t('product.reviews.beFirst')}</p>
           </div>
         )}
       </div>

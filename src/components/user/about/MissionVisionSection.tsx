@@ -1,32 +1,32 @@
 import { motion } from "framer-motion";
 import { Lightbulb, Target, ShieldCheck } from "lucide-react";
 import { Card, CardContent } from "./card";
-
-const items = [
-  {
-    title: "Our Mission",
-    icon: <Target className="w-8 h-8 text-indigo-600" />,
-    description:
-      "To provide every home with exceptional furniture that combines style, comfort, and affordability, making quality living accessible to all.",
-    highlights: ["Quality-driven", "Customer-focused", "Affordable luxury"],
-  },
-  {
-    title: "Our Vision",
-    icon: <Lightbulb className="w-8 h-8 text-yellow-500" />,
-    description:
-      "To become the most trusted furniture e-store globally, transforming living spaces with innovative designs and sustainable craftsmanship.",
-    highlights: ["Global reach", "Innovative designs", "Sustainable growth"],
-  },
-  {
-    title: "Our Values",
-    icon: <ShieldCheck className="w-8 h-8 text-green-600" />,
-    description:
-      "Quality, sustainability, and customer satisfaction are at the core of everything we do. We craft with integrity, passion, and attention to detail.",
-    highlights: ["Quality first", "Eco-friendly", "Customer care"],
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const MissionVisionSection: React.FC = () => {
+  const { t } = useTranslation();
+  
+  const items = [
+    {
+      title: t('about.missionVision.mission.title'),
+      icon: <Target className="w-8 h-8 text-indigo-600" />,
+      description: t('about.missionVision.mission.description'),
+      highlights: t('about.missionVision.mission.highlights', { returnObjects: true }) as string[],
+    },
+    {
+      title: t('about.missionVision.vision.title'),
+      icon: <Lightbulb className="w-8 h-8 text-yellow-500" />,
+      description: t('about.missionVision.vision.description'),
+      highlights: t('about.missionVision.vision.highlights', { returnObjects: true }) as string[],
+    },
+    {
+      title: t('about.missionVision.values.title'),
+      icon: <ShieldCheck className="w-8 h-8 text-green-600" />,
+      description: t('about.missionVision.values.description'),
+      highlights: t('about.missionVision.values.highlights', { returnObjects: true }) as string[],
+    },
+  ];
+
   return (
     <section className="child_container ">
       <div className=" mx-auto text-center mb-12">
@@ -38,7 +38,7 @@ const MissionVisionSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="subheading font-semibold mb-8"
         >
-          <span className="text-indigo-600">Mission, Vision & </span>Core Values
+          {t('about.missionVision.title')}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -47,7 +47,7 @@ const MissionVisionSection: React.FC = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="minicontent  mx-auto"
         >
-          We combine timeless craftsmanship, premium materials, and contemporary design to create furniture that transforms your living spaces into beautiful, comfortable homes.
+          {t('about.missionVision.subtitle')}
         </motion.p>
       </div>
 

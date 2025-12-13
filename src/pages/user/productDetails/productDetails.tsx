@@ -162,7 +162,7 @@ export default function ProductDetails() {
                     <Star key={i} className="w-4 h-4 fill-current" />
                   ))}
                 </div>
-                <span className="text-sm text-gray-500">{t('product.reviews')}</span>
+                <span className="text-sm text-gray-500">{t('product.reviewsCount')}</span>
               </div>
               <p className="text-3xl font-bold text-blue-600">{formatPrice(product.price)}</p>
             </div>
@@ -233,7 +233,7 @@ export default function ProductDetails() {
                 className="flex items-center gap-2 text-gray-600 hover:text-blue-600 w-fit px-0"
               >
                 <Ruler className="w-4 h-4" />
-                <span>Size Guide</span>
+                <span>{t('product.sizeGuide')}</span>
               </Button>
             </div>
           </div>

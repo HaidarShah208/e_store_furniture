@@ -31,6 +31,7 @@ import { useState } from "react"
 import PhoneInput, { parsePhoneNumber } from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 import { Card, CardContent } from "../about/card"
+import { useTranslation } from "react-i18next"
 
 interface ContactFormValues {
   fullName: string;
@@ -42,6 +43,7 @@ interface ContactFormValues {
 }
 
 const ContactFormSection: React.FC = () => {
+  const { t } = useTranslation();
   const [successOpen, setSuccessOpen] = useState(false)
   const [errorOpen, setErrorOpen] = useState(false)
 
@@ -120,7 +122,7 @@ const ContactFormSection: React.FC = () => {
                 transition={{ duration: 0.6 }}
                 className="text-2xl font-semibold text-gray-800 mb-8 text-center"
               >
-                Contact Us
+                {t('contact.form.title')}
               </motion.h2>
 
               <Formik
@@ -138,7 +140,7 @@ const ContactFormSection: React.FC = () => {
                           {({ field }: any) => (
                             <Input
                               {...field}
-                              placeholder="Full Name"
+                              placeholder={t('contact.form.fullName')}
                               className={`pl-10 py-6 border rounded-md transition-colors ${formik.errors.fullName && formik.touched.fullName
                                   ? "border-red-500 focus:ring-red-500"
                                   : "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
@@ -162,7 +164,7 @@ const ContactFormSection: React.FC = () => {
                             <Input
                               {...field}
                               type="email"
-                              placeholder="Email Address"
+                              placeholder={t('contact.form.email')}
                               className={`pl-10 pr-10 py-6 border rounded-md transition-colors ${formik.errors.email && formik.touched.email
                                   ? "border-red-500 focus:ring-red-500"
                                   : "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
@@ -218,7 +220,7 @@ const ContactFormSection: React.FC = () => {
                           {({ field }: any) => (
                             <Input
                               {...field}
-                              placeholder="Subject"
+                              placeholder={t('contact.form.subject')}
                               className={`pl-10 pr-10 py-6 border rounded-md transition-colors ${formik.errors.subject && formik.touched.subject
                                   ? "border-red-500 focus:ring-red-500"
                                   : "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
@@ -247,18 +249,18 @@ const ContactFormSection: React.FC = () => {
                               : "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
                             }`}
                         >
-                          <SelectValue placeholder="What are you looking for?" />
+                          <SelectValue placeholder={t('contact.form.service')} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="living-room">Living Room Furniture</SelectItem>
-                          <SelectItem value="bedroom">Bedroom Furniture</SelectItem>
-                          <SelectItem value="dining">Dining Room Furniture</SelectItem>
-                          <SelectItem value="office">Office Furniture</SelectItem>
-                          <SelectItem value="outdoor">Outdoor Furniture</SelectItem>
-                          <SelectItem value="custom">Custom Orders</SelectItem>
-                          <SelectItem value="consultation">Design Consultation</SelectItem>
-                          <SelectItem value="delivery">Delivery & Assembly</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
+                          <SelectItem value="living-room">{t('contact.form.services.livingRoom')}</SelectItem>
+                          <SelectItem value="bedroom">{t('contact.form.services.bedroom')}</SelectItem>
+                          <SelectItem value="dining">{t('contact.form.services.dining')}</SelectItem>
+                          <SelectItem value="office">{t('contact.form.services.office')}</SelectItem>
+                          <SelectItem value="outdoor">{t('contact.form.services.outdoor')}</SelectItem>
+                          <SelectItem value="custom">{t('contact.form.services.custom')}</SelectItem>
+                          <SelectItem value="consultation">{t('contact.form.services.consultation')}</SelectItem>
+                          <SelectItem value="delivery">{t('contact.form.services.delivery')}</SelectItem>
+                          <SelectItem value="other">{t('contact.form.services.other')}</SelectItem>
                         </SelectContent>
                       </Select>
                       <div className="absolute right-3 top-1/2 -translate-y-1/2">
@@ -277,7 +279,7 @@ const ContactFormSection: React.FC = () => {
                           <Textarea
                             {...field}
                             rows={5}
-                            placeholder="Your Message"
+                            placeholder={t('contact.form.message')}
                             className={`pl-10 pr-10 py-3 border rounded-md transition-colors ${formik.errors.message && formik.touched.message
                                 ? "border-red-500 focus:ring-red-500"
                                 : "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
@@ -302,12 +304,12 @@ const ContactFormSection: React.FC = () => {
                       {formik.isSubmitting ? (
                         <>
                           <Loader2 className="w-4 h-4 animate-spin" />
-                          Sending...
+                          {t('contact.form.sending')}
                         </>
                       ) : (
                         <>
                           <Send className="w-4 h-4" />
-                          Send Message
+                          {t('contact.form.send')}
                         </>
                       )}
                     </Button>

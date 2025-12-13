@@ -37,7 +37,7 @@ export default function AddToCart() {
 
   return (
     <div className="container px-4 py-12 mx-auto">
-      <h1 className="text-3xl font-bold mb-8">Shopping Bag</h1>
+      <h1 className="text-3xl font-bold mb-8">{t('cart.shoppingBag')}</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Cart Items Section */}
@@ -46,13 +46,13 @@ export default function AddToCart() {
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="font-semibold text-lg text-gray-900">
-                  {cartItems.length} {cartItems.length === 1 ? 'Item' : 'Items'}
+                  {cartItems.length} {cartItems.length === 1 ? t('cart.item') : t('cart.itemsPlural')}
                 </h2>
                 <button 
                   onClick={() => dispatch(clearCart())} 
                   className="text-sm text-red-500 hover:text-red-600 hover:bg-red-50 px-3 py-1 rounded transition-colors"
                 >
-                  Clear All
+                  {t('cart.clearAll')}
                 </button>
               </div>
               

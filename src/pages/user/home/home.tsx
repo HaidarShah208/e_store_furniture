@@ -41,18 +41,18 @@ export default function Home() {
         <div className="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-slate-900">
           <FeatureCard
             icon={<Package className="h-7 w-7" />}
-            title="Easy Modular Installing"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper blandit urna at finibus."
+            title={t('home.features.easyModular.title')}
+            description={t('home.features.easyModular.description')}
           />
           <FeatureCard
             icon={<Truck className="h-7 w-7" />}
-            title="Fast & Free Shipping"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper blandit urna at finibus."
+            title={t('home.features.fastShipping.title')}
+            description={t('home.features.fastShipping.description')}
           />
           <FeatureCard
             icon={<Award className="h-7 w-7" />}
-            title="Top Quality Products"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper blandit urna at finibus."
+            title={t('home.features.topQuality.title')}
+            description={t('home.features.topQuality.description')}
           />
         </div>
       </section>
@@ -102,7 +102,7 @@ export default function Home() {
       <section className="isolate_bars">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <DiscountCard
-            title="Special Discount"
+            title={t('home.discounts.specialDiscount')}
             discount="30% OFF"
             description="Aliquet sagittis purus faucibus egestas."
             image={chair}
@@ -110,7 +110,7 @@ export default function Home() {
             link="/product-category/armchairs"
           />
           <DiscountCard
-            title="Weekly Discount"
+            title={t('home.discounts.weeklyDiscount')}
             discount="25% OFF"
             description="Nulla facilisi cras fermentum odio feugiat."
             image={sofa}
@@ -118,7 +118,7 @@ export default function Home() {
             link="/product-category/sofas"
           />
           <DiscountCard
-            title="Birthday Discount"
+            title={t('home.discounts.birthdayDiscount')}
             discount="40% OFF"
             description="Porta non pulvinar neque laoreet suspendisse."
             image={table}

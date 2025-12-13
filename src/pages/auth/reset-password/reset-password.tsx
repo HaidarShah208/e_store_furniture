@@ -6,9 +6,11 @@ import {
   ResetPasswordSchema,
   ResetPasswordType,
 } from "@/utils/schema";
+import { useTranslation } from "react-i18next";
  
 
 export const ResetPassword = () => {
+    const { t } = useTranslation();
     const navigate = useNavigate();
     const initialValues: ResetPasswordType = {
       password: "",
@@ -49,17 +51,17 @@ export const ResetPassword = () => {
                     d="M15 19l-7-7 7-7"
                   />
                 </svg>
-                <span className="text-lg font-medium">Reset Password</span>
+                <span className="text-lg font-medium">{t('auth.resetPassword.title')}</span>
               </button>
             </div>
     
             <div className="flex-1 flex flex-col justify-center">
               <div className="mb-8 text-center">
               <h1 className="mb-2 font-medium text-gray-800 text-xl dark:text-white/90">
-                  Create New Password
+                  {t('auth.resetPassword.createNewPassword')}
                 </h1>
                 <p className="text-sm text-primaryGray dark:text-gray-400">
-                  Enter a strong password to secure your account.
+                  {t('auth.resetPassword.description')}
                 </p>
               </div>
     
@@ -76,7 +78,7 @@ export const ResetPassword = () => {
                       label=""
                       type="password"
                       name="password"
-                      placeholder="New Password"
+                      placeholder={t('auth.resetPassword.newPassword')}
                     />
     
                     <FormControl
@@ -85,7 +87,7 @@ export const ResetPassword = () => {
                       label=""
                       type="password"
                       name="password_confirmation"
-                      placeholder="Confirm Password"
+                      placeholder={t('auth.resetPassword.confirmPassword')}
                     />
                   </Form>
                 )}
@@ -94,7 +96,7 @@ export const ResetPassword = () => {
     
             <div className="mt-auto pt-8 pb-6">
               <Button
-                buttonText="Save Password"
+                buttonText={t('auth.resetPassword.savePassword')}
                 type="submit"
                 className="rounded-2xl w-full"
                 onClick={() => {

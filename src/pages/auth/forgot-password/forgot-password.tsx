@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 import FormControl from "@/components/common/FormControl";
 import type { LoginValues } from "@/types/api/auth";
 import { EmailSchema } from "@/utils/schema";
+import { useTranslation } from "react-i18next";
 
 export default function ForgotPassword() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const initialValues: LoginValues = { email: "" };
   
@@ -35,17 +37,17 @@ export default function ForgotPassword() {
                 d="M15 19l-7-7 7-7" 
               />
             </svg>
-            <span className="text-lg font-medium">Forgot Password</span>
+            <span className="text-lg font-medium">{t('auth.forgotPassword.title')}</span>
           </button>
         </div>
 
         <div className="flex-1 flex flex-col justify-center ">
           <div className="mb-8 text-center">
             <h1 className="mb-2 font-semibold text-gray-800 text-2xl dark:text-white/90">
-              Reset your password
+              {t('auth.forgotPassword.resetPassword')}
             </h1>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              We'll send a reset code to your department email.
+              {t('auth.forgotPassword.description')}
             </p>
           </div>
 
@@ -62,7 +64,7 @@ export default function ForgotPassword() {
                   label=""
                   type="email"
                   name="email"
-                  placeholder="Enter your Department email"
+                  placeholder={t('auth.forgotPassword.emailPlaceholder')}
                 />
               </Form>
             )}
@@ -70,7 +72,7 @@ export default function ForgotPassword() {
         </div>                
                 <div className="mt-auto pt-8 pb-6">
                   <Button 
-                    buttonText="Send Reset Code" 
+                    buttonText={t('auth.forgotPassword.sendResetCode')} 
                     type="submit" 
                     className="rounded-2xl w-full" 
                     onClick={() => {

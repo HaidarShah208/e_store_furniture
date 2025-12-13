@@ -1,4 +1,5 @@
 import { CreditCard, Truck, Gift, Headphones } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface Benefit {
   icon: React.ReactNode;
@@ -7,26 +8,27 @@ interface Benefit {
 }
 
 export default function Benefits() {
+  const { t } = useTranslation();
   const benefits: Benefit[] = [
     {
       icon: <CreditCard className="w-7 h-7" />,
-      title: 'Secure Payments',
-      description: 'Tellus gravida ipsum sit facilisis tempus sit et aliquam esteem.'
+      title: t('product.benefits.securePayments.title'),
+      description: t('product.benefits.securePayments.description')
     },
     {
       icon: <Truck className="w-7 h-7" />,
-      title: 'Free Shipping',
-      description: 'Non pulvinar senean ultrices lectus vitae imperdiet vulputate a eu.'
+      title: t('product.benefits.freeShipping.title'),
+      description: t('product.benefits.freeShipping.description')
     },
     {
       icon: <Gift className="w-7 h-7" />,
-      title: 'Gifts & Sales',
-      description: 'Aliquet ullamcorper leo mi vel sit pretium euismod eget libero.'
+      title: t('product.benefits.giftsSales.title'),
+      description: t('product.benefits.giftsSales.description')
     },
     {
       icon: <Headphones className="w-7 h-7" />,
-      title: '24/7 Support',
-      description: 'Nullam lacus vestibulum arcu ac urna pellentesque volutate quis.'
+      title: t('product.benefits.support247.title'),
+      description: t('product.benefits.support247.description')
     }
   ];
 

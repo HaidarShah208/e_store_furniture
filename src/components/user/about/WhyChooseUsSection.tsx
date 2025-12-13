@@ -8,47 +8,44 @@ import {
   Wrench,
 } from "lucide-react";
 import { Card, CardContent } from "./card";
-
-const features = [
-  {
-    title: "Premium Quality Craftsmanship",
-    description:
-      "Every piece is crafted with precision using premium materials, ensuring durability, comfort, and timeless elegance.",
-    icon: <Star className="w-6 h-6 text-indigo-600" />,
-  },
-  {
-    title: "Wide Selection of Styles",
-    description:
-      "From modern minimalist to classic traditional, we offer diverse furniture styles to match every taste and home aesthetic.",
-    icon: <Sofa className="w-6 h-6 text-purple-600" />,
-  },
-  {
-    title: "Secure & Fast Delivery",
-    description:
-      "Your furniture is carefully packaged and delivered safely to your doorstep with full tracking and insurance coverage.",
-    icon: <Truck className="w-6 h-6 text-green-600" />,
-  },
-  {
-    title: "Customization Options",
-    description:
-      "Personalize your furniture with custom fabrics, finishes, and configurations to perfectly suit your space and preferences.",
-    icon: <Wrench className="w-6 h-6 text-yellow-500" />,
-  },
-  {
-    title: "Best Value Guarantee",
-    description:
-      "We offer competitive pricing without compromising quality, ensuring you get the best value for premium furniture.",
-    icon: <TrendingUp className="w-6 h-6 text-blue-500" />,
-  },
-  {
-    title: "Certified & Eco-Friendly",
-    description:
-      "Our furniture meets international quality standards and is crafted using sustainable, eco-friendly materials and processes.",
-    icon: <ShieldCheck className="w-6 h-6 text-red-500" />,
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const WhyChooseUsSection: React.FC = () => {
+  const { t } = useTranslation();
+  
+  const features = [
+    {
+      title: t('about.whyChooseUs.premiumQuality.title'),
+      description: t('about.whyChooseUs.premiumQuality.description'),
+      icon: <Star className="w-6 h-6 text-indigo-600" />,
+    },
+    {
+      title: t('about.whyChooseUs.wideSelection.title'),
+      description: t('about.whyChooseUs.wideSelection.description'),
+      icon: <Sofa className="w-6 h-6 text-purple-600" />,
+    },
+    {
+      title: t('about.whyChooseUs.secureDelivery.title'),
+      description: t('about.whyChooseUs.secureDelivery.description'),
+      icon: <Truck className="w-6 h-6 text-green-600" />,
+    },
+    {
+      title: t('about.whyChooseUs.customization.title'),
+      description: t('about.whyChooseUs.customization.description'),
+      icon: <Wrench className="w-6 h-6 text-yellow-500" />,
+    },
+    {
+      title: t('about.whyChooseUs.bestValue.title'),
+      description: t('about.whyChooseUs.bestValue.description'),
+      icon: <TrendingUp className="w-6 h-6 text-blue-500" />,
+    },
+    {
+      title: t('about.whyChooseUs.certified.title'),
+      description: t('about.whyChooseUs.certified.description'),
+      icon: <ShieldCheck className="w-6 h-6 text-red-500" />,
+    },
+  ];
+
   return (
     <>
       <style>
@@ -84,7 +81,7 @@ const WhyChooseUsSection: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="subheading font-semibold mb-8"
           >
-            Why Choose <span className="text-indigo-600">Our Furniture Store?</span>
+            {t('about.whyChooseUs.title')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -93,7 +90,7 @@ const WhyChooseUsSection: React.FC = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="minicontent max-w-3xl mx-auto mb-12"
           >
-            We combine exceptional craftsmanship, contemporary design, and sustainable practices to deliver furniture that transforms your living spaces.
+            {t('about.whyChooseUs.subtitle')}
           </motion.p>
         </div>
 

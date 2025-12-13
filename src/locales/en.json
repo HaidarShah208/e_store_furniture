@@ -22,13 +22,52 @@
         "readymade": "Readymade",
         "unpolished": "Unpolished",
         "featured": "Featured Collection",
-        "loading": "Loading products..."
+        "loading": "Loading products...",
+        "features": {
+            "easyModular": {
+                "title": "Easy Modular Installing",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper blandit urna at finibus."
+            },
+            "fastShipping": {
+                "title": "Fast & Free Shipping",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper blandit urna at finibus."
+            },
+            "topQuality": {
+                "title": "Top Quality Products",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper blandit urna at finibus."
+            }
+        },
+        "discounts": {
+            "specialDiscount": "Special Discount",
+            "weeklyDiscount": "Weekly Discount",
+            "birthdayDiscount": "Birthday Discount",
+            "browseNow": "Browse Now"
+        },
+        "browseByRooms": {
+            "title": "Browse by rooms",
+            "description": "Sit massa etiam urna id. Non pulvinar senean ultrices lectus vitae imperdiet vulputate a eu. Aliquet ullamcorper leo mi vel sit pretium euismod eget.",
+            "bedroom": "Bedroom",
+            "livingRoom": "Living Room",
+            "walkInCloset": "Walk-in Closet",
+            "kitchen": "Kitchen",
+            "products": "products"
+        }
     },
     "category": {
         "title": "{{type}} Collection",
         "subtitle": "Browse our selection of {{type}} furniture.",
         "loading": "Loading products...",
-        "empty": "No products found in this category."
+        "empty": "No products found in this category.",
+        "showingResults": "SHOWING ALL {{count}} RESULTS",
+        "sorting": {
+            "default": "Default sorting",
+            "priceLowHigh": "Price: Low to High",
+            "priceHighLow": "Price: High to Low",
+            "nameAZ": "Name: A to Z",
+            "nameZA": "Name: Z to A"
+        },
+        "noProducts": "No Products Found",
+        "clearFilters": "Clear All Filters"
     },
     "product": {
         "loading": "Loading...",
@@ -37,16 +76,67 @@
         "size": "Size",
         "addToCart": "Add to Cart",
         "inStock": "In stock and ready to ship",
-        "reviews": "(4.8 reviews)",
-        "featuredBadge": "FEATURED"
+        "reviewsCount": "(4.8 reviews)",
+        "featuredBadge": "FEATURED",
+        "sizeGuide": "Size Guide",
+        "tabs": {
+            "description": "DESCRIPTION",
+            "additionalInfo": "ADDITIONAL INFORMATION",
+            "reviews": "REVIEWS (0)"
+        },
+        "additionalInfo": {
+            "category": "Category",
+            "finishType": "Finish Type",
+            "material": "Material",
+            "na": "N/A"
+        },
+        "reviews": {
+            "noReviews": "No reviews yet",
+            "beFirst": "Be the first to review this product"
+        },
+        "benefits": {
+            "securePayments": {
+                "title": "Secure Payments",
+                "description": "Tellus gravida ipsum sit facilisis tempus sit et aliquam esteem."
+            },
+            "freeShipping": {
+                "title": "Free Shipping",
+                "description": "Non pulvinar senean ultrices lectus vitae imperdiet vulputate a eu."
+            },
+            "giftsSales": {
+                "title": "Gifts & Sales",
+                "description": "Aliquet ullamcorper leo mi vel sit pretium euismod eget libero."
+            },
+            "support247": {
+                "title": "24/7 Support",
+                "description": "Nullam lacus vestibulum arcu ac urna pellentesque volutate quis."
+            }
+        },
+        "sizeGuideModal": {
+            "title": "Size Guide",
+            "subtitle": "Please refer to the dimensions below to ensure this product fits your space perfectly.",
+            "dimensions": {
+                "width": "Width",
+                "height": "Height",
+                "depth": "Depth",
+                "varies": "Varies"
+            },
+            "standardDimensions": "Standard Dimensions",
+            "note": "Note:",
+            "noteText": "All dimensions are approximate and may vary slightly. Please measure your space before purchasing to ensure a proper fit."
+        }
     },
     "cart": {
         "emptyTitle": "Your cart is empty",
         "emptySubtitle": "Looks like you haven't added anything to your cart yet.",
         "startShopping": "Start Shopping",
         "title": "Shopping Cart",
+        "shoppingBag": "Shopping Bag",
         "items": "Cart Items ({{count}})",
+        "item": "Item",
+        "itemsPlural": "Items",
         "clear": "Clear Cart",
+        "clearAll": "Clear All",
         "orderSummary": "Order Summary",
         "subtotal": "Subtotal",
         "shipping": "Shipping",
@@ -57,10 +147,135 @@
         "remove": "Remove",
         "color": "Color",
         "size": "Size",
-        "each": "each"
+        "each": "each",
+        "removeFromCart": "Remove from cart",
+        "addToWishlist": "Add to wishlist",
+        "removeFromWishlist": "Remove from wishlist"
+    },
+    "wishlist": {
+        "emptyTitle": "Your Wishlist is Empty",
+        "emptySubtitle": "Save your favorite items to your wishlist and shop them later!",
+        "continueShopping": "Continue Shopping",
+        "title": "My Wishlist",
+        "item": "item",
+        "items": "items",
+        "clearWishlist": "Clear Wishlist",
+        "clearConfirm": "Are you sure you want to clear your wishlist?",
+        "addToCart": "Add to Cart"
+    },
+    "brands": {
+        "title": "All Brands",
+        "subtitle": "Discover everything we offer",
+        "description": "Filter by price or category to find the perfect pieces. Browse all products below.",
+        "filterByPrice": "Filter by price",
+        "filterByCategory": "Filter by category",
+        "price": "Price",
+        "noProductsMatch": "No products match your filters.",
+        "loading": "Loading products..."
+    },
+    "about": {
+        "hero": {
+            "titleLine1": "Transforming Spaces with",
+            "titleLine2": "Premium Quality Furniture",
+            "description": "At our furniture e-store, we don't just sell furniture — we craft experiences that transform houses into homes, enhance your living spaces, and reflect your unique style. Our story is driven by passion, quality craftsmanship, and customer satisfaction."
+        },
+        "missionVision": {
+            "title": "Mission, Vision & Core Values",
+            "subtitle": "We combine timeless craftsmanship, premium materials, and contemporary design to create furniture that transforms your living spaces into beautiful, comfortable homes.",
+            "mission": {
+                "title": "Our Mission",
+                "description": "To provide every home with exceptional furniture that combines style, comfort, and affordability, making quality living accessible to all.",
+                "highlights": ["Quality-driven", "Customer-focused", "Affordable luxury"]
+            },
+            "vision": {
+                "title": "Our Vision",
+                "description": "To become the most trusted furniture e-store globally, transforming living spaces with innovative designs and sustainable craftsmanship.",
+                "highlights": ["Global reach", "Innovative designs", "Sustainable growth"]
+            },
+            "values": {
+                "title": "Our Values",
+                "description": "Quality, sustainability, and customer satisfaction are at the core of everything we do. We craft with integrity, passion, and attention to detail.",
+                "highlights": ["Quality first", "Eco-friendly", "Customer care"]
+            }
+        },
+        "whyChooseUs": {
+            "title": "Why Choose Our Furniture Store?",
+            "subtitle": "We combine exceptional craftsmanship, contemporary design, and sustainable practices to deliver furniture that transforms your living spaces.",
+            "premiumQuality": {
+                "title": "Premium Quality Craftsmanship",
+                "description": "Every piece is crafted with precision using premium materials, ensuring durability, comfort, and timeless elegance."
+            },
+            "wideSelection": {
+                "title": "Wide Selection of Styles",
+                "description": "From modern minimalist to classic traditional, we offer diverse furniture styles to match every taste and home aesthetic."
+            },
+            "secureDelivery": {
+                "title": "Secure & Fast Delivery",
+                "description": "Your furniture is carefully packaged and delivered safely to your doorstep with full tracking and insurance coverage."
+            },
+            "customization": {
+                "title": "Customization Options",
+                "description": "Personalize your furniture with custom fabrics, finishes, and configurations to perfectly suit your space and preferences."
+            },
+            "bestValue": {
+                "title": "Best Value Guarantee",
+                "description": "We offer competitive pricing without compromising quality, ensuring you get the best value for premium furniture."
+            },
+            "certified": {
+                "title": "Certified & Eco-Friendly",
+                "description": "Our furniture meets international quality standards and is crafted using sustainable, eco-friendly materials and processes."
+            }
+        }
+    },
+    "contact": {
+        "hero": {
+            "titleLine1": "Let's Build Something",
+            "titleLine2": "Great Together",
+            "description": "Have an idea, question, or just want to say hi? We'd love to hear from you. Drop us a message and we'll get back to you within 24 hours."
+        },
+        "info": {
+            "address": "Address",
+            "phone": "Phone",
+            "email": "Email",
+            "hours": "Hours",
+            "addressValue": "Devstive HQ, Lahore, Pakistan",
+            "phoneValue": "+92 335 4342880",
+            "emailValue": "dev.soft.wicks@gmail.com",
+            "hoursValue": "Mon–Sat: 10am – 6pm"
+        },
+        "form": {
+            "title": "Contact Us",
+            "fullName": "Full Name",
+            "email": "Email Address",
+            "phone": "Phone",
+            "subject": "Subject",
+            "service": "What are you looking for?",
+            "message": "Your Message",
+            "send": "Send Message",
+            "sending": "Sending...",
+            "services": {
+                "livingRoom": "Living Room Furniture",
+                "bedroom": "Bedroom Furniture",
+                "dining": "Dining Room Furniture",
+                "office": "Office Furniture",
+                "outdoor": "Outdoor Furniture",
+                "custom": "Custom Orders",
+                "consultation": "Design Consultation",
+                "delivery": "Delivery & Assembly",
+                "other": "Other"
+            }
+        }
     },
     "footer": {
         "description": "Premium furniture for modern living spaces. Designed with comfort and style in mind.",
+        "companyDescription": "Premium furniture for modern living spaces. Designed with comfort and style in mind.",
+        "logoAlt": "FURNI Logo",
+        "location": "Devstive HQ, Lahore, Pakistan",
+        "followUs": "Follow Us",
+        "stayUpdated": "Stay Updated",
+        "newsletterTitle": "Newsletter",
+        "newsletterDescription": "Subscribe to get special offers and updates.",
+        "subscribeSuccess": "Subscribed successfully",
         "shop": "Shop",
         "support": "Support",
         "newsletter": "Newsletter",
@@ -78,40 +293,97 @@
         },
         "newsletterCta": "Subscribe to get special offers and updates.",
         "emailPlaceholder": "Enter your email",
-        "rights": "All rights reserved."
+        "rights": "All rights reserved.",
+        "brandName": "FURNI",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfService": "Terms of Service",
+        "cookies": "Cookies",
+        "developedBy": "Developed by"
     },
     "auth": {
         "signin": {
             "title": "Welcome Back",
+            "welcomeToSarge": "Welcome to Sarge",
             "subtitle": "Sign in to your account",
+            "loginToAccount": "Login to your account",
             "emailLabel": "Email Address",
             "passwordLabel": "Password",
             "rememberMe": "Remember me",
             "forgot": "Forgot password?",
+            "forgotPassword": "Forgot your password?",
             "submit": "Sign In",
+            "login": "Login",
             "noAccount": "Don't have an account?",
             "signupLink": "Sign up",
+            "signUp": "Sign Up",
             "emailPlaceholder": "you@example.com",
+            "departmentEmailPlaceholder": "Enter your Department email",
             "passwordPlaceholder": "Enter your password"
         },
         "signup": {
             "title": "Create Account",
+            "createSargeAccount": "Create your SARGE account",
             "subtitle": "Join us today",
+            "useOfficialEmail": "Use your official department email",
             "nameLabel": "Full Name",
             "emailLabel": "Email Address",
             "passwordLabel": "Password",
             "confirmPasswordLabel": "Confirm Password",
+            "officerId": "Officer ID Number",
             "terms": "I agree to the",
             "termsLink": "Terms of Service",
             "privacyLink": "Privacy Policy",
             "and": "and",
             "submit": "Create Account",
+            "register": "Register",
             "haveAccount": "Already have an account?",
             "signinLink": "Sign in",
+            "logIn": "Log in",
             "namePlaceholder": "John Doe",
             "emailPlaceholder": "you@example.com",
+            "departmentEmailPlaceholder": "Department Email",
             "passwordPlaceholder": "Create a strong password",
             "confirmPasswordPlaceholder": "Re-enter your password"
-        }
+        },
+        "forgotPassword": {
+            "title": "Forgot Password",
+            "resetPassword": "Reset your password",
+            "description": "We'll send a reset code to your department email.",
+            "sendResetCode": "Send Reset Code",
+            "emailPlaceholder": "Enter your Department email"
+        },
+        "verifyOtp": {
+            "title": "Verify",
+            "resetCodeSent": "Reset code sent to your email",
+            "description": "We've sent a 4-digit code to your department email.",
+            "verify": "Verify"
+        },
+        "resetPassword": {
+            "title": "Reset Password",
+            "createNewPassword": "Create New Password",
+            "description": "Enter a strong password to secure your account.",
+            "newPassword": "New Password",
+            "confirmPassword": "Confirm Password",
+            "savePassword": "Save Password"
+        },
+        "otpVerified": {
+            "title": "Verified",
+            "otpVerified": "OTP Verified",
+            "description": "Your OTP has been successfully verified.",
+            "done": "Done"
+        },
+        "or": "or"
+    },
+    "notFound": {
+        "title": "404 - Not Found",
+        "description": "The page you're looking for might be no longer exists.",
+        "goBackHome": "Go Back Home"
+    },
+    "filters": {
+        "title": "Filters",
+        "clearAll": "Clear All",
+        "priceRange": "Price Range",
+        "colors": "Colors",
+        "noColorsAvailable": "No Colors Available"
     }
 }

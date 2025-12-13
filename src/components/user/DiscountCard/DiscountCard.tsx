@@ -1,6 +1,7 @@
 import { DiscountCardProps } from '@/types/types';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -12,6 +13,7 @@ export default function DiscountCard({
   bgColor,
   link,
 }: DiscountCardProps) {
+  const { t } = useTranslation();
   return (
     <Link
       to={link}
@@ -34,7 +36,7 @@ export default function DiscountCard({
           <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
         </div>
         <Button variant="secondary" size="sm" className="mt-4 bg-white text-gray-800 font-medium hover:bg-gray-50 w-fit">
-          Browse Now
+          {t('home.discounts.browseNow')}
         </Button>
       </div>
     </Link>

@@ -4,8 +4,10 @@ import { addToCart } from '../../../redux/slices/cartSlice';
 import { Link } from 'react-router-dom';
 import { X, ShoppingCart, Heart } from 'lucide-react';
 import { formatPrice } from '../../../utils/formatPrice';
+import { useTranslation } from 'react-i18next';
 
 export default function Wishlist() {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const wishlistItems = useAppSelector((state) => state.wishlist.items);
 
@@ -18,7 +20,7 @@ export default function Wishlist() {
   };
 
   const handleClearWishlist = () => {
-    if (window.confirm('Are you sure you want to clear your wishlist?')) {
+    if (window.confirm(t('wishlist.clearConfirm'))) {
       dispatch(clearWishlist());
     }
   };
@@ -28,15 +30,15 @@ export default function Wishlist() {
       <div className="container mx-auto px-4 py-20">
         <div className="max-w-md mx-auto text-center">
           <Heart className="w-24 h-24 mx-auto text-gray-300 mb-6" />
-          <h2 className="text-2xl font-bold mb-4">Your Wishlist is Empty</h2>
+          <h2 className="text-2xl font-bold mb-4">{t('wishlist.emptyTitle')}</h2>
           <p className="text-gray-600 mb-6">
-            Save your favorite items to your wishlist and shop them later!
+            {t('wishlist.emptySubtitle')}
           </p>
           <Link
             to="/"
             className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
           >
-            Continue Shopping
+            {t('wishlist.continueShopping')}
           </Link>
         </div>
       </div>
@@ -47,14 +49,14 @@ export default function Wishlist() {
     <div className="container mx-auto px-4 py-12">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold mb-2">My Wishlist</h1>
-          <p className="text-gray-600">{wishlistItems.length} {wishlistItems.length === 1 ? 'item' : 'items'}</p>
+          <h1 className="text-3xl font-bold mb-2">{t('wishlist.title')}</h1>
+          <p className="text-gray-600">{wishlistItems.length} {wishlistItems.length === 1 ? t('wishlist.item') : t('wishlist.items')}</p>
         </div>
         <button
           onClick={handleClearWishlist}
           className="text-red-600 hover:text-red-700 font-medium transition-colors"
         >
-          Clear Wishlist
+          {t('wishlist.clearWishlist')}
         </button>
       </div>
 
@@ -104,7 +106,7 @@ export default function Wishlist() {
                   className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
                 >
                   <ShoppingCart className="h-4 w-4" />
-                  Add to Cart
+                  {t('wishlist.addToCart')}
                 </button>
               </div>
             </div>

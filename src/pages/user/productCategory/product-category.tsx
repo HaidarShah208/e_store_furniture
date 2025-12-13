@@ -163,15 +163,15 @@ export default function ProductCategory() {
       )}
       <div className="flex justify-between items-center">
           <p className="subheading3 paddingbottom text-gray-600 font-medium">
-            SHOWING ALL {filteredProducts.length} RESULTS
+            {t('category.showingResults', { count: filteredProducts.length })}
           </p>
           <div className="relative">
             <select className="appearance-none bg-white border border-gray-300 rounded px-4 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <option>Default sorting</option>
-              <option>Price: Low to High</option>
-              <option>Price: High to Low</option>
-              <option>Name: A to Z</option>
-              <option>Name: Z to A</option>
+              <option>{t('category.sorting.default')}</option>
+              <option>{t('category.sorting.priceLowHigh')}</option>
+              <option>{t('category.sorting.priceHighLow')}</option>
+              <option>{t('category.sorting.nameAZ')}</option>
+              <option>{t('category.sorting.nameZA')}</option>
             </select>
             <svg
               className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none"
@@ -210,12 +210,12 @@ export default function ProductCategory() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-2">No Products Found</h3>
+                <h3 className="text-2xl font-semibold text-gray-800 mb-2">{t('category.noProducts')}</h3>
                
                <Button onClick={() => {
                 setPriceRange([priceMinMax.min, priceMinMax.max]);
                 setSelectedColor('');
-              }} className='w-auto' buttonText={'Clear All Filters'}               
+              }} className='w-auto' buttonText={t('category.clearFilters')}               
                ></Button>
               </div>
             )}

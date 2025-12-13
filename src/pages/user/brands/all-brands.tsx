@@ -2,10 +2,12 @@ import { useEffect, useMemo, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { fetchProducts } from '../../../redux/slices/productsSlice';
 import ProductCard from '../../../components/common/productCard/ProductCard';
+import { useTranslation } from 'react-i18next';
 
 type PriceRange = [number, number];
 
 export default function AllBrands() {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const { items: products, status } = useAppSelector((state) => state.products);
 
@@ -64,17 +66,17 @@ export default function AllBrands() {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="mb-10">
-        <p className="text-sm uppercase tracking-[0.2em] text-gray-500">All Brands</p>
-        <h1 className="text-4xl font-bold mt-2 mb-3">Discover everything we offer</h1>
+        <p className="text-sm uppercase tracking-[0.2em] text-gray-500">{t('brands.title')}</p>
+        <h1 className="text-4xl font-bold mt-2 mb-3">{t('brands.subtitle')}</h1>
         <p className="text-gray-600 max-w-2xl">
-          Filter by price or category to find the perfect pieces. Browse all products below.
+          {t('brands.description')}
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[280px,1fr] gap-8">
         <aside className="bg-white border rounded-lg p-5 shadow-sm">
           <div className="mb-8">
-            <h3 className="text-lg font-semibold mb-4">Filter by price</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('brands.filterByPrice')}</h3>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <input
@@ -95,13 +97,13 @@ export default function AllBrands() {
                 />
               </div>
               <p className="text-sm text-gray-700">
-                Price: ${priceRange[0].toFixed(0)} - ${priceRange[1].toFixed(0)}
+                {t('brands.price')}: ${priceRange[0].toFixed(0)} - ${priceRange[1].toFixed(0)}
               </p>
             </div>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Filter by category</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('brands.filterByCategory')}</h3>
             <div className="space-y-3">
               {categories.map((cat) => (
                 <label key={cat.name} className="flex items-center justify-between text-gray-700">
@@ -124,10 +126,10 @@ export default function AllBrands() {
         </aside>
 
         <main className="space-y-6">
-          {status === 'loading' && <div className="text-center py-10">Loading products...</div>}
+          {status === 'loading' && <div className="text-center py-10">{t('brands.loading')}</div>}
           {status !== 'loading' && filteredProducts.length === 0 && (
             <div className="text-center py-16 bg-gray-50 rounded-lg border">
-              <p className="text-lg text-gray-600">No products match your filters.</p>
+              <p className="text-lg text-gray-600">{t('brands.noProductsMatch')}</p>
             </div>
           )}
           {filteredProducts.length > 0 && (

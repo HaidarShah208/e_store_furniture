@@ -13,9 +13,9 @@ const AboutHeroSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-6"
         >
-          Empowering Businesses with <br />
+          Transforming Spaces with <br />
           <span className="bg-linear-to-r from-indigo-600 via-blue-500 to-purple-600 text-transparent bg-clip-text">
-            Human-Centric Technology
+            Premium Quality Furniture
           </span>
         </motion.h1>
 
@@ -25,9 +25,9 @@ const AboutHeroSection: React.FC = () => {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-lg text-gray-600 max-w-2xl mx-auto"
         >
-          At Devstive, we don't just build software — we engineer solutions that
-          solve real-world problems, enhance experiences, and drive results. Our story
-          is driven by passion, innovation, and trust.
+          At our furniture e-store, we don't just sell furniture — we craft experiences that
+          transform houses into homes, enhance your living spaces, and reflect your unique style. Our story
+          is driven by passion, quality craftsmanship, and customer satisfaction.
         </motion.p>
       </div>
     </section>

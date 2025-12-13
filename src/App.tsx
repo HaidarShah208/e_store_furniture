@@ -2,6 +2,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { AppRoutes } from './routes/appRoutes';
+import './index.css';
+import './style.css';
 
 function App() {
   return (
@@ -9,7 +11,7 @@ function App() {
       <Router>
         <AppRoutes />
       </Router>
-    </Provider>
+    </Provider> 
   );
 }
 

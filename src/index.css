@@ -60,10 +60,46 @@
   font-weight: 100;
   font-style: normal;
 }
+::-webkit-scrollbar-track {
+  background: #f3ece4; 
+  border-radius: 10px;
+}
 
+::-webkit-scrollbar-thumb {
+  background: #d88b79; 
+  border-radius: 10px;
+  border: 3px solid #f3ece4; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a71f13; 
+}
+* {
+  scrollbar-width: thin;                
+  scrollbar-color: #9C6644 #f3ece4;   
+}
+
+@theme {
+  --color-primary_dark: #0B5795;
+  --color-primary_light: #26A6D8;
+  --color-ivory_sand: #EDE0D4;
+  --color-soft_latte: #E6CCB2;
+  --color-warm_caramel: #DDB892;
+  --color-clay_brown: #B08968;
+  --color-deep_walnut: #7F5539;
+  --color-rustic_bronze: #9C6644;
+
+
+  /*  font  */
+ 
+  --font-poppins: "Poppins", serif;
+
+}
 
 /* Theme Variables */
 :root {
+    --color-primary_dark: #0B5795;
+  --color-primary_light: #13AAF1;
   /* Colors */
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -100,28 +136,7 @@
 }
 
 
-@theme {
-  --color-primary_dark: #0B5795;
-  --color-primary_light: #26A6D8;
-  --color-ivory_sand: #EDE0D4;
-  --color-soft_latte: #E6CCB2;
-  --color-warm_caramel: #DDB892;
-  --color-clay_brown: #B08968;
-  --color-deep_walnut: #7F5539;
-  --color-rustic_bronze: #9C6644;
 
-
-  /*  font  */
-  --font-base: 'Montserrat_Regular', sans-serif;
-  --font-bold: 'Montserrat_Bold', sans-serif;
-  --font-thin: 'Montserrat_Thin', sans-serif;
-  --font-light: 'Montserrat_Light', sans-serif;
-  --font-semi-bold: 'Montserrat_SemiBold', sans-serif;
-  --font-urbanist: 'Urbanist_Regular', sans-serif;
-  --font-rosehot: 'Rosehot', sans-serif;
-  --font-poppins: "Poppins", serif;
-
-}
 
 /* Standard */
 
@@ -241,128 +256,38 @@
   @apply text-base lg:text-xl xl:text-xl;
 }
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+ 
+
+ 
+
+
+ @keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  /* IE/Edge */
-  scrollbar-width: none;
-  /* Firefox */
+@keyframes fadeSlideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-.custom-scrollbar::-webkit-scrollbar {
-  height: 8px;
+@keyframes fadeSlideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(to right, #a5b4fc, #ff0000);
-  /* indigo-300 to blue-300 */
-  border-radius: 10px;
+@keyframes menuItem {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.custom-scrollbar {
-  scrollbar-color: #60a5fa transparent;
-  /* For Firefox */
-  scrollbar-width: thin;
-}
-
-/* tailwind.css */
-.stroke-black {
-  -webkit-text-stroke: 1px black;
-}
-
-
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
-
-
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 60s linear infinite;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
+.animate-fadeIn { animation: fadeIn 0.6s ease forwards; }
+.animate-fadeSlideInLeft { animation: fadeSlideInLeft 0.7s ease forwards; }
+.animate-fadeSlideInRight { animation: fadeSlideInRight 0.7s ease forwards; }
+.animate-slideDown { animation: slideDown 0.4s ease forwards; }
+.animate-menuItem { animation: menuItem 0.4s ease forwards; }

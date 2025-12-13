@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/Logo.png';
 export default function Navbar() {
   const cartItems = useAppSelector((state) => state.cart.items);
   const wishlistItems = useAppSelector((state) => state.wishlist.items);

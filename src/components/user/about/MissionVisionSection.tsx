@@ -7,22 +7,22 @@ const items = [
     title: "Our Mission",
     icon: <Target className="w-8 h-8 text-indigo-600" />,
     description:
-      "To empower businesses with smart, scalable, and secure technology solutions that simplify processes and maximize impact.",
-    highlights: ["Innovation-driven", "Client-focused", "Agile approach"],
+      "To provide every home with exceptional furniture that combines style, comfort, and affordability, making quality living accessible to all.",
+    highlights: ["Quality-driven", "Customer-focused", "Affordable luxury"],
   },
   {
     title: "Our Vision",
     icon: <Lightbulb className="w-8 h-8 text-yellow-500" />,
     description:
-      "To become a global leader in software innovation by continuously delivering value-driven digital experiences.",
-    highlights: ["Global reach", "Cutting-edge tech", "Sustainable growth"],
+      "To become the most trusted furniture e-store globally, transforming living spaces with innovative designs and sustainable craftsmanship.",
+    highlights: ["Global reach", "Innovative designs", "Sustainable growth"],
   },
   {
     title: "Our Values",
     icon: <ShieldCheck className="w-8 h-8 text-green-600" />,
     description:
-      "Integrity, creativity, and client success are at the core of everything we do. We build with transparency, passion, and precision.",
-    highlights: ["Integrity", "Passion", "Collaboration"],
+      "Quality, sustainability, and customer satisfaction are at the core of everything we do. We craft with integrity, passion, and attention to detail.",
+    highlights: ["Quality first", "Eco-friendly", "Customer care"],
   },
 ];
 
@@ -47,7 +47,7 @@ const MissionVisionSection: React.FC = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="minicontent  mx-auto"
         >
-          We combine experience, creativity, and modern technology to craft digital solutions that drive measurable business results.
+          We combine timeless craftsmanship, premium materials, and contemporary design to create furniture that transforms your living spaces into beautiful, comfortable homes.
         </motion.p>
       </div>
 

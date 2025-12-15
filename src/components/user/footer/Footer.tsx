@@ -38,20 +38,17 @@ const Footer = () => {
 
 
 <svg width="100%" height="100px" viewBox="0 380 1440 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-  <path d="M0 430 C300 380 600 480 900 420 C1150 380 1300 450 1440 430 V540 H0 Z" fill="#DDB892"/>
-  <path d="M0 480 C350 540 700 450 1050 520 C1250 560 1350 520 1440 540 V540 H0 Z" fill="#34130f"/>
+  <path d="M0 430 C300 380 600 480 900 420 C1150 380 1300 450 1440 430 V540 H0 Z" fill="#9C6644"/>
+  <path d="M0 480 C350 540 700 450 1050 520 C1250 560 1350 520 1440 540 V540 H0 Z" fill="#3a160a"/>
 </svg>
 
 
 
   </div>
 
-  {/* Footer Content */}
-  <div className=" w-full  bg-primary5 mx-auto child_bars pb-6">
-        {/* Main Footer Content */}
+  <div className=" w-full text-primary1 bg-dark_wood mx-auto child_bars pb-6">
         <div className="grid lg:grid-cols-3 gap-12 mb-12">
           
-          {/* Left: Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +61,7 @@ const Footer = () => {
               <img src={Logo} alt={t('footer.logoAlt')} className="w-24" />
             
             
-            <p className="text-primary2 leading-relaxed font-seraphine">
+            <p className="text-primary1 leading-relaxed font-seraphine">
               {t('footer.companyDescription')}
             </p>
 </div>

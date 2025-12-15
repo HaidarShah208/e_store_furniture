@@ -29,10 +29,10 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const categoryNav = document.querySelector('.category-nav'); // select CategoryNav
+      const categoryNav = document.querySelector('.category-nav');  
       if (!categoryNav) return;
       const rect = categoryNav.getBoundingClientRect();
-      setIsTransparent(rect.bottom <= 0); // true if CategoryNav fully scrolled out
+      setIsTransparent(rect.bottom <= 0);  
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -41,34 +41,34 @@ export default function Navbar() {
 
   return (
   <nav
-  className={`sticky top-0 z-50 transition-all duration-500 ${
+  className={`z-50 transition-all duration-500 ${
     isTransparent
-      ? 'bg-white/30 backdrop-blur-md' // glass effect
+      ? 'bg-white/30 backdrop-blur-md'  
       : 'bg-white'
   }`}
 >
-      <div className="  isolate_bars mx-auto flex items-center justify-between">
+      <div className="  container pt-3 pb-4 mx-auto flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link to="/" className="text-2xl font-bold tracking-tight">
             <img src={logo} alt="logo" className='w-15 h-15' />
           </Link>
           <div className="hidden md:flex relative w-64">
-            <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-400" />
+            <Search className="absolute left-2 top-2.5 h-4 w-4 text-rustic_bronze" />
             <Input
               placeholder={t('navbar.searchPlaceholder')}
-              className="rounded-xl"
+              className="rounded-md"
             />
           </div>
         </div>
 
         <div className="flex items-center gap-4">
    
-              <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
-            <Link to="/" className="hover:text-blue-600 transition-colors">{t('navbar.home')}</Link>
-            <Link to="/category/Readymade" className="hover:text-blue-600 transition-colors">{t('navbar.readymade')}</Link>
-            <Link to="/category/Unpolished" className="hover:text-blue-600 transition-colors">{t('navbar.unpolished')}</Link>
-            <Link to="/about" className="hover:text-blue-600 transition-colors">{t('navbar.about')}</Link>
-            <Link to="/contact" className="hover:text-blue-600 transition-colors">{t('navbar.contact')}</Link>
+              <div className="hidden md:flex items-center gap-6 text-sm font-semi-bold text-gray-600">
+            <Link to="/" className="hover:text-dark_wood text-rustic_bronze transition-colors ">{t('navbar.home')}</Link>
+            <Link to="/category/Readymade" className="hover:text-dark_wood text-rustic_bronze transition-colors">{t('navbar.readymade')}</Link>
+            <Link to="/category/Unpolished" className="hover:text-dark_wood text-rustic_bronze transition-colors">{t('navbar.unpolished')}</Link>
+            <Link to="/about" className="hover:text-dark_wood text-rustic_bronze transition-colors">{t('navbar.about')}</Link>
+            <Link to="/contact" className="hover:text-dark_wood text-rustic_bronze transition-colors">{t('navbar.contact')}</Link>
           </div>
           
           {wishlistCount >= 0 && (
@@ -80,11 +80,11 @@ export default function Navbar() {
             </Link>
           )}
           
-           <Link to="/auth/login" className="p-2 hover:bg-gray-100 rounded-full transition-colors" title="Sign In">
-            <User className="h-5 w-5 text-gray-700" />
+           <Link to="/auth/login" className="p-2 hover:bg-soft_latte  rounded-full transition-colors" title="Sign In">
+            <User className="h-5 w-5 text-deep_walnut" />
           </Link>
-          <Link to="/cart" className="relative p-2 hover:bg-gray-100 rounded-full transition-colors">
-            <ShoppingCart className="h-5 w-5" />
+          <Link to="/cart" className="relative p-2 hover:bg-soft_latte rounded-full transition-colors">
+            <ShoppingCart className="h-5 w-5 text-deep_walnut" />
             {cartCount > 0 && (
               <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center">
                 {cartCount}
@@ -93,43 +93,43 @@ export default function Navbar() {
           </Link>
 
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-2 rounded-md border px-3 py-2 text-sm font-medium hover:bg-gray-50">
+            <DropdownMenuTrigger className="flex font-semi-bold items-center gap-2 rounded-md border px-3 py-2 text-sm text-deep_walnut hover:bg-ivory_sand">
               <Languages className="h-4 w-4" />
               <span>{currentLang === 'en' ? t('navbar.english') : t('navbar.urdu')}</span>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onSelect={() => handleLanguageChange('en')}>
+            <DropdownMenuContent align="end" className="border font-semi-bold border-deep_walnut">
+              <DropdownMenuItem className="text-dark_wood hover:bg-ivory_sand" onSelect={() => handleLanguageChange('en')}>
                 {t('navbar.english')}
               </DropdownMenuItem>
-              <DropdownMenuItem onSelect={() => handleLanguageChange('ur')}>
+              <DropdownMenuItem className="text-dark_wood hover:bg-ivory_sand" onSelect={() => handleLanguageChange('ur')}>
                 {t('navbar.urdu')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2 hover:bg-gray-100 rounded-md">
-            <Menu className="h-5 w-5" />
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2 hover:bg-deep_walnut rounded-md">
+            <Menu className="h-5 w-5 text-deep_walnut" />
           </button>
         </div>
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden border-t p-4 space-y-4 bg-white">
-          <Link to="/" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.home')}</Link>
-          <Link to="/category/Readymade" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.readymade')}</Link>
-          <Link to="/category/Unpolished" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.unpolished')}</Link>
-          <Link to="/about" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.about')}</Link>
-          <Link to="/contact" className="block text-sm font-medium hover:text-blue-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.contact')}</Link>
+        <div className="md:hidden border-t p-4 font-semi-bold space-y-4 bg-white">
+          <Link to="/" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.home')}</Link>
+          <Link to="/category/Readymade" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.readymade')}</Link>
+          <Link to="/category/Unpolished" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.unpolished')}</Link>
+          <Link to="/about" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.about')}</Link>
+          <Link to="/contact" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.contact')}</Link>
           <div className="flex items-center gap-3 pt-2">
-            <span className="text-sm font-medium text-gray-600">{t('navbar.language')}:</span>
+            <span className="text-sm font-medium text-deep_walnut">{t('navbar.language')}:</span>
             <button
-              className={`text-sm px-3 py-1 rounded-full border ${currentLang === 'en' ? 'border-blue-600 text-blue-600' : 'border-gray-200 text-gray-600'}`}
+              className={`text-sm px-3 py-1 rounded-full border ${currentLang === 'en' ? 'border-deep_walnut text-deep_walnut' : 'border-deep_walnut text-deep_walnut'}`}
               onClick={() => handleLanguageChange('en')}
             >
               {t('navbar.english')}
             </button>
             <button
-              className={`text-sm px-3 py-1 rounded-full border ${currentLang === 'ur' ? 'border-blue-600 text-blue-600' : 'border-gray-200 text-gray-600'}`}
+              className={`text-sm px-3 py-1 rounded-full border ${currentLang === 'ur' ? 'border-deep_walnut text-deep_walnut' : 'border-deep_walnut text-deep_walnut'}`}
               onClick={() => handleLanguageChange('ur')}
             >
               {t('navbar.urdu')}

@@ -3,14 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Urbanist */
-@font-face {
-  font-family: 'Urbanist_Regular';
-  src: url('/font/Urbanist.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 
 
 /* Bold */
@@ -46,13 +38,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Rosehot';
-  src: url('/font/Rosehot.ttf') format('truetype');
-  font-weight: 200;
-  font-style: normal;
-}
-
 /* Thin */
 @font-face {
   font-family: 'Montserrat_Thin';
@@ -60,45 +45,55 @@
   font-weight: 100;
   font-style: normal;
 }
+
 ::-webkit-scrollbar-track {
-  background: #f3ece4; 
+  background: #f3ece4;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d88b79; 
+  background: #d88b79;
   border-radius: 10px;
-  border: 3px solid #f3ece4; 
+  border: 3px solid #f3ece4;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a71f13; 
+  background: #a71f13;
 }
+
 * {
-  scrollbar-width: thin;                
-  scrollbar-color: #9C6644 #f3ece4;   
+  scrollbar-width: thin;
+  scrollbar-color: #9C6644 #f3ece4;
 }
 
 @theme {
-  --color-primary_dark: #0B5795;
-  --color-primary_light: #26A6D8;
+
+
   --color-ivory_sand: #EDE0D4;
   --color-soft_latte: #E6CCB2;
   --color-warm_caramel: #DDB892;
   --color-clay_brown: #B08968;
   --color-deep_walnut: #7F5539;
   --color-rustic_bronze: #9C6644;
+  --color-dark_wood: #3a160a;
+
+  /* text color */
+  --color-primary1: #FFF;
 
 
   /*  font  */
- 
-  --font-poppins: "Poppins", serif;
 
+  --font-poppins: "Poppins", serif;
+  --font-base: 'Montserrat_Regular', sans-serif;
+  --font-bold: 'Montserrat_Bold', sans-serif;
+  --font-thin: 'Montserrat_Thin', sans-serif;
+  --font-light: 'Montserrat_Light', sans-serif;
+  --font-semi-bold: 'Montserrat_SemiBold', sans-serif;
 }
 
 /* Theme Variables */
 :root {
-    --color-primary_dark: #0B5795;
+  --color-primary_dark: #0B5795;
   --color-primary_light: #13AAF1;
   /* Colors */
   --radius: 0.625rem;
@@ -256,38 +251,85 @@
   @apply text-base lg:text-xl xl:text-xl;
 }
 
- 
-
- 
 
 
- @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeSlideInLeft {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes fadeSlideInRight {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes menuItem {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.animate-fadeIn { animation: fadeIn 0.6s ease forwards; }
-.animate-fadeSlideInLeft { animation: fadeSlideInLeft 0.7s ease forwards; }
-.animate-fadeSlideInRight { animation: fadeSlideInRight 0.7s ease forwards; }
-.animate-slideDown { animation: slideDown 0.4s ease forwards; }
-.animate-menuItem { animation: menuItem 0.4s ease forwards; }
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-fadeSlideInLeft {
+  animation: fadeSlideInLeft 0.7s ease forwards;
+}
+
+.animate-fadeSlideInRight {
+  animation: fadeSlideInRight 0.7s ease forwards;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.4s ease forwards;
+}
+
+.animate-menuItem {
+  animation: menuItem 0.4s ease forwards;
+}

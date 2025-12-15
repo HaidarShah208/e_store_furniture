@@ -185,17 +185,29 @@
             "mission": {
                 "title": "Our Mission",
                 "description": "To provide every home with exceptional furniture that combines style, comfort, and affordability, making quality living accessible to all.",
-                "highlights": ["Quality-driven", "Customer-focused", "Affordable luxury"]
+                "highlights": [
+                    "Quality-driven",
+                    "Customer-focused",
+                    "Affordable luxury"
+                ]
             },
             "vision": {
                 "title": "Our Vision",
                 "description": "To become the most trusted furniture e-store globally, transforming living spaces with innovative designs and sustainable craftsmanship.",
-                "highlights": ["Global reach", "Innovative designs", "Sustainable growth"]
+                "highlights": [
+                    "Global reach",
+                    "Innovative designs",
+                    "Sustainable growth"
+                ]
             },
             "values": {
                 "title": "Our Values",
                 "description": "Quality, sustainability, and customer satisfaction are at the core of everything we do. We craft with integrity, passion, and attention to detail.",
-                "highlights": ["Quality first", "Eco-friendly", "Customer care"]
+                "highlights": [
+                    "Quality first",
+                    "Eco-friendly",
+                    "Customer care"
+                ]
             }
         },
         "whyChooseUs": {
@@ -238,9 +250,9 @@
             "phone": "Phone",
             "email": "Email",
             "hours": "Hours",
-            "addressValue": "Devstive HQ, Lahore, Pakistan",
-            "phoneValue": "+92 335 4342880",
-            "emailValue": "dev.soft.wicks@gmail.com",
+            "addressValue": "Chiniot, Pakistan",
+            "phoneValue": "+92 310 7580073",
+            "emailValue": "alhi7896542@gmail.com",
             "hoursValue": "Mon–Sat: 10am – 6pm"
         },
         "form": {
@@ -270,7 +282,7 @@
         "description": "Premium furniture for modern living spaces. Designed with comfort and style in mind.",
         "companyDescription": "Premium furniture for modern living spaces. Designed with comfort and style in mind.",
         "logoAlt": "FURNI Logo",
-        "location": "Devstive HQ, Lahore, Pakistan",
+        "location": "Chiniot, Pakistan",
         "followUs": "Follow Us",
         "stayUpdated": "Stay Updated",
         "newsletterTitle": "Newsletter",

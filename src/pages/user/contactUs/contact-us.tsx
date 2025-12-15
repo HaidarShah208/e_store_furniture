@@ -7,9 +7,9 @@ const ContactPage = () => {
   return (
     <main className="  ">
      <ContactHeroSection />
-      <MapSection />
       <ContactInfoBar />
       <ContactFormSection />
+      <MapSection />
     </main>
   );
 };

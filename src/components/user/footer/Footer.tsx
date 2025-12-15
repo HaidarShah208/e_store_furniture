@@ -69,11 +69,11 @@ const Footer = () => {
             </p>
 </div>
             <div className="space-y-4 font-seraphine">
-              <a href="mailto:dev.soft.wicks@gmail.com" className="flex items-center gap-3 text-primary2 hover:text-primary1  transition-colors group">
+              <a href="alhi7896542@gmail.com" className="flex items-center gap-3 text-primary2 hover:text-primary1  transition-colors group">
                 <div className="w-10 h-10 rounded-lg bg-primary4 flex items-center justify-center group-hover:bg-primary4/20 transition-colors">
                   <Mail className="w-5 h-5" />
                 </div>
-                <span>dev.soft.wicks@gmail.com</span>
+                <span>alhi7896542@gmail.com</span>
               </a>
               
               <a href="tel:+923354342880" className="flex items-center gap-3 text-primary2 hover:text-primary1 transition-colors group">

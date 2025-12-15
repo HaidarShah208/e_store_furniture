@@ -1,8 +1,8 @@
 const MapSection: React.FC = () => {
   return (
-    <section className="w-full h-[400px]">
+    <section className="w-full  isolate_bars h-[400px]">
       <iframe
-        className="w-full h-full border-0"
+        className="w-full rounded-lg h-full border-0"
         loading="lazy"
         allowFullScreen
         referrerPolicy="no-referrer-when-downgrade"

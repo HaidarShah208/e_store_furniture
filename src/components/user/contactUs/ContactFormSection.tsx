@@ -27,7 +27,6 @@ import {
 
 import { Formik, Form, Field } from "formik"
 import { ContactFormSchema } from "@/utils/schema"
-import { useState } from "react"
 import PhoneInput, { parsePhoneNumber } from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 import { Card, CardContent } from "../about/card"
@@ -44,8 +43,7 @@ interface ContactFormValues {
 
 const ContactFormSection: React.FC = () => {
   const { t } = useTranslation();
-  const [successOpen, setSuccessOpen] = useState(false)
-  const [errorOpen, setErrorOpen] = useState(false)
+ 
 
   const initialValues: ContactFormValues = {
     fullName: "",
@@ -74,11 +72,10 @@ const ContactFormSection: React.FC = () => {
       }
 
       console.log("Form Data:", { ...values, phone: formattedPhone })
-      setSuccessOpen(true)
+
       actions.resetForm()
     } catch (error) {
       console.error(error)
-      setErrorOpen(true)
     } finally {
       actions.setSubmitting(false)
     }

@@ -25,7 +25,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <Link to={`/product/${product.id}`} className="group block">
-      <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gray-200">
+      <div className="bg-white  rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500  border border-rustic_bronze">
         <div className="relative aspect-square overflow-hidden bg-linear-to-br from-gray-50 to-gray-100">
           <img
             src={product.image}
@@ -39,7 +39,7 @@ export default function ProductCard({ product }: { product: Product }) {
           <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
           {product.isFeatured && (
-            <span className="absolute top-4 left-4 bg-linear-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+            <span className="absolute top-4 left-4 bg-linear-to-r from-deep_walnut to-dark_wood text-white text-xs font-semi-bold px-3 py-1.5 rounded-full shadow-lg">
               {t('product.featuredBadge')}
             </span>
           )}
@@ -58,7 +58,7 @@ export default function ProductCard({ product }: { product: Product }) {
                 transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
               }}
             >
-              <Heart className={`h-4 w-4 transition-all ${isInWishlist ? 'fill-current' : ''}`} />
+              <Heart className={`h-4 w-4 transition-all text-deep_walnut ${isInWishlist ? 'fill-current' : ''}`} />
             </button>
             
             <Link
@@ -71,7 +71,7 @@ export default function ProductCard({ product }: { product: Product }) {
                 transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
               }}
             >
-              <Eye className="h-4 w-4" />
+              <Eye className="h-4 w-4 text-deep_walnut" />
             </Link>
             
             <button 
@@ -83,7 +83,7 @@ export default function ProductCard({ product }: { product: Product }) {
                 transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
               }}
             >
-              <ShoppingCart className="h-4 w-4" />
+              <ShoppingCart className="h-4 w-4 text-deep_walnut" />
             </button>
           </div>
 
@@ -91,16 +91,16 @@ export default function ProductCard({ product }: { product: Product }) {
         
         <div className="p-5">
           <div className="flex justify-between items-start mb-2">
-            <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider">{product.category}</p>
-            <span className="text-xs px-2 py-1 bg-linear-to-r from-blue-50 to-purple-50 text-blue-700 rounded-md font-medium">
+            <p className="text-xs text-rustic_bronze font-semibold uppercase tracking-wider">{product.category}</p>
+            <span className="text-xs px-2 py-1 bg-linear-to-r from-clay_brown to-rustic_bronze text-white rounded-md font-medium">
               {product.finishType}
             </span>
           </div>
-          <h3 className="font-bold text-lg mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300 line-clamp-2 leading-tight">
+          <h3 className="font-bold text-dark_wood text-lg mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-deep_walnut group-hover:to-dark_wood transition-all duration-300 line-clamp-2 leading-tight">
             {product.title}
           </h3>
           <div className="flex items-center justify-between">
-            <p className="font-bold text-xl bg-linear-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+            <p className="font-bold text-deep_walnut text-xl bg-linear-to-r from-gray-800 to-gray-600 bg-clip-text">
               {formatPrice(product.price)}
             </p>
             <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">

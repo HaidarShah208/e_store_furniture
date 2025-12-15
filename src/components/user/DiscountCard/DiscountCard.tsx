@@ -31,11 +31,11 @@ export default function DiscountCard({
       </div>
       <div className="flex-1 flex flex-col justify-between h-full min-w-0">
         <div>
-          <p className="font-bold text-gray-800 text-sm mb-1">{title}</p>
-          <p className="font-bold text-gray-800 text-lg mb-2">{discount}</p>
-          <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+          <p className="font-bold text-primary1 text-sm mb-1">{title}</p>
+          <p className="font-bold text-primary1 text-lg mb-2">{discount}</p>
+          <p className="text-sm text-primary1 leading-relaxed">{description}</p>
         </div>
-        <Button variant="secondary" size="sm" className="mt-4 bg-white text-gray-800 font-medium hover:bg-gray-50 w-fit">
+        <Button variant="default" size="sm" className="mt-4">
           {t('home.discounts.browseNow')}
         </Button>
       </div>

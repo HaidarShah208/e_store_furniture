@@ -37,21 +37,21 @@ export default function BrowseByRooms() {
 
   return (
     <section className="isolate_bars paddingtop paddingbottom">
-      <div className="bg-linear-to-br from-slate-800 to-slate-900 rounded-3xl overflow-hidden p-8 md:p-12">
+      <div className="bg-linear-to-br from-deep_walnut to-dark_wood rounded-3xl overflow-hidden p-8 md:p-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="flex flex-col justify-between">
             <div className="mb-1">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 {t('home.browseByRooms.title')}
               </h2>
-              <p className="text-slate-300 leading-relaxed max-w-md">
+              <p className="text-primary1 font-base leading-relaxed max-w-md">
                 {t('home.browseByRooms.description')}
               </p>
             </div>
 
             <Link 
               to={rooms[0].link}
-              className="group relative rounded-2xl overflow-hidden bg-slate-700 block"
+              className="group relative rounded-2xl overflow-hidden  block"
             >
               <img 
                 src={rooms[0].image}
@@ -63,7 +63,7 @@ export default function BrowseByRooms() {
               />
               <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/70 to-transparent p-6">
                 <h3 className="text-2xl font-bold text-white mb-1">{rooms[0].name}</h3>
-                <p className="text-sm text-slate-200">{rooms[0].products} {t('home.browseByRooms.products')}</p>
+                <p className="text-base text-primary1">{rooms[0].products} {t('home.browseByRooms.products')}</p>
               </div>
             </Link>
           </div>
@@ -73,7 +73,7 @@ export default function BrowseByRooms() {
             {/* Top - Bedroom (Full Width) */}
             <Link 
               to={rooms[1].link}
-              className="group relative rounded-2xl overflow-hidden bg-slate-700 block"
+              className="group relative rounded-2xl overflow-hidden  block"
             >
               <img 
                 src={rooms[1].image}
@@ -85,16 +85,14 @@ export default function BrowseByRooms() {
               />
               <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/70 to-transparent p-6">
                 <h3 className="text-2xl font-bold text-white mb-1">{rooms[1].name}</h3>
-                <p className="text-sm text-slate-200">{rooms[1].products} products</p>
+                <p className="text-base text-primary1">{rooms[1].products} products</p>
               </div>
             </Link>
 
-            {/* Bottom - Two Equal Columns */}
             <div className="grid grid-cols-2 gap-6">
-              {/* Walk-in Closet */}
               <Link 
                 to={rooms[2].link}
-                className="group relative rounded-2xl overflow-hidden bg-slate-700 block"
+                className="group relative rounded-2xl overflow-hidden  block"
               >
                 <img 
                   src={rooms[2].image}
@@ -106,14 +104,13 @@ export default function BrowseByRooms() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/70 to-transparent p-4">
                   <h3 className="text-lg font-bold text-white mb-1">{rooms[2].name}</h3>
-                  <p className="text-xs text-slate-200">{rooms[2].products} products</p>
+                  <p className="text-base text-primary1">{rooms[2].products} products</p>
                 </div>
               </Link>
 
-              {/* Kitchen */}
               <Link 
                 to={rooms[3].link}
-                className="group relative rounded-2xl overflow-hidden bg-slate-700 block"
+                className="group relative rounded-2xl overflow-hidden  block"
               >
                 <img 
                   src={rooms[3].image}
@@ -125,7 +122,7 @@ export default function BrowseByRooms() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/70 to-transparent p-4">
                   <h3 className="text-lg font-bold text-white mb-1">{rooms[3].name}</h3>
-                  <p className="text-xs text-slate-200">{rooms[3].products} products</p>
+                  <p className="text-base text-primary1">{rooms[3].products} products</p>
                 </div>
               </Link>
             </div>

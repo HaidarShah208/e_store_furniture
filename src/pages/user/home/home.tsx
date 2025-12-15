@@ -37,7 +37,7 @@ export default function Home() {
      <HeroCarousel slides={slides} autoPlay={true} interval={5000} />
 
 
-      <section className="bg-amber-50 border-y border-amber-100">
+      <section className="bg-dark_wood border-amber-100">
         <div className="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-slate-900">
           <FeatureCard
             icon={<Package className="h-7 w-7" />}
@@ -59,7 +59,7 @@ export default function Home() {
 
 
       <section className="  mx-auto">
-        <h2 className="title paddingtop paddingbottom font-bold  text-center">{t('home.finishHeadline')}</h2>
+        <h2 className="title paddingtop text-dark_wood paddingbottom font-bold  text-center">{t('home.finishHeadline')}</h2>
         <div className="grid isolate_bars grid-cols-1 md:grid-cols-2 gap-8">
           <Link to="/category/Readymade" className="group relative h-80 overflow-hidden rounded-lg bg-gray-200 cursor-pointer block">
             <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/50 transition-colors z-10">
@@ -86,7 +86,7 @@ export default function Home() {
 
       <section className="isolate_bars">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="title paddingtop paddingbottom font-bold">{t('home.featured')}</h2>
+          <h2 className="title paddingtop text-dark_wood paddingbottom font-bold">{t('home.featured')}</h2>
         </div>
         
         {status === 'loading' ? (
@@ -106,7 +106,7 @@ export default function Home() {
             discount="30% OFF"
             description="Aliquet sagittis purus faucibus egestas."
             image={chair}
-            bgColor="bg-teal-50"
+            bgColor="bg-gradient-to-b from-dark_wood to-deep_walnut"
             link="/product-category/armchairs"
           />
           <DiscountCard
@@ -114,7 +114,7 @@ export default function Home() {
             discount="25% OFF"
             description="Nulla facilisi cras fermentum odio feugiat."
             image={sofa}
-            bgColor="bg-orange-50"
+            bgColor="bg-gradient-to-b from-dark_wood to-deep_walnut"
             link="/product-category/sofas"
           />
           <DiscountCard
@@ -122,7 +122,7 @@ export default function Home() {
             discount="40% OFF"
             description="Porta non pulvinar neque laoreet suspendisse."
             image={table}
-            bgColor="bg-gray-100"
+            bgColor="bg-gradient-to-b from-dark_wood to-deep_walnut"
             link="/product-category/tables"
           />
         </div>

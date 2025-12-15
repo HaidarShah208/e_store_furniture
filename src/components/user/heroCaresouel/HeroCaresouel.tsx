@@ -54,8 +54,8 @@ export default function HeroCarousel({
       </div>
 
       <div className="relative z-10 h-full flex items-center max-w-4xl mx-auto px-6 md:px-12">
-        <div className="text-white space-y-6">
-          <h1 className="text-4xl md:text-6xl font-urbanist leading-tight drop-shadow-lg">
+        <div className="text-primary1 space-y-6">
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
             {slides[current].title}
           </h1>
 
@@ -64,13 +64,13 @@ export default function HeroCarousel({
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <Button asChild size="lg" className="bg-white text-blue-700 shadow-lg hover:bg-gray-100">
+            <Button asChild size="lg" variant="default" className=" shadow-lg">
               <Link to="/category/Readymade">
                 {slides[current].ctaPrimary}
               </Link>
             </Button>
 
-            <Button asChild size="lg" variant="outline" className="border-white/70 text-white hover:bg-white hover:text-blue-700">
+            <Button asChild size="lg" variant="outline" className="">
               <Link to="/category/Unpolished">
                 {slides[current].ctaSecondary}
               </Link>
@@ -80,7 +80,7 @@ export default function HeroCarousel({
       </div>
 
       <Button
-        variant="ghost"
+        variant="destructive"
         size="icon"
         aria-label="Previous"
         className="absolute left-20 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full hover:bg-white/50 shadow-md z-20"
@@ -88,17 +88,17 @@ export default function HeroCarousel({
           setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
         }
       >
-        <ChevronLeft className="h-9 w-9 text-gray-300" />
+        <ChevronLeft className="h-9 w-9 text-primary1" />
       </Button>
 
       <Button
-        variant="ghost"
+        variant="destructive"
         size="icon"
         aria-label="Next"
         className="absolute right-20 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full hover:bg-white/50 shadow-md z-20"
         onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
       >
-        <ChevronRight className="h-9 w-9 text-gray-300" />
+        <ChevronRight className="h-9 w-9 text-primary1" />
       </Button>
     </section>
   );

@@ -3,6 +3,7 @@ import { ShoppingCart, Menu, Search, Languages, Heart, User } from 'lucide-react
 import { useAppSelector } from '../../../redux/hooks';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -40,13 +41,16 @@ export default function Navbar() {
   }, []);
 
   return (
-  <nav
-  className={`z-50 transition-all duration-500 ${
-    isTransparent
-      ? 'bg-white/30 backdrop-blur-md'  
-      : 'bg-white'
-  }`}
->
+  <motion.nav
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    className={`z-50 transition-all duration-500 ${
+      isTransparent
+        ? 'bg-white/30 backdrop-blur-md'  
+        : 'bg-white'
+    }`}
+  >
       <div className="  container pt-3 pb-4 mx-auto flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link to="/" className="text-2xl font-bold tracking-tight">
@@ -113,30 +117,68 @@ export default function Navbar() {
         </div>
       </div>
 
-      {isMenuOpen && (
-        <div className="md:hidden border-t p-4 font-semi-bold space-y-4 bg-white">
-          <Link to="/" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.home')}</Link>
-          <Link to="/category/Readymade" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.readymade')}</Link>
-          <Link to="/category/Unpolished" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.unpolished')}</Link>
-          <Link to="/about" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.about')}</Link>
-          <Link to="/contact" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.contact')}</Link>
-          <div className="flex items-center gap-3 pt-2">
-            <span className="text-sm font-medium text-deep_walnut">{t('navbar.language')}:</span>
-            <button
-              className={`text-sm px-3 py-1 rounded-full border ${currentLang === 'en' ? 'border-deep_walnut text-deep_walnut' : 'border-deep_walnut text-deep_walnut'}`}
-              onClick={() => handleLanguageChange('en')}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden border-t p-4 font-semi-bold space-y-4 bg-white overflow-hidden"
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 }}
             >
-              {t('navbar.english')}
-            </button>
-            <button
-              className={`text-sm px-3 py-1 rounded-full border ${currentLang === 'ur' ? 'border-deep_walnut text-deep_walnut' : 'border-deep_walnut text-deep_walnut'}`}
-              onClick={() => handleLanguageChange('ur')}
+              <Link to="/" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.home')}</Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.15 }}
             >
-              {t('navbar.urdu')}
-            </button>
-          </div>
-        </div>
-      )}
-    </nav>
+              <Link to="/category/Readymade" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.readymade')}</Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Link to="/category/Unpolished" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.unpolished')}</Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.25 }}
+            >
+              <Link to="/about" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.about')}</Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <Link to="/contact" className="block text-deep_walnut text-sm font-medium hover:text-deep_walnut" onClick={() => setIsMenuOpen(false)}>{t('navbar.contact')}</Link>
+            </motion.div>
+            <div className="flex items-center gap-3 pt-2">
+              <span className="text-sm font-medium text-deep_walnut">{t('navbar.language')}:</span>
+              <button
+                className={`text-sm px-3 py-1 rounded-full border ${currentLang === 'en' ? 'border-deep_walnut text-deep_walnut' : 'border-deep_walnut text-deep_walnut'}`}
+                onClick={() => handleLanguageChange('en')}
+              >
+                {t('navbar.english')}
+              </button>
+              <button
+                className={`text-sm px-3 py-1 rounded-full border ${currentLang === 'ur' ? 'border-deep_walnut text-deep_walnut' : 'border-deep_walnut text-deep_walnut'}`}
+                onClick={() => handleLanguageChange('ur')}
+              >
+                {t('navbar.urdu')}
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 }

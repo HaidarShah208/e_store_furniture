@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { 
   Car, 
   Archive, 
@@ -61,26 +62,57 @@ const categories: Category[] = [
   }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
+
 export default function CategoryNav() {
   return (
-    <section className="container isolate_bars category-nav">
-      <div className="flex items-start gap-4   font-poppins sm:gap-5 md:gap-7 lg:gap-9 xl:gap-9 flex-wrap">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      className="container isolate_bars category-nav"
+    >
+      <motion.div
+        variants={containerVariants}
+        className="flex items-start gap-4 font-poppins sm:gap-5 md:gap-7 lg:gap-9 xl:gap-9 flex-wrap"
+      >
         {categories.map((category) => (
-          <Link
-            key={category.id}
-            to={`/product-category/${category.id}`}
-            className="flex items-center gap-2 group cursor-pointer transition-all duration-300 hover:opacity-50"
-          >
-            <div className="text-dark_wood group-hover:text-slate-800 transition-colors">
-              {category.icon}
-            </div>
-            <span className="text-sm md:text-base text-deep_walnut group-hover:text-slate-800 whitespace-nowrap transition-colors">
-              {category.name}
-            </span>
-          </Link>
+          <motion.div key={category.id} variants={itemVariants}>
+            <Link
+              to={`/product-category/${category.id}`}
+              className="flex items-center gap-2 group cursor-pointer transition-all duration-300 hover:opacity-50"
+            >
+              <div className="text-dark_wood group-hover:text-slate-800 transition-colors">
+                {category.icon}
+              </div>
+              <span className="text-sm md:text-base text-deep_walnut group-hover:text-slate-800 whitespace-nowrap transition-colors">
+                {category.name}
+              </span>
+            </Link>
+          </motion.div>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 

@@ -162,7 +162,7 @@ export default function ProductCategory() {
         </div>
       )}
       <div className="flex justify-between items-center">
-          <p className="subheading3 paddingbottom text-gray-600 font-medium">
+          <p className="subheading3 paddingbottom text-dark_wood font-bold">
             {t('category.showingResults', { count: filteredProducts.length })}
           </p>
           <div className="relative">

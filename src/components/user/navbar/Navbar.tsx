@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { ShoppingCart, Menu, Search, Languages, Heart, User } from 'lucide-react';
 import { useAppSelector } from '../../../redux/hooks';
 import { useEffect, useState } from 'react';
@@ -41,6 +41,36 @@ export default function Navbar() {
   }, []);
 
   return (
+  <>
+    <style>
+      {`
+        .nav-link {
+          position: relative;
+          display: inline-block;
+        }
+
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(90deg, #9C6644, #B08968, #DDB892);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+          transform: scaleX(1);
+        }
+
+        .nav-link.active::after {
+          transform: scaleX(1);
+        }
+      `}
+    </style>
   <motion.nav
     initial={{ opacity: 0, y: -20 }}
     animate={{ opacity: 1, y: 0 }}
@@ -68,11 +98,11 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
    
               <div className="hidden md:flex items-center gap-6 text-sm font-semi-bold text-gray-600">
-            <Link to="/" className="hover:text-dark_wood text-rustic_bronze transition-colors ">{t('navbar.home')}</Link>
-            <Link to="/category/Readymade" className="hover:text-dark_wood text-rustic_bronze transition-colors">{t('navbar.readymade')}</Link>
-            <Link to="/category/Unpolished" className="hover:text-dark_wood text-rustic_bronze transition-colors">{t('navbar.unpolished')}</Link>
-            <Link to="/about" className="hover:text-dark_wood text-rustic_bronze transition-colors">{t('navbar.about')}</Link>
-            <Link to="/contact" className="hover:text-dark_wood text-rustic_bronze transition-colors">{t('navbar.contact')}</Link>
+            <NavLink to="/" className={({ isActive }) => `nav-link hover:text-dark_wood text-rustic_bronze transition-colors ${isActive ? 'active' : ''}`}>{t('navbar.home')}</NavLink>
+            <NavLink to="/category/Readymade" className={({ isActive }) => `nav-link hover:text-dark_wood text-rustic_bronze transition-colors ${isActive ? 'active' : ''}`}>{t('navbar.readymade')}</NavLink>
+            <NavLink to="/category/Unpolished" className={({ isActive }) => `nav-link hover:text-dark_wood text-rustic_bronze transition-colors ${isActive ? 'active' : ''}`}>{t('navbar.unpolished')}</NavLink>
+            <NavLink to="/about" className={({ isActive }) => `nav-link hover:text-dark_wood text-rustic_bronze transition-colors ${isActive ? 'active' : ''}`}>{t('navbar.about')}</NavLink>
+            <NavLink to="/contact" className={({ isActive }) => `nav-link hover:text-dark_wood text-rustic_bronze transition-colors ${isActive ? 'active' : ''}`}>{t('navbar.contact')}</NavLink>
           </div>
           
           {wishlistCount >= 0 && (
@@ -180,5 +210,6 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </motion.nav>
+  </>
   );
 }

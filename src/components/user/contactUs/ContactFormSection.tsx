@@ -89,7 +89,7 @@ const ContactFormSection: React.FC = () => {
   }
 
   return (
-    <section className="w-full isolate_container overflow-hidden scrollbar-hide">
+    <section className="w-full isolate_container overflow-hidden scrollbar-hide bg-linear-to-b from-soft_latte/50 to-ivory_sand">
       <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Lottie Animation */}
         <motion.div
@@ -111,16 +111,25 @@ const ContactFormSection: React.FC = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <Card className="shadow-lg border border-gray-200 rounded-2xl">
+          <Card className="shadow-xl border-2 border-warm_caramel/30 rounded-3xl bg-white/80 backdrop-blur-sm">
             <CardContent>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-2xl font-semibold text-gray-800 mb-8 text-center"
+                className="subheading2 font-bold text-dark_wood mb-4 text-center"
               >
-                {t('contact.form.title')}
+                {t('contact.form.title') || 'Send Us a Message'}
               </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="text-center text-deep_walnut/70 mb-8 text-sm"
+              >
+                {t('contact.form.subtitle') || 'Fill out the form below and we\'ll get back to you soon'}
+              </motion.p>
 
               <Formik
                 initialValues={initialValues}
@@ -140,7 +149,7 @@ const ContactFormSection: React.FC = () => {
                               placeholder={t('contact.form.fullName')}
                               className={`pl-10 py-6 border rounded-md transition-colors ${formik.errors.fullName && formik.touched.fullName
                                   ? "border-red-500 focus:ring-red-500"
-                                  : "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+                                  : "border-warm_caramel/40 focus:border-clay_brown focus:ring-clay_brown/30"
                                 }`}
                             />
                           )}
@@ -164,7 +173,7 @@ const ContactFormSection: React.FC = () => {
                               placeholder={t('contact.form.email')}
                               className={`pl-10 pr-10 py-6 border rounded-md transition-colors ${formik.errors.email && formik.touched.email
                                   ? "border-red-500 focus:ring-red-500"
-                                  : "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+                                  : "border-warm_caramel/40 focus:border-clay_brown focus:ring-clay_brown/30"
                                 }`}
                             />
                           )}
@@ -199,7 +208,7 @@ const ContactFormSection: React.FC = () => {
                           }}
                           className={`pl-4 pr-10 py-3 w-full rounded-md border transition-colors ${formik.errors.phone && formik.touched.phone
                               ? "border-red-500 focus:border-red-500 focus:ring-red-500"
-                              : "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+                              : "border-warm_caramel/40 focus:border-clay_brown focus:ring-clay_brown/30"
                             }`}
                         />
                         <div className="absolute right-3 top-1/2 -translate-y-1/2">
@@ -220,7 +229,7 @@ const ContactFormSection: React.FC = () => {
                               placeholder={t('contact.form.subject')}
                               className={`pl-10 pr-10 py-6 border rounded-md transition-colors ${formik.errors.subject && formik.touched.subject
                                   ? "border-red-500 focus:ring-red-500"
-                                  : "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+                                  : "border-warm_caramel/40 focus:border-clay_brown focus:ring-clay_brown/30"
                                 }`}
                             />
                           )}
@@ -243,7 +252,7 @@ const ContactFormSection: React.FC = () => {
                         <SelectTrigger
                           className={`w-full pl-4 pr-10 py-6 border rounded-md transition-colors ${formik.errors.service && formik.touched.service
                               ? "border-red-500 focus:ring-red-500"
-                              : "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+                              : "border-warm_caramel/40 focus:border-clay_brown focus:ring-clay_brown/30"
                             }`}
                         >
                           <SelectValue placeholder={t('contact.form.service')} />
@@ -279,7 +288,7 @@ const ContactFormSection: React.FC = () => {
                             placeholder={t('contact.form.message')}
                             className={`pl-10 pr-10 py-3 border rounded-md transition-colors ${formik.errors.message && formik.touched.message
                                 ? "border-red-500 focus:ring-red-500"
-                                : "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+                                : "border-warm_caramel/40 focus:border-clay_brown focus:ring-clay_brown/30"
                               }`}
                           />
                         )}
@@ -296,7 +305,7 @@ const ContactFormSection: React.FC = () => {
                     <Button
                       type="submit"
                       disabled={formik.isSubmitting}
-                      className="w-full bg-indigo-500 text-white py-3 rounded-md font-medium flex items-center justify-center gap-2"
+                      className="w-full bg-linear-to-r from-rustic_bronze to-clay_brown hover:from-rustic_bronze/90 hover:to-clay_brown/90 text-white py-3 rounded-md font-semi-bold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
                     >
                       {formik.isSubmitting ? (
                         <>

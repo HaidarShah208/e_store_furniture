@@ -136,7 +136,7 @@ export default function ProductCategory() {
 
 
   return (
-    <div className="w-full isolate_bars">
+    <div className="w-full isolate_bars bg-linear-to-b from-ivory_sand via-soft_latte/50 to-white">
       {categoryImage && (
         <div className="relative mx-auto h-64 md:h-96 lg:h-[330px] my-8 md:my-12">
           <img
@@ -147,16 +147,16 @@ export default function ProductCategory() {
               (e.target as HTMLImageElement).src = 'https://placehold.co/1200x500?text=' + displayName;
             }}
           />
-          <div className="absolute inset-0 bg-black/30 rounded-4xl flex flex-col items-center justify-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+          <div className="absolute inset-0 bg-linear-to-br from-dark_wood/60 via-rustic_bronze/40 to-transparent rounded-4xl flex flex-col items-center justify-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg">
               {displayName}
             </h1>
-            <nav className="text-sm md:text-base text-white/90">
-              <Link to="/" className="hover:text-white transition-colors">HOME</Link>
+            <nav className="text-sm md:text-base text-ivory_sand/90">
+              <Link to="/" className="hover:text-white transition-colors font-semi-bold">HOME</Link>
               <span className="mx-2">/</span>
-              <Link to="/shop" className="hover:text-white transition-colors">SHOP</Link>
+              <Link to="/shop" className="hover:text-white transition-colors font-semi-bold">SHOP</Link>
               <span className="mx-2">/</span>
-              <span className="text-white">{displayName.toUpperCase()}</span>
+              <span className="text-white font-bold">{displayName.toUpperCase()}</span>
             </nav>
           </div>
         </div>
@@ -166,7 +166,7 @@ export default function ProductCategory() {
             {t('category.showingResults', { count: filteredProducts.length })}
           </p>
           <div className="relative">
-            <select className="appearance-none bg-white border border-gray-300 rounded px-4 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <select className="appearance-none bg-white/80 backdrop-blur-sm border-2 border-warm_caramel/40 rounded-lg px-4 py-2.5 pr-10 text-sm font-semi-bold text-dark_wood focus:outline-none focus:ring-2 focus:ring-clay_brown/50 focus:border-clay_brown transition-all duration-200 shadow-sm hover:shadow-md">
               <option>{t('category.sorting.default')}</option>
               <option>{t('category.sorting.priceLowHigh')}</option>
               <option>{t('category.sorting.priceHighLow')}</option>
@@ -174,7 +174,7 @@ export default function ProductCategory() {
               <option>{t('category.sorting.nameZA')}</option>
             </select>
             <svg
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none"
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-rustic_bronze pointer-events-none"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -204,18 +204,18 @@ export default function ProductCategory() {
                 ))}
               </div>
             ) : (
-             <div className="flex flex-col items-center justify-center py-24 px-6 bg-linear-to-br from-gray-50 to-gray-100 rounded-2xl border-gray-300">
-                <div className="w-20 h-20 mb-6 rounded-full bg-white shadow-lg flex items-center justify-center">
-                  <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+             <div className="flex flex-col items-center justify-center py-24 px-6 bg-linear-to-br from-ivory_sand via-soft_latte to-warm_caramel/30 rounded-3xl border-2 border-warm_caramel/30 shadow-lg">
+                <div className="w-20 h-20 mb-6 rounded-full bg-white shadow-xl flex items-center justify-center ring-4 ring-warm_caramel/20">
+                  <svg className="w-10 h-10 text-rustic_bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-2">{t('category.noProducts')}</h3>
+                <h3 className="text-2xl font-bold text-dark_wood mb-2">{t('category.noProducts')}</h3>
                
                <Button onClick={() => {
                 setPriceRange([priceMinMax.min, priceMinMax.max]);
                 setSelectedColor('');
-              }} className='w-auto' buttonText={t('category.clearFilters')}               
+              }} className='w-auto bg-linear-to-r from-rustic_bronze to-clay_brown hover:from-rustic_bronze/90 hover:to-clay_brown/90 shadow-lg hover:shadow-xl transition-all duration-300' buttonText={t('category.clearFilters')}               
                ></Button>
               </div>
             )}

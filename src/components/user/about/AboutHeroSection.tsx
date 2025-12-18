@@ -76,7 +76,7 @@ const AboutHeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="content text-deep_walnut/80 max-w-3xl mx-auto mb-12 leading-relaxed"
+          className="content text-deep_walnut/80 max-w-3xl font-semi-bold mx-auto mb-12 leading-relaxed"
         >
           {t('about.hero.description') || 'We bring you the finest handcrafted furniture that combines traditional artistry with contemporary design, transforming houses into homes since decades.'}
         </motion.p>
@@ -101,8 +101,8 @@ const AboutHeroSection: React.FC = () => {
               transition={{ delay: 0.8 + index * 0.1, duration: 0.5, type: "spring" }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-linear-to-br from-clay_brown/20 to-rustic_bronze/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-              <div className="relative bg-ivory_sand/60 backdrop-blur-md rounded-2xl p-6 border border-warm_caramel/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute inset-0 bg-linear-to-br rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300   " />
+              <div className="relative bg-ivory_sand/60 backdrop-blur-md rounded-2xl p-6 border shadow-lg border-deep_walnut/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="subheading font-bold text-rustic_bronze mb-1">{stat.value}</div>
                 <div className="microcontent text-deep_walnut/70">{stat.label}</div>
               </div>
@@ -118,8 +118,8 @@ const AboutHeroSection: React.FC = () => {
         transition={{ opacity: { delay: 1.2 }, y: { duration: 2, repeat: Infinity } }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-deep_walnut/60"
       >
-        <span className="microcontent font-light">Scroll to explore</span>
-        <ChevronDown className="w-6 h-6" />
+        <span className="microcontent text-dark_wood  font-semi-bold">Scroll to explore</span>
+        <ChevronDown className="w-6 h-6 text-dark_wood" />
       </motion.div>
     </section>
   );

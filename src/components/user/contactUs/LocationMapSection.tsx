@@ -6,7 +6,7 @@ const MapSection: React.FC = () => {
   const { t } = useTranslation();
   
   return (
-    <section className="w-full isolate_container bg-linear-to-b from-ivory_sand to-soft_latte/30">
+    <section className="w-full isolate_container bg-linear-to-b from-ivory_sand to-primary1">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div

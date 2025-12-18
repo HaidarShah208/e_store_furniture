@@ -257,7 +257,7 @@ const ContactFormSection: React.FC = () => {
                         >
                           <SelectValue placeholder={t('contact.form.service')} />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="bg-white border-2 border-warm_caramel/40 shadow-xl">
                           <SelectItem value="living-room">{t('contact.form.services.livingRoom')}</SelectItem>
                           <SelectItem value="bedroom">{t('contact.form.services.bedroom')}</SelectItem>
                           <SelectItem value="dining">{t('contact.form.services.dining')}</SelectItem>

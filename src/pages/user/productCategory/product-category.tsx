@@ -6,6 +6,13 @@ import ProductCard from '../../../components/common/productCard/ProductCard';
 import ProductFilter from '../../../components/user/ProductFilter/ProductFilter';
 import { useTranslation } from 'react-i18next';
 import Button from '@/components/common/Button';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 const categoryToProductType: Record<string, string> = {
   'chairs': 'Chair',
@@ -52,6 +59,7 @@ export default function ProductCategory() {
 
   const [priceRange, setPriceRange] = useState<PriceRange>([0, 1000]);
   const [selectedColor, setSelectedColor] = useState<string>('');
+  const [sortBy, setSortBy] = useState<string>('default');
 
   useEffect(() => {
     if (status === 'idle') {
@@ -165,23 +173,18 @@ export default function ProductCategory() {
           <p className="subheading3 paddingbottom text-dark_wood font-bold">
             {t('category.showingResults', { count: filteredProducts.length })}
           </p>
-          <div className="relative">
-            <select className="appearance-none bg-white/80 backdrop-blur-sm border-2 border-warm_caramel/40 rounded-lg px-4 py-2.5 pr-10 text-sm font-semi-bold text-dark_wood focus:outline-none focus:ring-2 focus:ring-clay_brown/50 focus:border-clay_brown transition-all duration-200 shadow-sm hover:shadow-md">
-              <option>{t('category.sorting.default')}</option>
-              <option>{t('category.sorting.priceLowHigh')}</option>
-              <option>{t('category.sorting.priceHighLow')}</option>
-              <option>{t('category.sorting.nameAZ')}</option>
-              <option>{t('category.sorting.nameZA')}</option>
-            </select>
-            <svg
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-rustic_bronze pointer-events-none"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </div>
+          <Select onValueChange={setSortBy} value={sortBy}>
+            <SelectTrigger className="w-auto min-w-[200px] bg-white/80 backdrop-blur-sm border-2 border-warm_caramel/40 rounded-lg px-4 py-2.5 text-sm font-semibold text-dark_wood focus:ring-2 focus:ring-clay_brown/50 focus:border-clay_brown transition-all duration-200 shadow-sm hover:shadow-md">
+              <SelectValue placeholder={t('category.sorting.default')} />
+            </SelectTrigger>
+            <SelectContent className="bg-white border-2 border-warm_caramel/40 shadow-xl">
+              <SelectItem value="default">{t('category.sorting.default')}</SelectItem>
+              <SelectItem value="price-low-high">{t('category.sorting.priceLowHigh')}</SelectItem>
+              <SelectItem value="price-high-low">{t('category.sorting.priceHighLow')}</SelectItem>
+              <SelectItem value="name-az">{t('category.sorting.nameAZ')}</SelectItem>
+              <SelectItem value="name-za">{t('category.sorting.nameZA')}</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">

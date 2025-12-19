@@ -27,9 +27,22 @@ i18n
 // Keep document language direction in sync with the active locale.
 const updateDocumentLanguage = (lng: string) => {
   if (typeof document === 'undefined') return;
-  document.documentElement.lang = lng;
-  document.documentElement.dir = lng === 'ur' ? 'rtl' : 'ltr';
+
+  const html = document.documentElement;
+
+  html.lang = lng;
+  html.dir = lng === 'ur' ? 'rtl' : 'ltr';
+
+  // Toggle font class
+  if (lng === 'ur') {
+    html.classList.add('font-jameel');
+    html.classList.remove('font-poppins');
+  } else {
+    html.classList.add('font-poppins');
+    html.classList.remove('font-jameel');
+  }
 };
+
 
 updateDocumentLanguage(i18n.language);
 i18n.on('languageChanged', updateDocumentLanguage);

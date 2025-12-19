@@ -37,7 +37,7 @@ export default function BrowseByRooms() {
 
   return (
     <section className="isolate_bars paddingtop paddingbottom">
-      <div className="bg-linear-to-br from-deep_walnut to-dark_wood rounded-3xl overflow-hidden p-8 md:p-12">
+      <div className="bg-linear-to-br from-dark_wood to-deep_walnut rounded-3xl overflow-hidden p-8 md:p-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="flex flex-col justify-between">
             <div className="mb-1">

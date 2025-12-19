@@ -55,7 +55,7 @@ export default function Navbar() {
           bottom: -4px;
           left: 0;
           width: 100%;
-          height: 2px;
+          height: 3px;
           background: linear-gradient(90deg, #9C6644, #B08968, #DDB892);
           transform: scaleX(0);
           transform-origin: left;

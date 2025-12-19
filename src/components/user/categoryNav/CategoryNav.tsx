@@ -100,12 +100,12 @@ export default function CategoryNav() {
           <motion.div key={category.id} variants={itemVariants}>
             <Link
               to={`/product-category/${category.id}`}
-              className="flex items-center gap-2 group cursor-pointer transition-all duration-300 hover:opacity-50"
+              className="flex items-center gap-2 group cursor-pointer hover:text-dark_wood transition-all duration-300 "
             >
-              <div className="text-dark_wood group-hover:text-slate-800 transition-colors">
+              <div className="text-dark_wood transition-colors">
                 {category.icon}
               </div>
-              <span className="text-sm md:text-base text-deep_walnut group-hover:text-slate-800 whitespace-nowrap transition-colors">
+              <span className="text-sm md:text-base text-deep_walnut hover:text-dark_wood whitespace-nowrap transition-colors">
                 {category.name}
               </span>
             </Link>

@@ -15,6 +15,8 @@ import readyMade from '@/assets/user/img/polished.jpeg'
 import sofa from '@/assets/user/featuredCard/sofa.jpeg'
 import chair from '@/assets/user/featuredCard/chair.jpeg'
 import table from '@/assets/user/featuredCard/table.jpeg'
+import everything from '@/assets/user/img/everyThing.webp'
+import { Button } from '@/components/ui/button';
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -98,6 +100,7 @@ export default function Home() {
 
       <BrowseByRooms />
 
+      <h2 className="title paddingtop text-dark_wood paddingbottom font-bold text-center">Discount Products</h2>
       
       <section className="isolate_bars">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -127,6 +130,20 @@ export default function Home() {
           />
         </div>
       </section>
+        
+      <h2 className="title paddingtop text-dark_wood paddingbottom font-bold text-center"> Crafted with Care</h2>
+      <div className="relative w-full">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-10 p-4">
+          <span className="text-sm md:text-base font-serif tracking-widest mb-2 uppercase">HALO</span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-8 drop-shadow-md">
+            Everything Crafted with Care
+          </h2>
+          <Button variant="default" className="text-xs md:text-sm font-semi-bold uppercase tracking-wides transition-colors border border-white/10">
+            MORE ABOUT US
+          </Button>
+        </div>
+        <img src={everything} alt="Everything Crafted with Care" className="w-full h-auto" />
+      </div>
     </div>
   );
 }

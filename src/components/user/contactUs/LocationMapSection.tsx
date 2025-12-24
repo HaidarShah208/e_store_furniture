@@ -8,7 +8,6 @@ const MapSection: React.FC = () => {
   return (
     <section className="w-full isolate_container bg-linear-to-b from-ivory_sand to-primary1">
       <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,7 +27,6 @@ const MapSection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Map Container */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,17 +34,10 @@ const MapSection: React.FC = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="relative group"
         >
-          {/* Glow effect on hover */}
           <div className="absolute -inset-1 bg-linear-to-br from-rustic_bronze/20 to-clay_brown/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
           
           <div className="relative rounded-3xl overflow-hidden shadow-xl border-2 border-warm_caramel/30 h-[450px]">
-            <iframe
-              className="w-full h-full border-0"
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d490.7199492054369!2d74.28737709805701!3d31.60951666987198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1755665098111!5m2!1sen!2s"
-            ></iframe>
+            <iframe className="w-full h-full border-0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d848.5399924761804!2d72.9705529!3d31.7115249!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39223bb82dd82fd5%3A0x39d75d9f6bc711dc!2sChiniot%20furniture%20market!5e0!3m2!1sen!2s!4v1766566402334!5m2!1sen!2s"  loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </motion.div>
       </div>

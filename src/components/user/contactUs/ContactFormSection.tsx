@@ -58,7 +58,6 @@ const ContactFormSection: React.FC = () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000))
 
-      // ✅ Auto-format the phone number into +XX-XXX-XXXXXXX
       let formattedPhone = values.phone
       if (values.phone) {
         try {
@@ -81,7 +80,6 @@ const ContactFormSection: React.FC = () => {
     }
   }
 
-  // ✅ CheckStatus Icons
   const CheckStatus = ({ isValid, hasError }: { isValid: boolean; hasError: boolean }) => {
     if (isValid) return <CheckCircle className="w-4 h-4 text-green-500" />
     if (hasError) return <XCircle className="w-4 h-4 text-red-500" />
@@ -91,7 +89,6 @@ const ContactFormSection: React.FC = () => {
   return (
     <section className="w-full isolate_container overflow-hidden scrollbar-hide bg-linear-to-b from-soft_latte/50 to-ivory_sand">
       <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* Lottie Animation */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -105,13 +102,12 @@ const ContactFormSection: React.FC = () => {
           />
         </motion.div>
 
-        {/* Contact Form */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <Card className="shadow-xl border-2 border-warm_caramel/30 rounded-3xl bg-white/80 backdrop-blur-sm">
+          <Card className="shadow-xl border-2 border-warm_caramel/30 rounded-3xl bg-white/50 backdrop-blur-sm">
             <CardContent>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -139,7 +135,6 @@ const ContactFormSection: React.FC = () => {
                 {(formik) => (
                   <Form className="space-y-6 scrollbar-hide">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 scrollbar-hide">
-                      {/* Full Name */}
                       <div className="relative">
                         <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                         <Field name="fullName">
@@ -162,7 +157,6 @@ const ContactFormSection: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Email */}
                       <div className="relative">
                         <AtSign className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                         <Field name="email">
@@ -186,7 +180,6 @@ const ContactFormSection: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Phone */}
                       <div className="relative">
                         <PhoneInput
                           international
@@ -198,10 +191,7 @@ const ContactFormSection: React.FC = () => {
                               formik.setFieldValue("phone", val)
                               return
                             }
-                            // ✅ Keep only digits
                             const digits = val.replace(/\D/g, "")
-
-                            // ✅ Restrict to max 16 digits
                             if (digits.length <= 16) {
                               formik.setFieldValue("phone", val)
                             }
@@ -219,7 +209,6 @@ const ContactFormSection: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Subject */}
                       <div className="relative">
                         <FileText className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                         <Field name="subject">
@@ -243,8 +232,7 @@ const ContactFormSection: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Service Select */}
-                    <div className="relative">
+                      <div className="relative">
                       <Select 
                         onValueChange={(value:any) => formik.setFieldValue("service", value)} 
                         value={formik.values.service}
@@ -277,7 +265,6 @@ const ContactFormSection: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Message */}
                     <div className="relative">
                       <MessageSquare className="absolute left-3 top-4 text-gray-400 w-5 h-5" />
                       <Field name="message">
@@ -301,7 +288,6 @@ const ContactFormSection: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Submit */}
                     <Button
                       type="submit"
                       disabled={formik.isSubmitting}
